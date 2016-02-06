@@ -17,7 +17,7 @@ using std::cout;
 using std::endl;
 using std::string;
 using std::to_string;
-using EulerUtils::primeFactors;
+//using EulerUtils::primeFactors;
 using EulerUtils::printVector;
 
 /* local defines */

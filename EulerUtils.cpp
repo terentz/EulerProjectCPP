@@ -81,18 +81,18 @@ int EulerUtils::strToInt ( string input ) {
 }
 
 
-/******************************
-** Printing Arrays & Vectors **
-******************************/
+/*********************
+** Arrays & Vectors **
+*********************/
 // TODO can these first two be merged using more templating??
 //template<typename T>	// for 1-D vector
-void EulerUtils::printVector ( string itemName, const vector<long long> input ) {
-	int len = input.size();
-	cout << "Printing " << itemName << endl;
-	for ( int index=0 ; index<len ; index++ ) {
-		cout << ( index == 0 ? "" : ", " ) << input[index] ;
-	}
-	cout << endl << endl;
+void EulerUtils::printVector ( string itemName, const vector<long long>& input ) {
+	cout << "in printVector" << endl;
+	cout << "Printing " << itemName << "..." << endl;
+	for ( auto i = input.begin(); i != input.end(); i++ ) {
+        cout << ( i == input.begin() ? "" : ", " ) << *i ;
+    }
+    cout << endl;
 }
 
 template<class TYPE>	// for 1-D array
@@ -119,21 +119,33 @@ void EulerUtils::printGrid ( string itemName, const TYPE data[][20] ) {
 	cout << endl << endl;
 }
 
+bool EulerUtils::inVector( vector<long long>& haystack, long long needle ) {
+	for ( vector<long long>::iterator iter = haystack.begin() ; iter != haystack.end() ; iter++ )
+		if ( *iter == needle ) return true;
+	return false;
+}
+
+int EulerUtils::countAppearance( vector<long long> haystack, long long needle ) {
+    int count = 0;
+    for ( auto i = haystack.begin() ; i < haystack.end() ; i++ ) {
+        if ( *i == needle ) ++count;
+    }
+    return count;
+}
+
+long long EulerUtils::product( vector<long long> input ) {
+    long long result = 1;
+    for ( auto i = input.begin() ; i < input.end() ; i++ ) {
+        result *= *i;
+    }
+    return result;
+}
+
+
 /******************
 *** FACTORISING ***
 ******************/
-// TODO update this function (was allFactors()) to vector<long>& EulerUtils::primeFactors( long long input, bool unique )
-vector<long long>& EulerUtils::primeFactors( long long input ) {
-	vector<long long> output;
-	for ( long long testFactor = 1 ; testFactor <= input/2 ; testFactor++ ) {
-		if ( input % testFactor == 0 && EulerUtils::isPrime( testFactor ) ) {
-			output.push_back(testFactor);
-		}
-	}
-	return output;
-}
-
-vector<long long>& EulerUtils::integerDivisors( long long input ) {
+vector<long long> EulerUtils::integerDivisors( long long input ) {
 	vector<long long> output;
 	for ( long long testFactor = 1 ; testFactor <= input/2 ; testFactor++ ) {
 		if ( input % testFactor == 0.0 ) {
@@ -142,12 +154,44 @@ vector<long long>& EulerUtils::integerDivisors( long long input ) {
 	}
 	return output;
 }
-
-bool EulerUtils::inVector( vector<long long>& haystack, long long needle ) {
-	for ( vector<long long>::iterator iter = haystack.begin() ; iter != haystack.end() ; iter++ )
-		if ( *iter == needle ) return true;
-	return false;
+// TODO update this function (was allFactors()) to vector<long>& EulerUtils::primeFactors( long long input, bool unique )
+vector<long long> EulerUtils::primeFactorsSet( long long input ) {
+	vector<long long> output;
+	for ( long long testFactor = 2 ; testFactor <= input/2 ; testFactor++ ) {
+        cout << "input = " << input << " and testFactor = " << testFactor << endl;
+		if ( input % testFactor == 0 && EulerUtils::isPrime( testFactor ) ) {
+			output.push_back(testFactor);
+			cout << testFactor << " added!" << endl;
+		}
+	}
+	if ( isPrime(input) ) output.push_back(input);
+	return output;
 }
+
+vector<long long> EulerUtils::primeFactorsAll( long long input ) {
+    vector<long long> output;
+    long long remain = input;
+    for ( long long testFactor = 2 ; testFactor <= input/2 ; testFactor++ ) {
+        if ( isPrime( testFactor ) ) {
+            // If testFactor is a factor, add it to output, calculate remain
+            while ( remain % testFactor == 0 ) {
+                output.push_back(testFactor);
+                remain /= testFactor;
+            }
+        }
+    }
+    if ( isPrime(input) ) output.push_back(input);
+    return output;
+}
+
+
+long long EulerUtils::gcd( long long a, long long b ) {
+    if ( b == 0 )
+        return a;
+    else
+        return gcd(b, a%b);
+}
+
 
 /*****************
 ** Grid classes **
@@ -407,7 +451,7 @@ inline unsigned long long factorial( unsigned long long x ) {
   return ( x == 1 ? x : x * factorial( x - 1 ) );
 };
 
-long long EulerUtils::primesFactorial( long long n, long long result=1 ) {
+long long EulerUtils::primesFactorial( long long n ) {
     if ( n == 2 ) return n;
     else {
         if ( EulerUtils::isPrime( n ) )

@@ -48,7 +48,7 @@ inline void printDiff( const long diffMicro) {
 		printf("Processing took %0.3fms\n", ((float)diffMicro / 1000.0f) );
 	} else {
 		// print microseconds
-		printf("Processing took %1d\u00b5s\n", diffMicro);
+		printf("Processing took %ld\u00b5s\n", diffMicro);
 	}
 }
 
@@ -87,8 +87,10 @@ int strToInt ( string input );
 /*********************
 **** FACTORISING *****
 *********************/
-vector<long long>& integerDivisors( long long input );
-vector<long long>& primeFactors( long long input );
+vector<long long> integerDivisors( long long input );
+vector<long long> primeFactorsSet( long long input );
+vector<long long> primeFactorsAll( long long input );
+long long gcd( long long a, long long b );
 
 
 /********************
@@ -113,7 +115,7 @@ public:
 ******************************/
 // TODO can these first two be merged using more templating??
 //template<typename T>	// for 1-D vector
-void printVector ( string itemName, const vector<long long> input );
+void printVector ( string itemName, const vector<long long>& input );
 
 template<class TYPE>	// for 1-D array
 void printArray ( string itemName, const TYPE data[] );
@@ -122,6 +124,8 @@ void printArray ( string itemName, const TYPE data[] );
 template<class TYPE>	// for 2-D array
 void printGrid ( string itemName, const TYPE data[][20] ); //
 bool inVector( vector<long long>& haystack, long long needle );
+int countAppearance( vector<long long> haystack, long long needle );
+long long product( vector<long long> input );
 
 
 /***********************************
