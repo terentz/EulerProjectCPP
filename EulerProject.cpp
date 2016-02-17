@@ -42,6 +42,7 @@
 //#include "EP0011_LargestProductInAGrid.hpp"
 #include "EP0012_HighlyDivisibleTriangularNumber.hpp"
 #include "EP0013_SumOf50DigitNumbers.hpp"
+#include "EP0014_LongestCollatz.hpp"
 #include "EP0015_LatticePaths.hpp"
 #include "EP0021_SumOfAmicableNumbers.hpp"
 #include "EP0040_Champerdowne.hpp"
@@ -89,6 +90,7 @@ using namespace EulerUtils;
 //#define EP0011_LARGESTPRODUCTINAGRID			11
 #define EP0012_HIGHLYDIVISIBLETRIANGULARNUMBER	12
 #define EP0013_SUMOF50DIGITNUMBERS              13
+#define EP0014_LONGESTCOLLATZ                   14
 #define EP0015_LATTICEPATHS                     15
 #define EP0021_SUMOFAMICABLENUMBERS             21
 #define EP0040_CHAMPERDOWNE				        40
@@ -121,6 +123,7 @@ int main() {
 	//menu_items[EP0011_LARGESTPRODUCTINAGRID] 	        = "Largest Product In A Grid";
 	menu_items[EP0012_HIGHLYDIVISIBLETRIANGULARNUMBER]  = "Highly Divisible Triangular Number";
 	menu_items[EP0013_SUMOF50DIGITNUMBERS]              = "Sum of One Hundred 50-digit Numbers";
+	menu_items[EP0014_LONGESTCOLLATZ]                   = "Longest Collatz Sequence";
 	menu_items[EP0015_LATTICEPATHS]                     = "The Number of Lattice Paths Through a Grid";
 	menu_items[EP0021_SUMOFAMICABLENUMBERS]             = "The Sum of Amicable Numbers";
 	menu_items[EP0040_CHAMPERDOWNE] 		            = "Champerdowne's Constant";
@@ -130,7 +133,7 @@ int main() {
 
 
 	// count the menu items and get the last
-	const int number_of_items = menu_items.size();
+//	const int number_of_items = menu_items.size();
 	const int last_key = (--menu_items.end())->first;
 
 	// run the program
@@ -145,6 +148,7 @@ int main() {
 		//int sel = EP0012_HIGHLYDIVISIBLETRIANGULARNUMBER;
 
 
+        // IGNORE WARNINGS! DO NOT COMMENT THE FOLLOWING LINE!!!
         bool valid_selection = false;
 
 
@@ -259,6 +263,11 @@ int main() {
             case EP0013_SUMOF50DIGITNUMBERS:
                 using SumOf50DigitNumbers::run;
                 SumOf50DigitNumbers::run();
+                break;
+
+            case EP0014_LONGESTCOLLATZ:
+                using LongestCollatz::run;
+                LongestCollatz::run();
                 break;
 
             case EP0015_LATTICEPATHS:

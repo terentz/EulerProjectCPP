@@ -62,7 +62,9 @@ inline void printDiff( const long diffMicro) {
 ***    inlines    ***
 ********************/
 
-inline bool even( int num ) { return ( num % 2 == 0 ); };
+//inline bool even( int num ) { return ( num % 2 == 0 ); };
+template<typename I>
+inline bool even( I num ) { return ( num % 2 == 0 ); };
 
 // TODO template the next three..
 inline unsigned long long factorial( unsigned long long x ) {

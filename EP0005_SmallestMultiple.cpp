@@ -63,8 +63,6 @@ void SmallestMultiple::run () {
             const int newCount = EulerUtils::countItem( allFactors[test], currentPrime );
             if ( newCount > oldCount ) {
                 primesMap[currentPrime] = newCount;
-                if ( currentPrime == 2 && test == 7 )
-                    cout << "In tally loop primesMap[" << std::to_string(currentPrime) << "] = " << std::to_string(primesMap[currentPrime]) << endl;
             }
         }
     }
@@ -72,7 +70,7 @@ void SmallestMultiple::run () {
     // Get the final product...
     long long product = 1;
     for ( std::pair<const long long, int>& prime: primesMap ) {
-        cout << "for " << std::to_string(prime.first) << " factor = " << std::to_string(prime.second) << endl;
+//        cout << "for " << std::to_string(prime.first) << " factor = " << std::to_string(prime.second) << endl;
         product *= std::pow(prime.first, prime.second);
     }
 
