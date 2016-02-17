@@ -8,9 +8,24 @@
 #ifndef EP0005_SMALLESTMULTIPLE_HPP_
 #define EP0005_SMALLESTMULTIPLE_HPP_
 
+#include <vector>
+#include <map>
+#include <set>
+
+using std::vector;
+using std::map;
+using std::multiset;
+using std::set;
+
+
 namespace SmallestMultiple {
 
-void run ();
+void run();
+
+const set<long long> getPrimesUsed( const vector<long long> allFactors[], const int input );
+//map<long long, int> extractCommonFactors(vector<long long> allFactors[]);
+
+
 
 };
 

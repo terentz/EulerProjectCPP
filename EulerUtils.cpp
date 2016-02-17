@@ -16,6 +16,7 @@
 #include <boost/lexical_cast.hpp>
 #include <fstream>
 #include <istream>
+//#include <stringstream>
 
 //#include <array>
 
@@ -28,6 +29,10 @@ using std::string;
 using std::vector;
 using std::ifstream;
 using std::fstream;
+using std::stringstream;
+using std::to_string;
+using std::operator+;
+
 //using Prime::isPrime;
 
 
@@ -81,16 +86,16 @@ int EulerUtils::strToInt ( string input ) {
 }
 
 
-/*********************
-** Arrays & Vectors **
-*********************/
+/**********************
+***** COLLECTIONS *****
+**********************/
 // TODO can these first two be merged using more templating??
 //template<typename T>	// for 1-D vector
-void EulerUtils::printVector ( string itemName, const vector<long long>& input ) {
+void EulerUtils::printVector ( string itemName, const vector<long long>& data ) {
 	cout << "in printVector" << endl;
 	cout << "Printing " << itemName << "..." << endl;
-	for ( auto i = input.begin(); i != input.end(); i++ ) {
-        cout << ( i == input.begin() ? "" : ", " ) << *i ;
+	for ( auto i = data.begin(); i != data.end(); i++ ) {
+        cout << ( i == data.begin() ? "" : ", " ) << *i ;
     }
     cout << endl;
 }
@@ -104,6 +109,67 @@ void EulerUtils::printArray ( string itemName, const TYPE data[] ) {
 	}
 	cout << endl << endl;
 }
+
+template<class Container>
+void EulerUtils::printCollection ( string const& itemName, Container const& data ) {
+    cout << "Printing " << itemName << "..." << endl;
+    for ( auto i = data.begin() ; i < data.end() ; i++ ) {
+        switch ( i ) {
+            case data.begin():
+                cout << "( " << *i << ", " ;
+                break;
+
+            case (data.end() - 1):
+                cout << *i << " )" << endl ;
+                break;
+
+            default:
+                cout << *i << ", " ;
+                break;
+
+        }
+//        {
+//            start:
+//
+//        }
+//        {
+//            internal:
+//
+//        }
+//        {
+//            finish:
+//
+//        }
+    }
+
+}
+
+void EulerUtils::printMap ( string itemName, const map<long long, int>& data ) {
+	cout << "in printMap" << endl;
+	cout << "Printing " << itemName << "..." << endl;
+	for ( auto i = data.cbegin(); i != data.cend(); i++ ) {
+//        std::stringstream out;
+//        out << ( i == data.begin() ? "" : ", " ) << std::string(*i) ;
+
+        std::string out = ( i == data.cbegin() ? "" : ", " ) + std::to_string(i->first) + ": " + std::to_string(i->second) ;
+//        std::string out = std::operator+( ( i == data.begin() ? "" : ", " ), *i ) ;
+        cout << out ;
+//        cout << comma.append()std::string(i->second) ;
+        //cout << ( i == data.begin() ? "" : ", " ) << *i ;
+    }
+    cout << endl;
+}
+
+void EulerUtils::printSet ( string itemName, const set<long long>& data ) {
+//	cout << "in printSet" << endl;
+	cout << endl << "Printing " << itemName << "..." << endl;
+	for ( auto i = data.cbegin(); i != data.cend(); i++ ) {
+        cout << ( i == data.cbegin() ? "" : ", " ) << *i ;
+    }
+    cout << endl;
+}
+
+
 // TODO can this be made into an extension of the first (1-D) functions
 template<class TYPE>	// for 2-D array
 void EulerUtils::printGrid ( string itemName, const TYPE data[][20] ) {
@@ -141,6 +207,15 @@ long long EulerUtils::product( vector<long long> input ) {
     return result;
 }
 
+const int EulerUtils::countItem( const vector<long long> haystack, const long long needle ) {
+    int tally = 0;
+    for ( auto i : haystack ) {
+        if ( i == needle ) {
+            ++tally;
+        }
+    }
+    return tally;
+}
 
 /******************
 *** FACTORISING ***
@@ -154,7 +229,8 @@ vector<long long> EulerUtils::integerDivisors( long long input ) {
 	}
 	return output;
 }
-// TODO update this function (was allFactors()) to vector<long>& EulerUtils::primeFactors( long long input, bool unique )
+// TODO update this function (was allFactors()) to
+// vector<long>& EulerUtils::primeFactors( long long input, bool unique )
 vector<long long> EulerUtils::primeFactorsSet( long long input ) {
 	vector<long long> output;
 	for ( long long testFactor = 2 ; testFactor <= input/2 ; testFactor++ ) {
@@ -167,10 +243,22 @@ vector<long long> EulerUtils::primeFactorsSet( long long input ) {
 	if ( isPrime(input) ) output.push_back(input);
 	return output;
 }
-
-vector<long long> EulerUtils::primeFactorsAll( long long input ) {
+/**
+ * @param input
+ */
+const vector<long long> EulerUtils::primeFactorsAll( long long input ) {
     vector<long long> output;
     long long remain = input;
+    // If input is equal to or greater than one, add one to the factor list and carry on,
+    // otherwise, return an empty vector
+    if ( input > 0 ) {
+        output.push_back(1);
+        if ( input == 1 ) {
+            return output;
+        }
+    } else {
+        return output;
+    }
     for ( long long testFactor = 2 ; testFactor <= input/2 ; testFactor++ ) {
         if ( isPrime( testFactor ) ) {
             // If testFactor is a factor, add it to output, calculate remain
@@ -183,7 +271,6 @@ vector<long long> EulerUtils::primeFactorsAll( long long input ) {
     if ( isPrime(input) ) output.push_back(input);
     return output;
 }
-
 
 long long EulerUtils::gcd( long long a, long long b ) {
     if ( b == 0 )
@@ -459,6 +546,36 @@ long long EulerUtils::primesFactorial( long long n ) {
         else
             return primesFactorial( n-1 );
     }
+}
+
+vector<long long> EulerUtils::gatherPrimesUpTo( long long n ) {
+    vector<long long> primes;
+    for ( long long i = 1 ; i <= n ; i++ ) {
+        if ( isPrime(i) ) primes.push_back(i);
+    }
+    return primes;
+}
+
+/*****************
+***** COUNTS *****
+*****************/
+map<long long, int> EulerUtils::contentTally( vector<long long> collection ) {
+    map<long long, int> output;
+
+    for ( auto i = collection.begin() ; i < collection.end() ; i++ ) {
+        long long item = *i;
+        cout << "test - item: " << item << endl;
+        //break;
+//        if ( output.find(item) == output.end() ) {
+//            output.
+//        }
+    }
+
+    return output;
+
+//    for ( int i = 0 ; i < collection.size ; i++ ) {
+//
+//    }
 }
 
 

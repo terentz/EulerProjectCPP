@@ -13,12 +13,14 @@
 #include <cstdlib>
 #include <string>
 #include <vector>
+#include <map>
+#include <set>
 #include <boost/lexical_cast.hpp>
 #include <boost/multiprecision/cpp_int.hpp>
 //#include <ctime>
 #include <time.h>
 
-using namespace std;
+//using namespace std;
 using std::endl;
 using std::cout;
 using boost::lexical_cast;
@@ -26,6 +28,8 @@ using boost::bad_lexical_cast;
 using boost::multiprecision::int256_t;
 using std::string;
 using std::vector;
+using std::map;
+using std::set;
 
 
 namespace EulerUtils {
@@ -89,7 +93,7 @@ int strToInt ( string input );
 *********************/
 vector<long long> integerDivisors( long long input );
 vector<long long> primeFactorsSet( long long input );
-vector<long long> primeFactorsAll( long long input );
+const vector<long long> primeFactorsAll( long long input );
 long long gcd( long long a, long long b );
 
 
@@ -110,9 +114,9 @@ public:
 }; /* end splitstring class definition */
 
 
-/******************************
-** Arrays & Vectors **
-******************************/
+/**********************
+***** COLLECTIONS *****
+**********************/
 // TODO can these first two be merged using more templating??
 //template<typename T>	// for 1-D vector
 void printVector ( string itemName, const vector<long long>& input );
@@ -123,10 +127,14 @@ void printArray ( string itemName, const TYPE data[] );
 // TODO can this be made into an extension of the first (1-D) functions
 template<class TYPE>	// for 2-D array
 void printGrid ( string itemName, const TYPE data[][20] ); //
+template<class Container>
+void printCollection ( string const& itemName, Container const& data );
+void printMap ( string itemName, const map<long long, int>& data );
+void printSet ( string itemName, const set<long long>& data );
 bool inVector( vector<long long>& haystack, long long needle );
 int countAppearance( vector<long long> haystack, long long needle );
 long long product( vector<long long> input );
-
+const int countItem( const vector<long long> haystack, const long long needle );
 
 /***********************************
 ** Class for 2-D Arrays / Vectors **
@@ -206,6 +214,15 @@ long long nextPrime( long long input );
 long long nthPrime( long long n );
 
 long long primesFactorial( long long n );
+
+vector<long long> gatherPrimesUpTo( long long n );
+
+
+/*****************
+***** COUNTS *****
+*****************/
+map<long long, int> contentTally( vector<long long> collection );
+
 // TODO finish this generalised problem class
 /*
 class Problem {
