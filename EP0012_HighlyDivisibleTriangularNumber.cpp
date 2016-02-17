@@ -12,45 +12,64 @@
 #include "Prime.hpp"
 #include <stdio.h>
 #include <stdlib.h>
+#include <set>
 
 using std::cout;
 using std::endl;
 using std::string;
 using std::to_string;
+using std::set;
 //using EulerUtils::primeFactors;
 using EulerUtils::printVector;
+using EulerUtils::nthTriangularNumber;
+using EulerUtils::printSet;
 
 /* local defines */
-// TODO DIVISORS should be 500, but it never seems to complete execution.
-// Perhaps should just start it and let it run whenever I'm not using the machine.
-#define DIVISORS 5
+#define DIVISORS 500
 
 /* functions */
 namespace HighlyDivisibleTriangularNumber{
 
 void run () {
 
-	cout << "Working with " << DIVISORS << " divisors." << endl;
-	// locals
-	//long long triangular = 0;
-	long long additive, triangular ;
-	//bool found = false;
-	// do the work!
-	for ( additive = 1, triangular = 1 ;
-			//EulerUtils::integerDivisors( triangular ).size() >
-			; triangular += ( ++additive ) ) {
-		// test line
-		cout << "triangular = " << triangular << endl
-				<< "num factors = " << EulerUtils::integerDivisors( triangular ).size() << endl ;
-		if ( EulerUtils::integerDivisors( triangular ).size() > DIVISORS ) {
-			break;
-		}
-	}
-	char tri_str [19];
-	EulerUtils::printVector( ( "divisors of " + std::to_string(triangular) ) , EulerUtils::integerDivisors( triangular ) );
+    /* LOCAL DECLARATIONS */
 
-	// display results
-	cout << "The smallest triangular number with more than " << DIVISORS << " different factors is " << triangular << endl;
+    int divisors = 0;
+    long long term = 0;
+    long long triangular = 0;
+
+    /* TEST CODE */
+
+//    long long termSeven = EulerUtils::nthTriangularNumber(7);
+//    cout << "The 7th triangular number is " << std::to_string(termSeven) << endl;
+//
+//    set<long long> allFactors7th = EulerUtils::intFactors(termSeven);
+//    EulerUtils::printSet("Int factors of "+std::to_string(termSeven)+"...", allFactors7th);
+//    int sz7th = allFactors7th.size();
+//    cout << "The size of " << std::to_string(termSeven) << "'s factor list is " << std::to_string(sz7th) << endl ;
+//    return;
+
+
+    /* DO THE WORK! */
+
+    do {
+        // Increment the term
+        ++term;
+        // Calculate triangular number...
+        triangular = EulerUtils::nthTriangularNumber(term);
+        // Extract all integer factors...
+        set<long long> factors = EulerUtils::intFactors(triangular);
+        // Count the factors...
+        divisors = factors.size();
+
+    } while ( divisors <= DIVISORS );
+
+
+    /* DISPLAY RESULTS */
+
+    cout << "The first triangular number to have more than 500 factors is " << std::to_string(triangular) << endl;
+    return;
+
 } // end run
 
 

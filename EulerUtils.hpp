@@ -93,7 +93,8 @@ int strToInt ( string input );
 /*********************
 **** FACTORISING *****
 *********************/
-vector<long long> integerDivisors( long long input );
+//vector<long long> integerDivisors( long long input );
+set<long long> intFactors( long long input );
 vector<long long> primeFactorsSet( long long input );
 const vector<long long> primeFactorsAll( long long input );
 long long gcd( long long a, long long b );
@@ -220,30 +221,16 @@ long long primesFactorial( long long n );
 vector<long long> gatherPrimesUpTo( long long n );
 
 
+/******************************
+***** OTHER NUMBER THEORY *****
+******************************/
+
+const long long nthTriangularNumber( const long long term );
+
 /*****************
 ***** COUNTS *****
 *****************/
 map<long long, int> contentTally( vector<long long> collection );
-
-// TODO finish this generalised problem class
-/*
-class Problem {
-private:
-	struct timeval startTime;
-	struct timeval endTime;
-	long time;
-
-public:
-	void startTimer();
-	void stopTimer();
-	void resetTimer();
-
-	long getTime();
-	void setTime(long);
-};
-*/
-
-
 
 }; /* namespace EulerUtils */
 

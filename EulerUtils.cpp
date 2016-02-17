@@ -16,6 +16,7 @@
 #include <boost/lexical_cast.hpp>
 #include <fstream>
 #include <istream>
+#include <cmath>
 //#include <stringstream>
 
 //#include <array>
@@ -23,6 +24,7 @@
 //using namespace std;
 using std::endl;
 using std::cout;
+using std::sqrt;
 using boost::lexical_cast;
 using boost::bad_lexical_cast;
 using std::string;
@@ -220,15 +222,28 @@ const int EulerUtils::countItem( const vector<long long> haystack, const long lo
 /******************
 *** FACTORISING ***
 ******************/
-vector<long long> EulerUtils::integerDivisors( long long input ) {
-	vector<long long> output;
-	for ( long long testFactor = 1 ; testFactor <= input/2 ; testFactor++ ) {
-		if ( input % testFactor == 0.0 ) {
-			output.push_back(testFactor);
+//vector<long long> EulerUtils::integerDivisors( long long input ) {
+//	vector<long long> output;
+//	for ( long long testFactor = 1 ; testFactor <= input/2 ; testFactor++ ) {
+//		if ( input % testFactor == 0 ) {
+//			output.push_back(testFactor);
+//		}
+//	}
+//	return output;
+//}
+set<long long> EulerUtils::intFactors( long long input ) {
+	set<long long> output;
+	for ( long long testFactor = 1 ; testFactor <= sqrt(input) ; testFactor++ ) {
+		if ( input % testFactor == 0 ) {
+            long long otherFactor = input/testFactor;
+            output.insert(testFactor);
+            output.insert(otherFactor);
 		}
 	}
 	return output;
 }
+
+
 // TODO update this function (was allFactors()) to
 // vector<long>& EulerUtils::primeFactors( long long input, bool unique )
 vector<long long> EulerUtils::primeFactorsSet( long long input ) {
@@ -554,6 +569,27 @@ vector<long long> EulerUtils::gatherPrimesUpTo( long long n ) {
         if ( isPrime(i) ) primes.push_back(i);
     }
     return primes;
+}
+
+
+/******************************
+***** OTHER NUMBER THEORY *****
+******************************/
+
+//template<typename I>
+//long long EulerUtils::nthTriangularNumber( I term ) {
+//    long long sum = 0;
+//    for ( long long current = 1 ; current <= term ; ++current ) {
+//        sum += current;
+//    }
+//    return sum;
+//}
+const long long EulerUtils::nthTriangularNumber( const long long term ) {
+    long long sum = 0;
+    for ( long long current = 1 ; current <= term ; ++current ) {
+        sum += current;
+    }
+    return sum;
 }
 
 /*****************
