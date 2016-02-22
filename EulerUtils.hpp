@@ -123,7 +123,9 @@ public:
 **********************/
 // TODO can these first two be merged using more templating??
 //template<typename T>	// for 1-D vector
-void printVector ( string itemName, const vector<long long>& input );
+//void printVector ( string itemName, const vector<T>& data );
+void printVector ( string itemName, const vector<long long>& data );
+void printVector ( string itemName, const vector<string> data );
 
 template<class TYPE>	// for 1-D array
 void printArray ( string itemName, const TYPE data[] );

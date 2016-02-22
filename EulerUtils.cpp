@@ -104,7 +104,16 @@ int EulerUtils::strToInt ( string input ) {
 **********************/
 // TODO can these first two be merged using more templating??
 //template<typename T>	// for 1-D vector
+//void EulerUtils::printVector ( string itemName, const vector<T>& data ) {
 void EulerUtils::printVector ( string itemName, const vector<long long>& data ) {
+	cout << "in printVector" << endl;
+	cout << "Printing " << itemName << "..." << endl;
+	for ( auto i = data.begin(); i != data.end(); i++ ) {
+        cout << ( i == data.begin() ? "" : ", " ) << *i ;
+    }
+    cout << endl;
+}
+void printVector ( string itemName, const vector<string> data ) {
 	cout << "in printVector" << endl;
 	cout << "Printing " << itemName << "..." << endl;
 	for ( auto i = data.begin(); i != data.end(); i++ ) {
