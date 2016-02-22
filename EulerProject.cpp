@@ -39,11 +39,12 @@
 #include "EP0008_LargestProductInASeries.hpp"
 #include "EP0009_SpecialPythagoreanTriad.hpp"
 #include "EP0010_SummationOfPrimes.hpp"
-//#include "EP0011_LargestProductInAGrid.hpp"
+#include "EP0011_LargestProductInAGrid.hpp"
 #include "EP0012_HighlyDivisibleTriangularNumber.hpp"
 #include "EP0013_SumOf50DigitNumbers.hpp"
 #include "EP0014_LongestCollatz.hpp"
 #include "EP0015_LatticePaths.hpp"
+#include "EP0016_PowerDigitSum.hpp"
 #include "EP0021_SumOfAmicableNumbers.hpp"
 #include "EP0040_Champerdowne.hpp"
 
@@ -87,11 +88,12 @@ using namespace EulerUtils;
 #define EP0008_LARGESTPRODUCTINASERIES			8
 #define EP0009_SPECIALPYTHAGOREANTRIAD			9
 #define EP0010_SUMMATIONOFPRIMES				10
-//#define EP0011_LARGESTPRODUCTINAGRID			11
+#define EP0011_LARGESTPRODUCTINAGRID			11
 #define EP0012_HIGHLYDIVISIBLETRIANGULARNUMBER	12
 #define EP0013_SUMOF50DIGITNUMBERS              13
 #define EP0014_LONGESTCOLLATZ                   14
 #define EP0015_LATTICEPATHS                     15
+#define EP0016_POWERSUMDIGIT                    16
 #define EP0021_SUMOFAMICABLENUMBERS             21
 #define EP0040_CHAMPERDOWNE				        40
 
@@ -120,11 +122,12 @@ int main() {
 	menu_items[EP0008_LARGESTPRODUCTINASERIES] 	        = "Largest Product in a Series";
 	menu_items[EP0009_SPECIALPYTHAGOREANTRIAD]      	= "Special Pythagorean Triad";
 	menu_items[EP0010_SUMMATIONOFPRIMES] 			    = "Summation of Primes";
-	//menu_items[EP0011_LARGESTPRODUCTINAGRID] 	        = "Largest Product In A Grid";
+	menu_items[EP0011_LARGESTPRODUCTINAGRID] 	        = "Largest Product In A Grid";
 	menu_items[EP0012_HIGHLYDIVISIBLETRIANGULARNUMBER]  = "Highly Divisible Triangular Number";
 	menu_items[EP0013_SUMOF50DIGITNUMBERS]              = "Sum of One Hundred 50-digit Numbers";
 	menu_items[EP0014_LONGESTCOLLATZ]                   = "Longest Collatz Sequence";
 	menu_items[EP0015_LATTICEPATHS]                     = "The Number of Lattice Paths Through a Grid";
+	menu_items[EP0016_POWERSUMDIGIT]                    = "The sum of the digits of 2^1000";
 	menu_items[EP0021_SUMOFAMICABLENUMBERS]             = "The Sum of Amicable Numbers";
 	menu_items[EP0040_CHAMPERDOWNE] 		            = "Champerdowne's Constant";
 
@@ -246,14 +249,14 @@ int main() {
                 SummationOfPrimes::run();
                 break;
 
-    /*		case EP0011_LARGESTPRODUCTINAGRID:
-                using LargestProductInAGrid::BlackBox;
+    		case EP0011_LARGESTPRODUCTINAGRID:
+//                using LargestProductInAGrid::BlackBox;
                 using LargestProductInAGrid::run;
-                LargestProductInAGrid::run();*/
+                LargestProductInAGrid::run();
                 //BlackBox box;
                 //box.execute();
                 //box.run();
-                //break;
+                break;
 
             case EP0012_HIGHLYDIVISIBLETRIANGULARNUMBER:
                 using HighlyDivisibleTriangularNumber::run;
@@ -273,6 +276,11 @@ int main() {
             case EP0015_LATTICEPATHS:
                 using LatticePaths::run;
                 LatticePaths::run();
+                break;
+
+            case EP0016_POWERSUMDIGIT:
+                using PowerDigitSum::run;
+                PowerDigitSum::run();
                 break;
 
             case EP0021_SUMOFAMICABLENUMBERS:

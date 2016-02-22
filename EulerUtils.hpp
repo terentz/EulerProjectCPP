@@ -103,6 +103,7 @@ long long gcd( long long a, long long b );
 /********************
 ** String Splitter **
 ********************/
+const std::vector<std::string> split( const std::string &s, char delim );
 class splitstring : public string {
     vector<string> flds;
 public:

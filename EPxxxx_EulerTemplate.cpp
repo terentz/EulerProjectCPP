@@ -1,31 +1,35 @@
 /*
  * EPxxxx_EulerTemplate.cpp
  *
- *  Created on: 13/12/2013
+ *  Created on: DATE 
  *      Author: terentz
  */
 
 #include "EPxxxx_EulerTemplate.hpp"
 #include "EulerUtils.hpp"
 #include <iostream>
-#include "Prime.hpp"
 
 using std::cout;
 using std::endl;
 
-/* local defines */
+/* NAMESPACE DEFINES */
 //#define CONST val
 
-/* functions */
+
+/* FUNCTIONS */
 
 void EulerTemplate::run () {
-	/* test */
 
-	/* local declarations */
+	/* LOCAL DECLARATIONS */
 
-	/* do the work! */
 
-	/* display results */
+	/* TEST */
+
+
+	/* DO THE WORK! */
+
+
+	/* DISPLAY RESULTS */
 
 	cout << endl;
 

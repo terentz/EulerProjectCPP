@@ -32,34 +32,70 @@ using boost::lexical_cast;
 void SumOf50DigitNumbers::run () {
 
 
-    /* local declarations */
-    ifstream f;
+    /* LOCAL DECLARATIONS */
+    string nums[100];
+    ifstream fin;
     string filename = FILENAME,
            line,
            part,
            sum_str,
            first_ten;
-    long sum = 0,
-         val = 0;
+    int subsum_curr = 0,
+        subsum_next = 0;
+    string sum = "";
 
-	/* do the work! */
-    f.open( filename.c_str() );
-    if ( f.good() ) {
-        while ( getline( f, line ) ) {
-            part = line.substr(0,12);
-            val = boost::lexical_cast<long>(part);
-            sum += val;
+
+	/* DO THE WORK! */
+
+    /* Read the file & populate array */
+    fin.open( filename );
+    string temp;
+    if ( fin.good() ) {
+        for ( size_t cell = 0 ; cell < 100 ; ++cell ) {
+            std::getline(fin,temp);
+            nums[cell] = temp;
         }
-        sum_str = boost::lexical_cast<string>(sum);
-        first_ten = sum_str.substr(0, 10);
-        cout << "The result is " << first_ten << endl;
     } else {
         cout << "The file " << filename << " was not found!" << endl;
     }
-    f.close();
+    fin.close();
 
-	/* display results */
+    /* Build the sum */
+    int carry = 0;
+    int test = 0;
+    cout << "out: " << nums[2] << endl;
+    for ( size_t idx = 49; idx>=0 ; --idx ) {
+        int sub_sum = carry;
+//        cout << "digit column " << idx << ": " ;
+        for ( const string &num_str : nums ) {
+            int num = num_str[idx]-'0';
+//            cout << num;
+            test += num;
+            sub_sum += (int)(num_str[idx]-'0');
+        }
+//        cout << endl;
+        if ( idx != 0 ) {
+            int rh_digit = sub_sum%10;
+            sum = std::to_string(rh_digit) + sum;
+            carry = sub_sum/10;
+        } else {
+            sum = std::to_string(sub_sum) + sum;
+            break;
+        }
+    }
 
+//    cout << "sum: " << sum << endl;
+//    cout << "test: " << test << endl;
+//    for ( auto s : nums ) {
+//        cout << s << endl;
+//    }
+
+
+
+	/* DISPLAY RESULTS */
+
+    string result = sum.substr(0,10);
+    cout << "result: " << result << endl;
 	cout << endl;
 
 }

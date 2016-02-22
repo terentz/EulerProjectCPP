@@ -16,7 +16,13 @@ using EulerUtils::GridArr;
 namespace LargestProductInAGrid {
 
 void run();
+void arrayVersion();
+int tl_to_br( const int grid[20][20], const int side, const int run );
+int tr_to_bl( const int grid[20][20], const int side, const int run );
+int horizontal( const int grid[20][20], const int side, const int run );
+int vertical( const int grid[20][20], const int side, const int run );
 
+void pointerVersion();
 class BlackBox : GridArr {
 protected:
 // attributes

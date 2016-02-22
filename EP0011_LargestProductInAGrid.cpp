@@ -18,17 +18,159 @@ using std::ifstream;
 using std::fstream;
 using std::string;
 using EulerUtils::GridArr;
+using EulerUtils::printVector;
 
 
 /* CONSTANTS */
-#define GRID_WIDTH 	20
-#define GRID_DEPTH 20
+#define SIDE_MAG 	20
 #define FILENAME 	"0011_LargestProductInAGrid.txt"
-#define RUN_SIZE 	5
+#define RUN_SIZE 	4
 
 
 /* functions */
 // TODO review the need for this function
+void LargestProductInAGrid::run() {
+//    pointerVersion();
+    arrayVersion();
+    return;
+}
+
+void LargestProductInAGrid::arrayVersion() {
+
+    /* INIT'S */
+    int grid[SIDE_MAG][SIDE_MAG];
+    ifstream fin;
+    int largest = 0,
+        temp_lrg = 0;
+
+
+    /* OPEN FILE & POPULATE GRID */
+    fin.open( FILENAME );
+    string temp_line = "";
+    size_t x = 0, y = 0;
+    if ( fin.good() ) {
+//        cout << "File opened..." << endl;
+        while ( std::getline(fin,temp_line) ) {
+            vector<string> line = EulerUtils::split(temp_line, ' ');
+//            cout << "size of line: " << line.size() << endl;
+            for ( x=0 ; x<SIDE_MAG ; ++x ) {
+//                cout << "(" << x << "," << y << ")" << endl;
+//                cout << line[x] << endl;
+                grid[x][y] = std::stoi(line[x]);
+            }
+            ++y;
+        }
+    } else {
+        cout << "The file " << FILENAME << " was not found!" << endl;
+    }
+    fin.close();
+
+
+    largest = tl_to_br(grid, SIDE_MAG, RUN_SIZE);
+    cout << "largest = " << largest << endl;
+    temp_lrg = tr_to_bl(grid, SIDE_MAG, RUN_SIZE);
+    cout << "temp = " << temp_lrg << endl;
+    if ( temp_lrg > largest ) largest = temp_lrg;
+    temp_lrg = horizontal(grid, SIDE_MAG, RUN_SIZE);
+    cout << "temp = " << temp_lrg << endl;
+    if ( temp_lrg > largest ) largest = temp_lrg;
+    temp_lrg = vertical(grid, SIDE_MAG, RUN_SIZE);
+    cout << "temp = " << temp_lrg << endl;
+    if ( temp_lrg > largest ) largest = temp_lrg;
+    cout << "largest = " << largest << endl;
+
+    // Test...
+//    for ( y=0; y<SIDE_MAG; ++y ) {
+//        for ( x=0; x<SIDE_MAG; ++x ) {
+//            cout << grid[x][y] << "  ";
+//        }
+//        cout << endl;
+//    }
+
+
+
+}
+
+int LargestProductInAGrid::tl_to_br(const int grid[20][20], const int side, const int run ) {
+    int largest = 0;
+    for ( size_t y = 0 ; y < ( side - run ) ; ++y ) {
+        for ( size_t x = 0 ; x < ( side - run ) ; ++x ) {
+            const int one = grid[x][y],
+                    two = grid[x+1][y+1],
+                    thr = grid[x+2][y+2],
+                    fou = grid[x+3][y+3];
+            int product = 0;
+            if ( one != 0 && two != 0 && thr != 0 && fou != 0 ) {
+                product = one * two * thr * fou;
+            }
+            if ( product > largest ) largest = product;
+        }
+    }
+    return largest;
+}
+int LargestProductInAGrid::tr_to_bl( const int grid[20][20], const int side, const int run ) {
+    int largest = 0;
+    for ( size_t y = 0 ; y < ( side - run ) ; ++y ) {
+        for ( size_t x = run - 1 ; x < side ; ++x ) {
+            const int one = grid[x][y],
+                    two = grid[x-1][y+1],
+                    thr = grid[x-2][y+2],
+                    fou = grid[x-3][y+3];
+            int product = 0;
+            if ( one != 0 && two != 0 && thr != 0 && fou != 0 ) {
+                product = one * two * thr * fou;
+            }
+            if ( product > largest ) largest = product;
+        }
+    }
+    return largest;
+}
+int LargestProductInAGrid::horizontal( const int grid[20][20], const int side, const int run ) {
+    int largest = 0;
+    for ( size_t y = 0 ; y < side ; ++y ) {
+        for ( size_t x = 0 ; x < ( side - run ) ; ++x ) {
+            const int one = grid[x][y],
+                    two = grid[x+1][y],
+                    thr = grid[x+2][y],
+                    fou = grid[x+3][y];
+            int product = 0;
+            if ( one != 0 && two != 0 && thr != 0 && fou != 0 ) {
+                product = one * two * thr * fou;
+            }
+            if ( product > largest ) largest = product;
+        }
+    }
+    return largest;
+}
+int LargestProductInAGrid::vertical( const int grid[20][20], const int side, const int run ) {
+    int largest = 0;
+    for ( size_t y = 0 ; y < ( side - run ) ; ++y ) {
+        for ( size_t x = 0 ; x < side ; ++x ) {
+            const int one = grid[x][y],
+                    two = grid[x][y+1],
+                    thr = grid[x][y+2],
+                    fou = grid[x][y+3];
+            int product = 0;
+            if ( one != 0 && two != 0 && thr != 0 && fou != 0 ) {
+                product = one * two * thr * fou;
+            }
+            if ( product > largest ) largest = product;
+        }
+    }
+    return largest;
+}
+
+
+void LargestProductInAGrid::pointerVersion() {
+    string filename = FILENAME;
+    GridArr *grid = new GridArr(filename);
+    grid->print();
+    delete grid;
+}
+
+
+
+
 /*
 void LargestProductInAGrid::run () {
 	// init's

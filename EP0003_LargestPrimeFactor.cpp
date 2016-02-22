@@ -72,10 +72,6 @@ namespace LargestPrimeFactor {
 		}
 		// prime case ...
 		else {  	// is prime factor, so add it to vector, test against largest, and if successful, reassign largest
-			// TODO debug & fix this segmentation issue..
-			//allPrimeFactors[index++] = input;
-			//cout << allPrimeFactors[index-1] << " is a prime factor" << endl;
-			//return;
 			if(input > largest)
 				largest = input;
 		}
