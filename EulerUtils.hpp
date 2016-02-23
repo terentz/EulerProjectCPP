@@ -19,6 +19,7 @@
 #include <boost/multiprecision/cpp_int.hpp>
 //#include <ctime>
 #include <time.h>
+#include <gmp.h>
 
 //using namespace std;
 using std::endl;
@@ -26,6 +27,11 @@ using std::cout;
 using boost::lexical_cast;
 using boost::bad_lexical_cast;
 using boost::multiprecision::int256_t;
+using boost::multiprecision::int512_t;
+using boost::multiprecision::int1024_t;
+using boost::multiprecision::uint256_t;
+using boost::multiprecision::uint512_t;
+using boost::multiprecision::uint1024_t;
 using std::string;
 using std::vector;
 using std::map;
@@ -68,13 +74,59 @@ inline bool even( I num ) { return ( num % 2 == 0 ); };
 
 // TODO template the next three..
 inline unsigned long long factorial( unsigned long long x ) {
-  if ( x == 0 ) return 1;
-  return ( x == 1 ? x : x * factorial( x - 1 ) );
-};
-
-inline int256_t factorial( int256_t x ) {
+    if ( x == 0 ) return 1;
     return ( x == 1 ? x : x * factorial( x - 1 ) );
 };
+inline int256_t factorial( int256_t x ) {
+    if ( x == 0 ) return 1;
+    return ( x == 1 ? x : x * factorial( x - 1 ) );
+};
+inline int512_t factorial( int512_t x ) {
+    if ( x == 0 ) return 1;
+    return ( x == 1 ? x : x * factorial( x - 1 ) );
+};
+inline int1024_t factorial( int1024_t x ) {
+    if ( x == 0 ) return 1;
+    return ( x == 1 ? x : x * factorial( x - 1 ) );
+};
+inline uint256_t factorial( uint256_t x ) {
+    if ( x == 0 ) return 1;
+    return ( x == 1 ? x : x * factorial( x - 1 ) );
+};
+inline uint512_t factorial( uint512_t x ) {
+    if ( x == 0 ) return 1;
+    return ( x == 1 ? x : x * factorial( x - 1 ) );
+};
+inline uint1024_t factorial( uint1024_t x ) {
+    if ( x == 0 ) return 1;
+    return ( x == 1 ? x : x * factorial( x - 1 ) );
+};
+inline mpz_t factorial( mpz_t n ) {
+    char* zero_str = "0",
+          one_str = "1";
+    mpz_t zero, one;
+    mpz_init(zero);
+    mpz_init(one);
+    mpz_set_ui(zero,0);
+    mpz_set_ui(one,0);
+    int f1 = mpz_set_str(zero,zero_str,10);
+    int f2 = mpz_set_str(one,one_str,10);
+    assert(f1 == 0);
+    assert(f2 == 0);
+
+    if ( mpz_cmp(n,zero) == 0 || mpz_cmp(n,one) == 0 ) return one;
+    else {
+
+        mpz_mul(x,n,factorial()); /* n = n * n */
+
+
+        mpz_sub_ui (mpz_t rop, const mpz_t op1, unsigned long int op2)
+
+        return ( x == 1 ? x : x * factorial( x - 1 ) );
+    }
+};
+
+
 
 inline unsigned long long nCr( unsigned long long n, unsigned long long r ) {
 //    cout << (float)( factorial(n) / ( factorial(r) * factorial(n-r) ) ) << endl;
