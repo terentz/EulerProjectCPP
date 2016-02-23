@@ -49,13 +49,9 @@ void LargestProductInAGrid::arrayVersion() {
     string temp_line = "";
     size_t x = 0, y = 0;
     if ( fin.good() ) {
-//        cout << "File opened..." << endl;
         while ( std::getline(fin,temp_line) ) {
             vector<string> line = EulerUtils::split(temp_line, ' ');
-//            cout << "size of line: " << line.size() << endl;
             for ( x=0 ; x<SIDE_MAG ; ++x ) {
-//                cout << "(" << x << "," << y << ")" << endl;
-//                cout << line[x] << endl;
                 grid[x][y] = std::stoi(line[x]);
             }
             ++y;
@@ -67,28 +63,15 @@ void LargestProductInAGrid::arrayVersion() {
 
 
     largest = tl_to_br(grid, SIDE_MAG, RUN_SIZE);
-    cout << "largest = " << largest << endl;
     temp_lrg = tr_to_bl(grid, SIDE_MAG, RUN_SIZE);
-    cout << "temp = " << temp_lrg << endl;
     if ( temp_lrg > largest ) largest = temp_lrg;
     temp_lrg = horizontal(grid, SIDE_MAG, RUN_SIZE);
-    cout << "temp = " << temp_lrg << endl;
     if ( temp_lrg > largest ) largest = temp_lrg;
     temp_lrg = vertical(grid, SIDE_MAG, RUN_SIZE);
-    cout << "temp = " << temp_lrg << endl;
     if ( temp_lrg > largest ) largest = temp_lrg;
+
+    /* DISPLAY RESULTS */
     cout << "largest = " << largest << endl;
-
-    // Test...
-//    for ( y=0; y<SIDE_MAG; ++y ) {
-//        for ( x=0; x<SIDE_MAG; ++x ) {
-//            cout << grid[x][y] << "  ";
-//        }
-//        cout << endl;
-//    }
-
-
-
 }
 
 int LargestProductInAGrid::tl_to_br(const int grid[20][20], const int side, const int run ) {

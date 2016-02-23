@@ -45,6 +45,7 @@
 #include "EP0014_LongestCollatz.hpp"
 #include "EP0015_LatticePaths.hpp"
 #include "EP0016_PowerDigitSum.hpp"
+#include "EP0018_MaximumPathSumI.hpp"
 #include "EP0021_SumOfAmicableNumbers.hpp"
 #include "EP0024_LexicographicPermutations.hpp"
 #include "EP0040_Champerdowne.hpp"
@@ -95,6 +96,7 @@ using namespace EulerUtils;
 #define EP0014_LONGESTCOLLATZ                   14
 #define EP0015_LATTICEPATHS                     15
 #define EP0016_POWERSUMDIGIT                    16
+#define EP0018_MAXIMUMPATHSUMI                  18
 #define EP0021_SUMOFAMICABLENUMBERS             21
 #define EP0024_LEXICOGRAPHICPERMUTATIONS        24
 #define EP0040_CHAMPERDOWNE				        40
@@ -130,6 +132,7 @@ int main() {
 	menu_items[EP0014_LONGESTCOLLATZ]                   = "Longest Collatz Sequence";
 	menu_items[EP0015_LATTICEPATHS]                     = "The Number of Lattice Paths Through a Grid";
 	menu_items[EP0016_POWERSUMDIGIT]                    = "The sum of the digits of 2^1000";
+	menu_items[EP0018_MAXIMUMPATHSUMI]                  = "The Maximum Path Sum through a Trianglular grid I";
 	menu_items[EP0021_SUMOFAMICABLENUMBERS]             = "The Sum of Amicable Numbers";
 	menu_items[EP0024_LEXICOGRAPHICPERMUTATIONS]        = "The Millionth Lexicographic Permutation of 0-9";
 	menu_items[EP0040_CHAMPERDOWNE] 		            = "Champerdowne's Constant";
@@ -284,6 +287,11 @@ int main() {
             case EP0016_POWERSUMDIGIT:
                 using PowerDigitSum::run;
                 PowerDigitSum::run();
+                break;
+
+            case EP0018_MAXIMUMPATHSUMI:
+                using MaximumPathSumI::run;
+                MaximumPathSumI::run();
                 break;
 
             case EP0021_SUMOFAMICABLENUMBERS:

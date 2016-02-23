@@ -19,6 +19,8 @@ void move_one( short curr_x, short curr_y, short man_d, const short limit, long&
 
 void directVersion();
 
+void bestVersion();
+
 };
 
 #endif /* EP0015_LATTICEPATHS_HPP_ */

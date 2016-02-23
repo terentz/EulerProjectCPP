@@ -26,8 +26,20 @@ using boost::multiprecision::int256_t;
 
 void LatticePaths::run () {
 //    recursiveVersion();
-    factorialVersion(); // This is the fastest! My personal concoction...
+//    factorialVersion(); // This is the fastest! My personal concoction...
 //    directVersion();
+    bestVersion();
+}
+
+void LatticePaths::bestVersion() {
+    unsigned long long p;
+    unsigned n;
+
+    for (p = 1, n = 21; n <= 40; n++) {
+        p *= n;
+        p /= (n - 20);
+    }
+    cout << "The number of paths through the lattice is " << p << endl << endl;
 }
 
 void LatticePaths::directVersion() {
@@ -45,8 +57,6 @@ void LatticePaths::factorialVersion() {
 
     const unsigned long long n = SIDE_MAG;
     unsigned long long n_fact = EulerUtils::factorial(n);
-    // Test
-    cout << "n_fact = " << n_fact << endl;
 
     unsigned long long tally = 0,
                         r_fact = 0,

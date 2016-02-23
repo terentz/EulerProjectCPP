@@ -96,7 +96,7 @@ inline bool even(long long n) {
 };
 
 int strToInt ( string input );
-
+const std::vector<int> splitToInt( const std::string &s, char delim );
 
 /*********************
 **** FACTORISING *****
@@ -133,6 +133,7 @@ public:
 //template<typename T>	// for 1-D vector
 //void printVector ( string itemName, const vector<T>& data );
 void printVector ( string itemName, const vector<long long>& data );
+void printVector ( string itemName, const vector<int> data );
 void printVector ( string itemName, const vector<string> data );
 
 template<class TYPE>	// for 1-D array

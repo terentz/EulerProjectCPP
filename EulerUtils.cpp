@@ -34,6 +34,7 @@ using std::fstream;
 using std::stringstream;
 using std::to_string;
 using std::operator+;
+using std::atoi;
 
 //using Prime::isPrime;
 
@@ -56,6 +57,18 @@ const std::vector<std::string> EulerUtils::split( const std::string &s, char del
     }
     return elems;
 }
+const std::vector<int> EulerUtils::splitToInt( const std::string &s, char delim ) {
+    std::vector<int> elems;
+    std::stringstream ss(s);
+    std::string item;
+    while (std::getline(ss, item, delim)) {
+        if (item.length() > 0) {
+            elems.push_back(std::atoi(item.c_str()));
+        }
+    }
+    return elems;
+}
+
 EulerUtils::splitstring::splitstring( char *s ) : string( s ) { };
 vector<string>& EulerUtils::splitstring::split(char delim, int rep) {
     if (!this->flds.empty()) this->flds.clear();  // empty vector if necessary
@@ -113,7 +126,15 @@ void EulerUtils::printVector ( string itemName, const vector<long long>& data ) 
     }
     cout << endl;
 }
-void printVector ( string itemName, const vector<string> data ) {
+void EulerUtils::printVector ( string itemName, const vector<int> data ) {
+	cout << "in printVector" << endl;
+	cout << "Printing " << itemName << "..." << endl;
+	for ( auto i = data.begin(); i != data.end(); i++ ) {
+        cout << ( i == data.begin() ? "" : ", " ) << *i ;
+    }
+    cout << endl;
+}
+void EulerUtils::printVector ( string itemName, const vector<string> data ) {
 	cout << "in printVector" << endl;
 	cout << "Printing " << itemName << "..." << endl;
 	for ( auto i = data.begin(); i != data.end(); i++ ) {
