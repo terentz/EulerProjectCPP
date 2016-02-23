@@ -68,11 +68,19 @@ inline bool even( I num ) { return ( num % 2 == 0 ); };
 
 // TODO template the next three..
 inline unsigned long long factorial( unsigned long long x ) {
+  if ( x == 0 ) return 1;
   return ( x == 1 ? x : x * factorial( x - 1 ) );
 };
 
 inline int256_t factorial( int256_t x ) {
     return ( x == 1 ? x : x * factorial( x - 1 ) );
+};
+
+inline unsigned long long nCr( unsigned long long n, unsigned long long r ) {
+//    cout << (float)( factorial(n) / ( factorial(r) * factorial(n-r) ) ) << endl;
+//    return 0;
+
+    return ( factorial(n) / ( factorial(r) * factorial(n-r) ) );
 };
 
 inline unsigned long long nPr( unsigned long long n, unsigned long long r ) {
