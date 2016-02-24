@@ -72,6 +72,10 @@ inline void printDiff( const long diffMicro) {
 template<typename I>
 inline bool even( I num ) { return ( num % 2 == 0 ); };
 
+template<typename I>
+inline bool pstv( I num ) { return ( num > 0 ); };
+template<typename I>
+inline bool ngtv( I num ) { return ( num < 0 ); };
 // TODO template the next three..
 inline unsigned long long factorial( unsigned long long x ) {
     if ( x == 0 ) return 1;
@@ -101,31 +105,55 @@ inline uint1024_t factorial( uint1024_t x ) {
     if ( x == 0 ) return 1;
     return ( x == 1 ? x : x * factorial( x - 1 ) );
 };
-inline mpz_t factorial( mpz_t n ) {
-    char* zero_str = "0",
-          one_str = "1";
+
+
+/*
+inline mpz_t& mpz_factorial( mpz_t n ) {
+    // Define zero and one...
+    char* zero_str = "0";
+    char* one_str = "1";
     mpz_t zero, one;
     mpz_init(zero);
     mpz_init(one);
     mpz_set_ui(zero,0);
     mpz_set_ui(one,0);
-    int f1 = mpz_set_str(zero,zero_str,10);
-    int f2 = mpz_set_str(one,one_str,10);
+    int f0 = mpz_set_str(zero,zero_str,10);
+    int f1 = mpz_set_str(one,one_str,10);
+    assert(f0 == 0);
     assert(f1 == 0);
-    assert(f2 == 0);
 
-    if ( mpz_cmp(n,zero) == 0 || mpz_cmp(n,one) == 0 ) return one;
+    // If n is 0 or 1, return 1...
+    if ( mpz_cmp(n,zero) == 0
+            || mpz_cmp(n,one) == 0 )
+//        return 1;
+        return one;
+
+    // Otherwise, recurse it...
     else {
+        // Init result, lhs, rhs...
+        mpz_t result, lhs, rhs;
+        mpz_inits (result, lhs, rhs);
+        mpz_set_ui(result,0);
+        mpz_set_ui(lhs,0);
+        mpz_set_ui(rhs,0);
+        char* n_str;
+        mpz_get_str(n_str, 10, n);
+        int f_lhs = mpz_set_str(lhs, n_str, 10);
+//        int f_rhs = mpz_set_str(rhs, n_str, 10);
+        assert(f_lhs == 0);
+//        assert(f_rhs == 0);
 
-        mpz_mul(x,n,factorial()); /* n = n * n */
+        // Make rhs one less than lhs...
+        mpz_sub_ui(rhs,lhs,1);
 
+        // Calculate the result...
+        mpz_mul_ui(result,lhs,mpz_factorial(rhs));
 
-        mpz_sub_ui (mpz_t rop, const mpz_t op1, unsigned long int op2)
-
-        return ( x == 1 ? x : x * factorial( x - 1 ) );
+        // Return it...
+        return result;
     }
 };
-
+*/
 
 
 inline unsigned long long nCr( unsigned long long n, unsigned long long r ) {
@@ -295,6 +323,48 @@ const long long nthTriangularNumber( const long long term );
 ***** COUNTS *****
 *****************/
 map<long long, int> contentTally( vector<long long> collection );
+
+/********************************
+***** STRING-BASED INTEGERS *****
+********************************/
+int addDigits( string input );
+/*
+class StrInt {
+public:
+    StrInt();
+    StrInt(string input);
+    virtual ~StrInt();
+
+    string _get();
+    bool _set( string input );
+    bool _set( StrInt input );
+    int col( int ten_pow );
+    int len();
+    int max();
+    bool pstv();
+
+    StrInt operator+( StrInt lhs, StrInt rhs );
+    StrInt operator-( StrInt lhs, StrInt rhs );
+    StrInt operator*( StrInt lhs, StrInt rhs );
+    StrInt operator/( StrInt lhs, StrInt rhs );
+    StrInt operator%( StrInt lhs, StrInt rhs );
+    bool operator==( StrInt lhs, StrInt rhs );
+    bool operator>=( StrInt lhs, StrInt rhs );
+    bool operator<=( StrInt lhs, StrInt rhs );
+    bool operator>( StrInt lhs, StrInt rhs );
+    bool operator<( StrInt lhs, StrInt rhs );
+
+    StrInt factorial();
+
+protected:
+
+private:
+    const int BLOCK_MAX = 18;
+    string val;
+    int len;
+};
+*/
+
 
 }; /* namespace EulerUtils */
 

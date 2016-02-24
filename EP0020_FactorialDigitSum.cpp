@@ -17,36 +17,36 @@ using std::cout;
 using std::endl;
 //using boost::multiprecision::uint1024_t;
 using EulerUtils::factorial;
+using EulerUtils::addDigits;
 
 /* NAMESPACE DEFINES */
 #define START "100"
 
 void FactorialDigitSum::run () {
 
-	/* LOCAL DECLARATIONS */
-
-    // Create the variable...
-    string input = START;
+	/* INIT'S */
+    const char* input = START;
     mpz_t fact;
     int flag;
-    // Initialise it...
     mpz_init(fact);
     mpz_set_ui(fact, 0);
-    int flag = mpz_set_str(fact, input, 10);
+    flag = mpz_set_str(fact, input, 10);
     assert(flag == 0); // If flag not 0, operation failed
 
-	/* DO THE WORK! */
+    /* DO THE WORK! */
+    // Calculate factorial...
+    mpz_fac_ui(fact, std::stoll(input));
+
+    // Convert the factorial to a string....
+    char* fact_cstr;
+    fact_cstr = mpz_get_str (nullptr, 10, fact);
+    string fact_str = string(fact_cstr);
+    mpz_clear(fact);
 
 
-	/* DISPLAY RESULTS */
-    // Output it as a string
-    cout << ""
-    mpz_out_str(stdout,10,var);
-    mpz_clear(var);
-
-
-    cout << "Factorial 100 = " << fact << endl;
-	cout << endl;
+	/* DISPLAY */
+    cout << string(input) << "! = " << fact_str << endl;
+    cout << "The sum of the digits is " << EulerUtils::addDigits(fact_str) << endl << endl;
 
 }
 

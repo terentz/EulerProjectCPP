@@ -655,7 +655,96 @@ map<long long, int> EulerUtils::contentTally( vector<long long> collection ) {
 //    }
 }
 
+/********************************
+***** STRING-BASED INTEGERS *****
+********************************/
+int EulerUtils::addDigits( string input ) {
+    int total = 0;
+    for ( int c = 0 ; c < input.size() ; ++c )
+        total += std::stoi( input.substr(c,1) );
+    return total;
+}
+/*
+EulerUtils::StrInt::StrInt ( string input ) {
+    string temp_val= "",
+           temp_block = "";
+    int strlen = input.size(),
+        blocks = 0,
+        remain = 0;
+    try {
+//        // If the input exceeds a block...
+//        if ( strlen > this->BLOCK_MAX ) {
+        blocks = (int)(strlen/this->BLOCK_MAX);
+        remain = (int)(strlen%this->BLOCK_MAX);
+        for ( int block_start = 0 ; input.substr(block_start).size() > 0 ; i += this->BLOCK_MAX ) {
+            temp_block = input.substr( block_start, this->BLOCK_MAX );
+            long long temp_int = std::stoll( input.substr(block_start) );
+            if ( EulerUtils::ngtv( std::stoll( input.substr(block_start) ) ) && block_start != 0 ) {
+                cout << "Exception in EulerUtils::StrInt::StrInt( string input ) - Negative non-starting block!" << endl;
+                delete this;
+            }
+            temp_val += temp_block;
+        }
+//        }
+    } catch ( const std::invalid_argument& ex ) {
+        cout << "Exception in EulerUtils::StrInt::StrInt( string input ) - " << ex.what() << endl;
+    }
+}
+EulerUtils::StrInt::virtual ~StrInt () {
+}
 
+EulerUtils::StrInt::string _get () {
+}
+EulerUtils::StrInt::bool _set ( string input ) {
+}
+EulerUtils::StrInt::bool _set ( StrInt input ) {
+}
+
+EulerUtils::StrInt::int col ( int ten_pow ) {
+}
+EulerUtils::StrInt::int len () {
+    return ( this->pstv()   ?
+        this->val.size()    :
+        this->val.size()-1  ;
+}
+EulerUtils::StrInt::int max () {
+    return this->BLOCK_MAX;
+}
+EulerUtils::StrInt::bool pstv() {
+    return ( (char)(this->val[0]) != '-' ) ;
+}
+
+/* Arithmetic Operators */
+/*
+EulerUtils::StrInt::StrInt operator+ ( StrInt lhs, StrInt rhs ) {
+
+}
+EulerUtils::StrInt::StrInt operator- ( StrInt lhs, StrInt rhs ) {
+}
+EulerUtils::StrInt::StrInt operator* ( StrInt lhs, StrInt rhs ) {
+}
+EulerUtils::StrInt::StrInt operator/ ( StrInt lhs, StrInt rhs ) {
+}
+EulerUtils::StrInt::StrInt operator% ( StrInt lhs, StrInt rhs ) {
+}
+*/
+/* Comparison Operators */
+/*
+EulerUtils::StrInt::bool operator==( StrInt lhs, StrInt rhs );
+EulerUtils::StrInt::bool operator>=( StrInt lhs, StrInt rhs );
+EulerUtils::StrInt::bool operator<=( StrInt lhs, StrInt rhs );
+EulerUtils::StrInt::bool operator>( StrInt lhs, StrInt rhs );
+EulerUtils::StrInt::bool operator<( StrInt lhs, StrInt rhs );
+
+EulerUtils::StrInt::StrInt factorial();
+
+protected:
+
+private:
+    string val;
+    int len;
+}
+*/
 
 
 
