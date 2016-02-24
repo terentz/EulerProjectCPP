@@ -8,9 +8,14 @@
 #ifndef EP0022_NAMESSCORES_HPP_
 #define EP0022_NAMESSCORES_HPP_
 
+#include <string>
+
+
 namespace NamesScores {
 
-void run ();
+void run();
+
+long nameSum( std::string name, int pos );
 
 };
 
