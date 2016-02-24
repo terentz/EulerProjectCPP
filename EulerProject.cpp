@@ -49,6 +49,7 @@
 #include "EP0019_CountingSundays.hpp"
 #include "EP0020_FactorialDigitSum.hpp"
 #include "EP0021_SumOfAmicableNumbers.hpp"
+#include "EP0022_NamesScores.hpp"
 #include "EP0024_LexicographicPermutations.hpp"
 #include "EP0040_Champerdowne.hpp"
 
@@ -102,6 +103,7 @@ using namespace EulerUtils;
 #define EP0019_COUNTINGSUNDAYS                  19
 #define EP0020_FACTORIALDIGITSUM                20
 #define EP0021_SUMOFAMICABLENUMBERS             21
+#define EP0022_NAMESSCORES                      22
 #define EP0024_LEXICOGRAPHICPERMUTATIONS        24
 #define EP0040_CHAMPERDOWNE				        40
 
@@ -140,6 +142,7 @@ int main() {
 	menu_items[EP0019_COUNTINGSUNDAYS]                  = "Counting Sundays";
 	menu_items[EP0020_FACTORIALDIGITSUM]                = "Factorial Digit Sum";
 	menu_items[EP0021_SUMOFAMICABLENUMBERS]             = "The Sum of Amicable Numbers";
+	menu_items[EP0022_NAMESSCORES]                      = "Names Scores";
 	menu_items[EP0024_LEXICOGRAPHICPERMUTATIONS]        = "The Millionth Lexicographic Permutation of 0-9";
 	menu_items[EP0040_CHAMPERDOWNE] 		            = "Champerdowne's Constant";
 
@@ -313,6 +316,11 @@ int main() {
             case EP0021_SUMOFAMICABLENUMBERS:
                 using SumOfAmicableNumbers::run;
                 SumOfAmicableNumbers::run();
+                break;
+
+            case EP0022_NAMESSCORES:
+                using NamesScores::run;
+                NamesScores::run();
                 break;
 
             case EP0024_LEXICOGRAPHICPERMUTATIONS:
