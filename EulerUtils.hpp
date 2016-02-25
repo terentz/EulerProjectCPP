@@ -324,9 +324,14 @@ const long long nthTriangularNumber( const long long term );
 *****************/
 map<long long, int> contentTally( vector<long long> collection );
 
-/********************************
-***** STRING-BASED INTEGERS *****
-********************************/
+/*******************************
+***** STRING-BASED NUMBERS *****
+*******************************/
+//template <typename T>
+//std::string float_to_string( const T val, const int n );
+//std::string float_to_string( float T val, const int n );
+//std::string float_to_string( double T val, const int n );
+std::string float_to_string( long double val, const int n );
 int addDigits( string input );
 /*
 class StrInt {

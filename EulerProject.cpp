@@ -51,6 +51,7 @@
 #include "EP0021_SumOfAmicableNumbers.hpp"
 #include "EP0022_NamesScores.hpp"
 #include "EP0024_LexicographicPermutations.hpp"
+#include "EP0026_ReciprocalCycles.hpp"
 #include "EP0040_Champerdowne.hpp"
 
 
@@ -105,6 +106,7 @@ using namespace EulerUtils;
 #define EP0021_SUMOFAMICABLENUMBERS             21
 #define EP0022_NAMESSCORES                      22
 #define EP0024_LEXICOGRAPHICPERMUTATIONS        24
+#define EP0026_RECIPROCALCYCLES                 26
 #define EP0040_CHAMPERDOWNE				        40
 
 
@@ -144,6 +146,7 @@ int main() {
 	menu_items[EP0021_SUMOFAMICABLENUMBERS]             = "The Sum of Amicable Numbers";
 	menu_items[EP0022_NAMESSCORES]                      = "Names Scores";
 	menu_items[EP0024_LEXICOGRAPHICPERMUTATIONS]        = "The Millionth Lexicographic Permutation of 0-9";
+	menu_items[EP0026_RECIPROCALCYCLES]                 = "Reciprocal Cycles";
 	menu_items[EP0040_CHAMPERDOWNE] 		            = "Champerdowne's Constant";
 
 	// TODO add a new menu item on the line above, using the line below
@@ -326,6 +329,11 @@ int main() {
             case EP0024_LEXICOGRAPHICPERMUTATIONS:
                 using LexicographicPermutations::run;
                 LexicographicPermutations::run();
+                break;
+
+            case EP0026_RECIPROCALCYCLES:
+                using ReciprocalCycles::run;
+                ReciprocalCycles::run();
                 break;
 
             case EP0040_CHAMPERDOWNE:

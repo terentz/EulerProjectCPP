@@ -13,8 +13,10 @@
 #include <cstdlib>
 #include <string>
 #include <vector>
+#include <iomanip>
 #include <boost/lexical_cast.hpp>
 #include <fstream>
+#include <sstream>
 #include <istream>
 #include <cmath>
 //#include <stringstream>
@@ -27,6 +29,8 @@ using std::cout;
 using std::sqrt;
 using boost::lexical_cast;
 using boost::bad_lexical_cast;
+using std::setprecision;
+using std::ostringstream;
 using std::string;
 using std::vector;
 using std::ifstream;
@@ -655,9 +659,21 @@ map<long long, int> EulerUtils::contentTally( vector<long long> collection ) {
 //    }
 }
 
-/********************************
-***** STRING-BASED INTEGERS *****
-********************************/
+/*******************************
+***** STRING-BASED NUMBERS *****
+*******************************/
+//template <typename T>
+//std::string EulerUtils::float_to_string( const T val, const int n ){
+//    std::ostringstream out;
+//    out << std::setprecision(n) << val;
+//    return out.str();
+//}
+std::string EulerUtils::float_to_string( const long double val, const int n ){
+    std::ostringstream out;
+    out << std::setprecision(n) << val;
+    return out.str();
+}
+
 int EulerUtils::addDigits( string input ) {
     int total = 0;
     for ( int c = 0 ; c < input.size() ; ++c )
