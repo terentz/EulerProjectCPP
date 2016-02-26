@@ -224,7 +224,10 @@ template<class TYPE>	// for 2-D array
 void printGrid ( string itemName, const TYPE data[][20] ); //
 template<class Container>
 void printCollection ( string const& itemName, Container const& data );
+template <typename K, typename V>
+void printMap ( string itemName, const map<K,V>& data );
 void printMap ( string itemName, const map<long long, int>& data );
+void printMap ( string itemName, const map<string, int>& data );
 void printSet ( string itemName, const set<long long>& data );
 bool inVector( vector<long long>& haystack, long long needle );
 int countAppearance( vector<long long> haystack, long long needle );

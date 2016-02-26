@@ -54,6 +54,7 @@
 #include "EP0026_ReciprocalCycles.hpp"
 #include "EP0028_NumberSpiralDiagonals.hpp"
 #include "EP0040_Champerdowne.hpp"
+#include "EP0049_PrimePermutations.hpp"
 
 
 // test lines
@@ -110,6 +111,7 @@ using namespace EulerUtils;
 #define EP0026_RECIPROCALCYCLES                 26
 #define EP0028_NUMBERSPIRALDIAGONALS            28
 #define EP0040_CHAMPERDOWNE				        40
+#define EP0049_PRIMEPERMUTATIONS                49
 
 
 /***********  STRUCTS  ************/
@@ -151,6 +153,7 @@ int main() {
 	menu_items[EP0026_RECIPROCALCYCLES]                 = "Reciprocal Cycles";
 	menu_items[EP0028_NUMBERSPIRALDIAGONALS]            = "NumberSpiralDiagonals";
 	menu_items[EP0040_CHAMPERDOWNE] 		            = "Champerdowne's Constant";
+	menu_items[EP0049_PRIMEPERMUTATIONS]                = "Prime Permutations";
 
 	// TODO add a new menu item on the line above, using the line below
 	//menu_items[EPxxxx_XXXXXXXXXXXXXXXXX] 			= "";
@@ -347,6 +350,11 @@ int main() {
             case EP0040_CHAMPERDOWNE:
                 using Champerdowne::run;
                 Champerdowne::run();
+                break;
+
+            case EP0049_PRIMEPERMUTATIONS:
+                using PrimePermutations::run;
+                PrimePermutations::run();
                 break;
 
             // TODO use the template below to add a new module above this line

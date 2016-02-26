@@ -175,35 +175,30 @@ void EulerUtils::printCollection ( string const& itemName, Container const& data
                 break;
 
         }
-//        {
-//            start:
-//
-//        }
-//        {
-//            internal:
-//
-//        }
-//        {
-//            finish:
-//
-//        }
     }
 
 }
 
+template <typename K, typename V>
+void EulerUtils::printMap ( string itemName, const map<K,V>& data ) {
+	cout << "in printMap" << endl;
+	cout << "Printing " << itemName << "..." << endl;
+	for ( auto i = data.cbegin(); i != data.cend(); i++ )
+        cout << i->first << ": " << i->second << endl;
+    cout << endl;
+}
 void EulerUtils::printMap ( string itemName, const map<long long, int>& data ) {
 	cout << "in printMap" << endl;
 	cout << "Printing " << itemName << "..." << endl;
-	for ( auto i = data.cbegin(); i != data.cend(); i++ ) {
-//        std::stringstream out;
-//        out << ( i == data.begin() ? "" : ", " ) << std::string(*i) ;
-
-        std::string out = ( i == data.cbegin() ? "" : ", " ) + std::to_string(i->first) + ": " + std::to_string(i->second) ;
-//        std::string out = std::operator+( ( i == data.begin() ? "" : ", " ), *i ) ;
-        cout << out ;
-//        cout << comma.append()std::string(i->second) ;
-        //cout << ( i == data.begin() ? "" : ", " ) << *i ;
-    }
+	for ( auto i = data.cbegin(); i != data.cend(); i++ )
+        cout << i->first << ": " << i->second << endl;
+    cout << endl;
+}
+void EulerUtils::printMap ( string itemName, const map<string, int>& data ) {
+	cout << "in printMap" << endl;
+	cout << "Printing " << itemName << "..." << endl;
+	for ( auto i = data.cbegin(); i != data.cend(); i++ )
+        cout << i->first << ": " << i->second << endl;
     cout << endl;
 }
 
