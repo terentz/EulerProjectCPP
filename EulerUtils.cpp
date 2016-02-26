@@ -122,28 +122,34 @@ int EulerUtils::strToInt ( string input ) {
 // TODO can these first two be merged using more templating??
 //template<typename T>	// for 1-D vector
 //void EulerUtils::printVector ( string itemName, const vector<T>& data ) {
-void EulerUtils::printVector ( string itemName, const vector<long long>& data ) {
+void EulerUtils::printVector ( string itemName, const vector<long long>& data, bool down ) {
 	cout << "in printVector" << endl;
 	cout << "Printing " << itemName << "..." << endl;
-	for ( auto i = data.begin(); i != data.end(); i++ ) {
-        cout << ( i == data.begin() ? "" : ", " ) << *i ;
-    }
+	for ( auto i = data.begin(); i != data.end(); i++ )
+        if ( !down )
+            cout << ( i == data.begin() ? "" : ", " ) << *i ;
+        else
+            cout << *i << endl;
     cout << endl;
 }
-void EulerUtils::printVector ( string itemName, const vector<int> data ) {
+void EulerUtils::printVector ( string itemName, const vector<int> data, bool down ) {
 	cout << "in printVector" << endl;
 	cout << "Printing " << itemName << "..." << endl;
-	for ( auto i = data.begin(); i != data.end(); i++ ) {
-        cout << ( i == data.begin() ? "" : ", " ) << *i ;
-    }
+	for ( auto i = data.begin(); i != data.end(); i++ )
+        if ( !down )
+            cout << ( i == data.begin() ? "" : ", " ) << *i ;
+        else
+            cout << *i << endl;
     cout << endl;
 }
-void EulerUtils::printVector ( string itemName, const vector<string> data ) {
+void EulerUtils::printVector ( string itemName, const vector<string> data, bool down ) {
 	cout << "in printVector" << endl;
 	cout << "Printing " << itemName << "..." << endl;
-	for ( auto i = data.begin(); i != data.end(); i++ ) {
-        cout << ( i == data.begin() ? "" : ", " ) << *i ;
-    }
+	for ( auto i = data.begin(); i != data.end(); i++ )
+        if ( !down )
+            cout << ( i == data.begin() ? "" : ", " ) << *i ;
+        else
+            cout << *i << endl;
     cout << endl;
 }
 

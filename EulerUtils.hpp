@@ -212,9 +212,9 @@ public:
 // TODO can these first two be merged using more templating??
 //template<typename T>	// for 1-D vector
 //void printVector ( string itemName, const vector<T>& data );
-void printVector ( string itemName, const vector<long long>& data );
-void printVector ( string itemName, const vector<int> data );
-void printVector ( string itemName, const vector<string> data );
+void printVector ( string itemName, const vector<long long>& data, bool down = false );
+void printVector ( string itemName, const vector<int> data, bool down = false );
+void printVector ( string itemName, const vector<string> data, bool down = false );
 
 template<class TYPE>	// for 1-D array
 void printArray ( string itemName, const TYPE data[] );
