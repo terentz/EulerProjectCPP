@@ -23,7 +23,7 @@ using std::set;
 using EulerUtils::Display::printVector;
 using EulerUtils::NumberTheory::Special::nthTriangularNumber;
 using EulerUtils::Display::printSet;
-using EulerUtils::NumberTheory::Factorise::intFactors;
+using EulerUtils::NumberTheory::Factorise::integerDivisors;
 /* local defines */
 #define DIVISORS 500
 
@@ -58,7 +58,7 @@ void run () {
         // Calculate triangular number...
         triangular = nthTriangularNumber(term);
         // Extract all integer factors...
-        set<long long> factors = intFactors(triangular);
+        set<unsigned long long> factors = integerDivisors(triangular);
         // Count the factors...
         divisors = factors.size();
 

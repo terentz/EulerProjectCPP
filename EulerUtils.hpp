@@ -39,6 +39,10 @@ using boost::multiprecision::uint1024_t;
 
 namespace EulerUtils {
 
+    namespace Arithmetic {
+
+    };
+
     namespace CustomData {
 
         class GridArr {
@@ -108,15 +112,20 @@ namespace EulerUtils {
         template<class TYPE>	// for 2-D array
         void printGrid ( string itemName, const TYPE data[][20] ); //
 
-        template <typename K, typename V>
+        template<typename K, typename V>
         void printMap ( string itemName, const map<K,V>& data );
         void printMap ( string itemName, const map<long long, int>& data );
         void printMap ( string itemName, const map<string, int>& data );
 
+//        template<class Coll>
+//        void printSet ( string itemName, Coll& data );
+        void printSet ( string itemName, const set<unsigned int>& data );
         void printSet ( string itemName, const set<long long>& data );
+        void printSet ( string itemName, const set<unsigned long long>& data );
 
         void printVector ( string itemName, const vector<long long>& data, bool down = false );
         void printVector ( string itemName, const vector<int> data, bool down = false );
+        void printVector ( string itemName, const vector<unsigned int> data, bool down = false );
         void printVector ( string itemName, const vector<string> data, bool down = false );
     };
 
@@ -244,10 +253,12 @@ namespace EulerUtils {
 
         namespace Factorise {
 
-            //vector<long long> integerDivisors( long long input );
-            set<long long> intFactors( long long input );
+            set<unsigned long long> integerDivisors( unsigned long long input, bool include_self = true );
+
             vector<long long> primeFactorsSet( long long input );
+
             const vector<long long> primeFactorsAll( long long input );
+
             long long gcd( long long a, long long b );
 
         };
@@ -256,8 +267,12 @@ namespace EulerUtils {
 
             int addDigits( string input );
 
-            const long long nthTriangularNumber( const long long term );
-        }
+            const unsigned long long nthTriangularNumber( const unsigned long long n );
+
+            const short perfection( const unsigned long long );
+
+            const bool isPerfect( const unsigned long long );
+        };
     };
 
     namespace Search {

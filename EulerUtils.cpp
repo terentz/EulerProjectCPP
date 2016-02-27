@@ -44,6 +44,17 @@ using std::atoi;
 
 
 
+/**************************************************************************
+***************************************************************************
+******************************  ARITHMETIC  *******************************
+***************************************************************************
+**************************************************************************/
+
+
+
+
+
+
 /*************************************************************************
 **************************************************************************
 ************************  CUSTOM DATA STRUCTURES  ************************
@@ -307,8 +318,38 @@ void EulerUtils::Display::printMap ( string itemName, const map<string, int>& da
         cout << i->first << ": " << i->second << endl;
     cout << endl;
 }
+
+//void EulerUtils::Display::printSet ( string itemName, const set<V>& data ) {
+//template <class Coll>
+//void EulerUtils::Display::printSet ( string itemName, Coll& data ) {
+//    typename Coll::iterator current = data.cbegin();
+//    typename Coll::iterator terminator = data.cend();
+//    while ( current < terminator ) {
+//        cout << current << endl;
+//        ++current;
+//    }
+//
+//	cout << endl << "Printing " << itemName << "..." << endl;
+//	for ( auto i = data.cbegin(); i != data.cend(); i++ ) {
+//        cout << ( i == data.cbegin() ? "" : ", " ) << *i ;
+//    }
+//    cout << endl;
+//}
+void EulerUtils::Display::printSet ( string itemName, const set<unsigned int>& data ) {
+	cout << endl << "Printing " << itemName << "..." << endl;
+	for ( auto i = data.cbegin(); i != data.cend(); i++ ) {
+        cout << ( i == data.cbegin() ? "" : ", " ) << *i ;
+    }
+    cout << endl;
+}
 void EulerUtils::Display::printSet ( string itemName, const set<long long>& data ) {
-//	cout << "in printSet" << endl;
+	cout << endl << "Printing " << itemName << "..." << endl;
+	for ( auto i = data.cbegin(); i != data.cend(); i++ ) {
+        cout << ( i == data.cbegin() ? "" : ", " ) << *i ;
+    }
+    cout << endl;
+}
+void EulerUtils::Display::printSet ( string itemName, const set<unsigned long long>& data ) {
 	cout << endl << "Printing " << itemName << "..." << endl;
 	for ( auto i = data.cbegin(); i != data.cend(); i++ ) {
         cout << ( i == data.cbegin() ? "" : ", " ) << *i ;
@@ -329,6 +370,16 @@ void EulerUtils::Display::printVector ( string itemName, const vector<long long>
     cout << endl;
 }
 void EulerUtils::Display::printVector ( string itemName, const vector<int> data, bool down ) {
+	cout << "in printVector" << endl;
+	cout << "Printing " << itemName << "..." << endl;
+	for ( auto i = data.begin(); i != data.end(); i++ )
+        if ( !down )
+            cout << ( i == data.begin() ? "" : ", " ) << *i ;
+        else
+            cout << *i << endl;
+    cout << endl;
+}
+void EulerUtils::Display::printVector ( string itemName, const vector<unsigned int> data, bool down ) {
 	cout << "in printVector" << endl;
 	cout << "Printing " << itemName << "..." << endl;
 	for ( auto i = data.begin(); i != data.end(); i++ )
@@ -365,15 +416,14 @@ long long EulerUtils::NumberTheory::Factorise::gcd( long long a, long long b ) {
     else
         return gcd(b, a%b);
 }
-set<long long> EulerUtils::NumberTheory::Factorise::intFactors( long long input ) {
-	set<long long> output;
-	for ( long long testFactor = 1 ; testFactor <= sqrt(input) ; testFactor++ ) {
-		if ( input % testFactor == 0 ) {
-            long long otherFactor = input/testFactor;
+set<unsigned long long> EulerUtils::NumberTheory::Factorise::integerDivisors( unsigned long long input, bool include_self ) {
+	set<unsigned long long> output;
+	output.insert(1);
+	for ( long long testFactor = 2 ; testFactor <= input/2 ; testFactor++ )
+		if ( input % testFactor == 0 )
             output.insert(testFactor);
-            output.insert(otherFactor);
-		}
-	}
+	if ( include_self )
+        output.insert(input);
 	return output;
 }
 const vector<long long> EulerUtils::NumberTheory::Factorise::primeFactorsAll( long long input ) {
@@ -383,26 +433,22 @@ const vector<long long> EulerUtils::NumberTheory::Factorise::primeFactorsAll( lo
     // otherwise, return an empty vector
     if ( input > 0 ) {
         output.push_back(1);
-        if ( input == 1 ) {
+        if ( input == 1 )
             return output;
-        }
-    } else {
+    } else
         return output;
-    }
     for ( long long testFactor = 2 ; testFactor <= input/2 ; testFactor++ ) {
-        if ( Prime::isPrime( testFactor ) ) {
-            // If testFactor is a factor, add it to output, calculate remain
+        if ( Prime::isPrime( testFactor ) )
             while ( remain % testFactor == 0 ) {
                 output.push_back(testFactor);
                 remain /= testFactor;
             }
-        }
     }
     if ( Prime::isPrime(input) ) output.push_back(input);
     return output;
 }
 // TODO update this function (was allFactors()) to
-// vector<long>& EulerUtils::primeFactors( long long input, bool unique )
+// vector<long>& 0EulerUtils::primeFactors( long long input, bool unique )
 vector<long long> EulerUtils::NumberTheory::Factorise::primeFactorsSet( long long input ) {
 	vector<long long> output;
 	for ( long long testFactor = 2 ; testFactor <= input/2 ; testFactor++ ) {
@@ -467,11 +513,10 @@ vector<long long> EulerUtils::NumberTheory::Prime::gatherPrimesUpTo( long long n
     }
     return primes;
 }
-const long long EulerUtils::NumberTheory::Special::nthTriangularNumber( const long long term ) {
-    long long sum = 0;
-    for ( long long current = 1 ; current <= term ; ++current ) {
+const unsigned long long EulerUtils::NumberTheory::Special::nthTriangularNumber( const unsigned long long n ) {
+    unsigned long long sum = 0;
+    for ( unsigned long long current = 1 ; current <= n ; ++current )
         sum += current;
-    }
     return sum;
 }
 int EulerUtils::NumberTheory::Special::addDigits( string input ) {
@@ -479,6 +524,22 @@ int EulerUtils::NumberTheory::Special::addDigits( string input ) {
     for ( int c = 0 ; c < input.size() ; ++c )
         total += std::stoi( input.substr(c,1) );
     return total;
+}
+const short EulerUtils::NumberTheory::Special::perfection( const unsigned long long n ) {
+    unsigned long long sum = 1;
+    for ( unsigned long long factor = 2 ; factor <= n/2 ; ++factor )
+        if ( n%factor == 0 )
+            sum += factor;
+    if ( sum < n ) return -1;
+    if ( sum > n ) return 1;
+    return 0;
+}
+const bool EulerUtils::NumberTheory::Special::isPerfect( const unsigned long long n ) {
+    unsigned long long sum = 1;
+    for ( unsigned long long factor = 2 ; factor <= n/2 ; ++factor )
+        if ( n%factor == 0 )
+            sum += factor;
+    return sum==n;
 }
 
 
