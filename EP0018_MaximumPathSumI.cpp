@@ -14,8 +14,8 @@
 using std::cout;
 using std::endl;
 using std::ifstream;
-using EulerUtils::splitToInt;
-using EulerUtils::printVector;
+using EulerUtils::Strings::splitToInt;
+using EulerUtils::Display::printVector;
 
 /* NAMESPACE DEFINES */
 #define FILENAME "0018_MaximumPathSumI.txt"
@@ -72,7 +72,7 @@ void MaximumPathSumI::Triangle::buildTree() {
 }
 void MaximumPathSumI::Triangle::printTree() {
     for ( size_t level = 0 ; level < DEPTH ; ++level ) {
-        EulerUtils::printVector(std::to_string((int)level+1), this->tree[level]);
+        printVector(std::to_string((int)level+1), this->tree[level]);
         cout << endl;
     }
 }

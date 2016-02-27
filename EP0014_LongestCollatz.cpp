@@ -12,7 +12,7 @@
 
 using std::cout;
 using std::endl;
-using EulerUtils::even;
+using EulerUtils::NumberTheory::General::even;
 
 /* local defines */
 #define MAGNITUDE 6

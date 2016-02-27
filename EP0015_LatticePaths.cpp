@@ -14,8 +14,9 @@
 using std::cout;
 using std::endl;
 using std::pow;
-using EulerUtils::factorial;
-using EulerUtils::nCr;
+using EulerUtils::NumberTheory::Factorial::factorial;
+using EulerUtils::NumberTheory::Factorial::nCr;
+using EulerUtils::NumberTheory::General::even;
 using boost::multiprecision::int256_t;
 
 /* NAMESPACE DEFINES */
@@ -46,7 +47,7 @@ void LatticePaths::directVersion() {
 //    routes= [(2n)!]/[n!*n!]
     int256_t n = SIDE_MAG;
     cout << "n = " << n << endl;
-    int256_t numer = EulerUtils::factorial(2*n);
+    int256_t numer = factorial(2*n);
     cout << "numer " << numer << endl;
     int256_t denom = factorial(n) * factorial(n);
     int256_t result = numer/denom;
@@ -56,7 +57,7 @@ void LatticePaths::directVersion() {
 void LatticePaths::factorialVersion() {
 
     const unsigned long long n = SIDE_MAG;
-    unsigned long long n_fact = EulerUtils::factorial(n);
+    unsigned long long n_fact = factorial(n);
 
     unsigned long long tally = 0,
                         r_fact = 0,
@@ -65,11 +66,11 @@ void LatticePaths::factorialVersion() {
                         res = 0;
 
     for ( unsigned long long r = 0 ; r < (n/2+1) ; ++r ) {
-        r_fact = EulerUtils::factorial(r);
-        d_fact = EulerUtils::factorial(n-r);
+        r_fact = factorial(r);
+        d_fact = factorial(n-r);
         ncr = n_fact / ( r_fact * d_fact );
         res = std::pow(ncr,2);
-        if ( !( EulerUtils::even((long long)n) && r == n/2 ) )
+        if ( !( even((long long)n) && r == n/2 ) )
             res *= 2;
         tally += res;
     }

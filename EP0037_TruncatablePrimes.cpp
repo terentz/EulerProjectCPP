@@ -13,7 +13,7 @@ using std::cout;
 using std::endl;
 using std::stoi;
 using std::to_string;
-using EulerUtils::isPrime;
+using EulerUtils::NumberTheory::Prime::isPrime;
 
 /* NAMESPACE DEFINES */
 #define START 13
@@ -28,20 +28,15 @@ void TruncatablePrimes::run () {
     unsigned long trunc_count = 0,
                   sum = 0;
 
-	/* TEST */
-
-
 	/* DO THE WORK! */
-    for ( unsigned long current = START ; trunc_count < LIMIT ; ++current ) {
-        if ( EulerUtils::isPrime(current) ) {
+    for ( unsigned long current = START ; trunc_count < LIMIT ; ++current )
+        if ( isPrime(current) )
             if ( isTruncatable(current) ) {
                 sum += current;
                 ++trunc_count;
                 cout << current << " is truncatable" << endl;
                 cout << "count: " << trunc_count << endl;
             }
-        }
-    }
 
 	/* DISPLAY RESULTS */
 	cout << "The number of truncatable primes is " << trunc_count << endl;

@@ -16,7 +16,7 @@ using std::ifstream;
 using std::string;
 using std::cout;
 using std::endl;
-using EulerUtils::split;
+using EulerUtils::Strings::split;
 
 /* NAMESPACE DEFINES */
 #define FILENAME "0022_names.txt"
@@ -36,7 +36,7 @@ void NamesScores::run () {
     string tmp_ln = "";
     if ( fin.good() ) {
         while ( std::getline(fin,tmp_ln) ) {
-            names = EulerUtils::split( tmp_ln, ',' );
+            names = split( tmp_ln, ',' );
             std::sort( names.begin(), names.end() );
             for ( auto name = names.cbegin() ; name < names.cend() ; ++name )
                 total += nameSum( *name, ++pos );

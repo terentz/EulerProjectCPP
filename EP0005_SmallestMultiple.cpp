@@ -20,8 +20,8 @@ using std::map;
 using std::vector;
 using std::string;
 using std::pow;
-using EulerUtils::primeFactorsAll;
-using EulerUtils::countItem;
+using EulerUtils::NumberTheory::Factorise::primeFactorsAll;
+using EulerUtils::Search::countItem;
 
 /* local defines */
 #define INPUT_CTRL  10
@@ -60,7 +60,7 @@ void SmallestMultiple::run () {
         const long long currentPrime = it->first;
         for ( int test = 0 ; test < input ; ++test ) {
             const int oldCount = it->second;
-            const int newCount = EulerUtils::countItem( allFactors[test], currentPrime );
+            const int newCount = countItem( allFactors[test], currentPrime );
             if ( newCount > oldCount ) {
                 primesMap[currentPrime] = newCount;
             }

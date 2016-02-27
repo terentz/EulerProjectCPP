@@ -18,7 +18,7 @@ using std::endl;
 using std::vector;
 using std::set;
 using std::tuple;
-using EulerUtils::isPrime;
+using EulerUtils::NumberTheory::Prime::isPrime;
 
 /* local defines */
 #define LIMIT 10000

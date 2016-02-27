@@ -16,8 +16,8 @@
 using std::cout;
 using std::endl;
 //using boost::multiprecision::uint1024_t;
-using EulerUtils::factorial;
-using EulerUtils::addDigits;
+using EulerUtils::NumberTheory::Factorial::factorial;
+using EulerUtils::NumberTheory::Special::addDigits;
 
 /* NAMESPACE DEFINES */
 #define START "100"
@@ -46,7 +46,7 @@ void FactorialDigitSum::run () {
 
 	/* DISPLAY */
     cout << string(input) << "! = " << fact_str << endl;
-    cout << "The sum of the digits is " << EulerUtils::addDigits(fact_str) << endl << endl;
+    cout << "The sum of the digits is " << addDigits(fact_str) << endl << endl;
 
 }
 

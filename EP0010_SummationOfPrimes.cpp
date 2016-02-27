@@ -12,7 +12,7 @@
 
 using std::cout;
 using std::endl;
-using EulerUtils::isPrime;
+using EulerUtils::NumberTheory::Prime::isPrime;
 
 #define LIMIT 2000000
 
@@ -22,7 +22,7 @@ void SummationOfPrimes::run () {
 
 	// do the work!
 	for ( control = 2 ; control <= long(LIMIT) ; control++ ) {
-		if ( EulerUtils::isPrime(control) )
+		if ( isPrime(control) )
 			sum += control;
 	}
 

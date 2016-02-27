@@ -10,8 +10,8 @@
 #include "EulerUtils.hpp"
 #include <iostream>
 
-using EulerUtils::nthPrime;
-using EulerUtils::isPrime;
+using EulerUtils::NumberTheory::Prime::nthPrime;
+using EulerUtils::NumberTheory::Prime::isPrime;
 using std::cout;
 using std::endl;
 
@@ -24,7 +24,7 @@ void run () {
 	long long result, lim = (long long)LIMIT;
 
 	// work
-	result = EulerUtils::nthPrime( LIMIT );
+	result = nthPrime( LIMIT );
 
 	// print results
 	cout << "The " << LIMIT << "th prime is " << result << endl;

@@ -17,8 +17,9 @@ using std::endl;
 using std::ifstream;
 using std::fstream;
 using std::string;
-using EulerUtils::GridArr;
-using EulerUtils::printVector;
+//using EulerUtils::GridArr;
+using EulerUtils::Display::printVector;
+using EulerUtils::Strings::split;
 
 
 /* CONSTANTS */
@@ -50,7 +51,7 @@ void LargestProductInAGrid::arrayVersion() {
     size_t x = 0, y = 0;
     if ( fin.good() ) {
         while ( std::getline(fin,temp_line) ) {
-            vector<string> line = EulerUtils::split(temp_line, ' ');
+            vector<string> line = split(temp_line, ' ');
             for ( x=0 ; x<SIDE_MAG ; ++x ) {
                 grid[x][y] = std::stoi(line[x]);
             }
@@ -134,9 +135,8 @@ int LargestProductInAGrid::vertical( const int grid[20][20], const int side, con
                     thr = grid[x][y+2],
                     fou = grid[x][y+3];
             int product = 0;
-            if ( one != 0 && two != 0 && thr != 0 && fou != 0 ) {
+            if ( one != 0 && two != 0 && thr != 0 && fou != 0 )
                 product = one * two * thr * fou;
-            }
             if ( product > largest ) largest = product;
         }
     }
@@ -144,12 +144,12 @@ int LargestProductInAGrid::vertical( const int grid[20][20], const int side, con
 }
 
 
-void LargestProductInAGrid::pointerVersion() {
-    string filename = FILENAME;
-    GridArr *grid = new GridArr(filename);
-    grid->print();
-    delete grid;
-}
+//void LargestProductInAGrid::pointerVersion() {
+//    string filename = FILENAME;
+//    GridArr *grid = new GridArr(filename);
+//    grid->print();
+//    delete grid;
+//}
 
 
 
@@ -227,118 +227,104 @@ LargestProductInAGrid::BlackBox::BlackBox ( string filename = FILENAME,
 	this->champ = 0;
 }*/
 
-void LargestProductInAGrid::BlackBox::execute() {
-
-	// iterate thru rows
-	for ( int y = 0 ; y < GridArr::depth() ; y++ ) {
-		// iterate thru cells
-		for (  int x = 0 ; x < GridArr::width() ; x++ ) {
-			// rock around the clock!
-			checkThreeOClock 	( x , y );
-			checkFourThirty 	( x , y );
-			checkSixOClock 		( x , y );
-			checkSevenThirty 	( x , y );
-		}
-	}
-}
 
 
 // protected methods
-void LargestProductInAGrid::BlackBox::checkThreeOClock ( int x , int y ) {
-	if ( ( x + (this->range) ) < GridArr::width() ) {
-		// do the calc
-		long long product = 1 ;
-		// test line
-		int count = 0;
-		// iterate thru offsets
-		for ( int xOff = 0 , yOff = 0 ; xOff <= this->range ; xOff++ ) {
-			product *= GridArr::intCellContent( x + xOff , y );
-			// test line
-			count++;
-		}
-		// test lines
-		cout << count << " iterations were performed in BlackBox::checkThreeOClock" << endl <<
-						"The resulting product is " << product << endl ;
-		// check the result
-		if ( product > this->getChamp() )
-			this->setChamp(product);
-	}
-}
-void LargestProductInAGrid::BlackBox::checkFourThirty ( int x , int y ) {
-	if ( ( x + (this->range) ) < GridArr::width() &&
-			( y + (this->range) ) < GridArr::depth() ) {
-		// do the calc
-		long long product = 1 ;
-		// test line
-		int count = 0;
-		// iterate thru offsets
-		for ( int xOff = 0 , yOff = 0 ; xOff <= this->range && yOff <= this->range ; xOff++ , yOff++ ) {
-			product *= GridArr::intCellContent( x + xOff , y + yOff );
-			// test line
-			count++;
-		}
-		// test lines
-		cout << count << " iterations were performed in BlackBox::checkFourThirty" << endl <<
-						"The resulting product is " << product << endl ;
-		// check the result
-		if ( product > this->getChamp() )
-			this->setChamp(product);
-	}
-}
-void LargestProductInAGrid::BlackBox::checkSixOClock ( int x , int y ) {
-	if ( ( y + (this->range) ) < GridArr::depth() ) {
-		// do the calc
-		long long product = 1 ;
-		// test line
-		int count = 0;
-		// iterate thru offsets
-		for ( int xOff = 0 , yOff = 0 ; yOff <= this->range ; yOff++ ) {
-			product *= GridArr::intCellContent( x , y + yOff );
-			// test line
-			count++;
-		}
-		// test lines
-		cout << count << " iterations were performed in BlackBox::checkSixOClock" << endl <<
-						"The resulting product is " << product << endl ;
-		// check the result
-		if ( product > this->getChamp() )
-			this->setChamp(product);
-	}
-}
-void LargestProductInAGrid::BlackBox::checkSevenThirty ( int x , int y ) {
-	if ( ( x - (this->range) ) >= 0 &&
-			( y + (this->range) ) < GridArr::depth() ) {
-		// do the calc
-		long long product = 1 ;
-		// test line
-		int count = 0;
-		// iterate thru offsets
-		for ( int xOff = 0 , yOff = 0 ; xOff <= this->range && yOff <= this->range ; xOff++ , yOff++ ) {
-			product *= GridArr::intCellContent( x + xOff , y - yOff );
-			// test line
-			count++;
-		}
-		// test lines
-		cout << count << " iterations were performed in BlackBox::checkFourThirty" << endl <<
-						"The resulting product is " << product << endl ;
-		// check the result
-		if ( product > this->getChamp() )
-			this->setChamp(product);
-	}
-}
-void LargestProductInAGrid::BlackBox::updateChamp ( long long input ) {
-	if ( input > this->champ )
-		setChamp( input );
-}
-
-
-/* get, set utilities */
-const long long LargestProductInAGrid::BlackBox::getChamp() {
-	return this->champ;
-}
-
-void LargestProductInAGrid::BlackBox::setChamp( long long val ) {
-	this->champ = val;
-}
-
+//void LargestProductInAGrid::BlackBox::checkThreeOClock ( int x , int y ) {
+//	if ( ( x + (this->range) ) < GridArr::width() ) {
+//		// do the calc
+//		long long product = 1 ;
+//		// test line
+//		int count = 0;
+//		// iterate thru offsets
+//		for ( int xOff = 0 , yOff = 0 ; xOff <= this->range ; xOff++ ) {
+//			product *= GridArr::intCellContent( x + xOff , y );
+//			// test line
+//			count++;
+//		}
+//		// test lines
+//		cout << count << " iterations were performed in BlackBox::checkThreeOClock" << endl <<
+//						"The resulting product is " << product << endl ;
+//		// check the result
+//		if ( product > this->getChamp() )
+//			this->setChamp(product);
+//	}
+//}
+//void LargestProductInAGrid::BlackBox::checkFourThirty ( int x , int y ) {
+//	if ( ( x + (this->range) ) < GridArr::width() &&
+//			( y + (this->range) ) < GridArr::depth() ) {
+//		// do the calc
+//		long long product = 1 ;
+//		// test line
+//		int count = 0;
+//		// iterate thru offsets
+//		for ( int xOff = 0 , yOff = 0 ; xOff <= this->range && yOff <= this->range ; xOff++ , yOff++ ) {
+//			product *= GridArr::intCellContent( x + xOff , y + yOff );
+//			// test line
+//			count++;
+//		}
+//		// test lines
+//		cout << count << " iterations were performed in BlackBox::checkFourThirty" << endl <<
+//						"The resulting product is " << product << endl ;
+//		// check the result
+//		if ( product > this->getChamp() )
+//			this->setChamp(product);
+//	}
+//}
+//void LargestProductInAGrid::BlackBox::checkSixOClock ( int x , int y ) {
+//	if ( ( y + (this->range) ) < GridArr::depth() ) {
+//		// do the calc
+//		long long product = 1 ;
+//		// test line
+//		int count = 0;
+//		// iterate thru offsets
+//		for ( int xOff = 0 , yOff = 0 ; yOff <= this->range ; yOff++ ) {
+//			product *= GridArr::intCellContent( x , y + yOff );
+//			// test line
+//			count++;
+//		}
+//		// test lines
+//		cout << count << " iterations were performed in BlackBox::checkSixOClock" << endl <<
+//						"The resulting product is " << product << endl ;
+//		// check the result
+//		if ( product > this->getChamp() )
+//			this->setChamp(product);
+//	}
+//}
+//void LargestProductInAGrid::BlackBox::checkSevenThirty ( int x , int y ) {
+//	if ( ( x - (this->range) ) >= 0 &&
+//			( y + (this->range) ) < GridArr::depth() ) {
+//		// do the calc
+//		long long product = 1 ;
+//		// test line
+//		int count = 0;
+//		// iterate thru offsets
+//		for ( int xOff = 0 , yOff = 0 ; xOff <= this->range && yOff <= this->range ; xOff++ , yOff++ ) {
+//			product *= GridArr::intCellContent( x + xOff , y - yOff );
+//			// test line
+//			count++;
+//		}
+//		// test lines
+//		cout << count << " iterations were performed in BlackBox::checkFourThirty" << endl <<
+//						"The resulting product is " << product << endl ;
+//		// check the result
+//		if ( product > this->getChamp() )
+//			this->setChamp(product);
+//	}
+//}
+//void LargestProductInAGrid::BlackBox::updateChamp ( long long input ) {
+//	if ( input > this->champ )
+//		setChamp( input );
+//}
+//
+//
+///* get, set utilities */
+//const long long LargestProductInAGrid::BlackBox::getChamp() {
+//	return this->champ;
+//}
+//
+//void LargestProductInAGrid::BlackBox::setChamp( long long val ) {
+//	this->champ = val;
+//}
+//
 

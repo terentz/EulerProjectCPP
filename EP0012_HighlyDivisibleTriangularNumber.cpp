@@ -20,10 +20,10 @@ using std::string;
 using std::to_string;
 using std::set;
 //using EulerUtils::primeFactors;
-using EulerUtils::printVector;
-using EulerUtils::nthTriangularNumber;
-using EulerUtils::printSet;
-
+using EulerUtils::Display::printVector;
+using EulerUtils::NumberTheory::Special::nthTriangularNumber;
+using EulerUtils::Display::printSet;
+using EulerUtils::NumberTheory::Factorise::intFactors;
 /* local defines */
 #define DIVISORS 500
 
@@ -56,9 +56,9 @@ void run () {
         // Increment the term
         ++term;
         // Calculate triangular number...
-        triangular = EulerUtils::nthTriangularNumber(term);
+        triangular = nthTriangularNumber(term);
         // Extract all integer factors...
-        set<long long> factors = EulerUtils::intFactors(triangular);
+        set<long long> factors = intFactors(triangular);
         // Count the factors...
         divisors = factors.size();
 

@@ -11,7 +11,7 @@
 
 using std::cout;
 using std::endl;
-using EulerUtils::even;
+using EulerUtils::NumberTheory::General::even;
 
 
 #define LIM 4000000

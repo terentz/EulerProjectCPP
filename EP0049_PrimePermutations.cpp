@@ -17,10 +17,10 @@ using std::cout;
 using std::endl;
 using std::abs;
 using std::stoi;
-using EulerUtils::printVector;
-using EulerUtils::printMap;
-using EulerUtils::printSet;
-using EulerUtils::isPrime;
+using EulerUtils::Display::printVector;
+using EulerUtils::Display::printMap;
+using EulerUtils::Display::printSet;
+using EulerUtils::NumberTheory::Prime::isPrime;
 
 #define SIZE    4
 

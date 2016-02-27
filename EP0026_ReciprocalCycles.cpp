@@ -13,9 +13,9 @@
 
 using std::cout;
 using std::endl;
-using EulerUtils::float_to_string;
-using EulerUtils::isPrime;
-using EulerUtils::even;
+using EulerUtils::Strings::float_to_string;
+using EulerUtils::NumberTheory::Prime::isPrime;
+using EulerUtils::NumberTheory::General::even;
 
 /* NAMESPACE DEFINES */
 #define LIMIT   1000
