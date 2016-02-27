@@ -563,10 +563,11 @@ string EulerUtils::numToString( N num ){
 ***** PRIMES *****
 *****************/
 bool EulerUtils::isPrime( long long input ) {
-	for( long long test = floor(sqrt(input)) ; test > 1 ; --test ) {
-		if( input % test == 0 && test != 1 )
+    if ( input < 2 ) return false;
+    long long lim = floor(sqrt(input));
+	for( long long test = 2 ; test <= lim ; ++test )
+		if( input % test == 0 )
 			return false;
-	}
 	return true;
 }
 

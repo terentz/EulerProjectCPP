@@ -53,6 +53,7 @@
 #include "EP0024_LexicographicPermutations.hpp"
 #include "EP0026_ReciprocalCycles.hpp"
 #include "EP0028_NumberSpiralDiagonals.hpp"
+#include "EP0037_TruncatablePrimes.hpp"
 #include "EP0040_Champerdowne.hpp"
 #include "EP0049_PrimePermutations.hpp"
 
@@ -110,6 +111,7 @@ using namespace EulerUtils;
 #define EP0024_LEXICOGRAPHICPERMUTATIONS        24
 #define EP0026_RECIPROCALCYCLES                 26
 #define EP0028_NUMBERSPIRALDIAGONALS            28
+#define EP0037_TRUNCATABLEPRIMES                37
 #define EP0040_CHAMPERDOWNE				        40
 #define EP0049_PRIMEPERMUTATIONS                49
 
@@ -152,6 +154,7 @@ int main() {
 	menu_items[EP0024_LEXICOGRAPHICPERMUTATIONS]        = "The Millionth Lexicographic Permutation of 0-9";
 	menu_items[EP0026_RECIPROCALCYCLES]                 = "Reciprocal Cycles";
 	menu_items[EP0028_NUMBERSPIRALDIAGONALS]            = "NumberSpiralDiagonals";
+	menu_items[EP0037_TRUNCATABLEPRIMES]                = "Truncatable Primes";
 	menu_items[EP0040_CHAMPERDOWNE] 		            = "Champerdowne's Constant";
 	menu_items[EP0049_PRIMEPERMUTATIONS]                = "Prime Permutations";
 
@@ -345,6 +348,11 @@ int main() {
             case EP0028_NUMBERSPIRALDIAGONALS:
                 using NumberSpiralDiagonals::run;
                 NumberSpiralDiagonals::run();
+                break;
+
+            case EP0037_TRUNCATABLEPRIMES:
+                using TruncatablePrimes::run;
+                TruncatablePrimes::run();
                 break;
 
             case EP0040_CHAMPERDOWNE:
