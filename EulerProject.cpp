@@ -58,10 +58,10 @@
 //#include "EP0027_QuadraticPrimes.hpp"
 //#include "EP0028_NumberSpiralDiagonals.hpp" // DONE
 //#include "EP0029_DistinctPowers.hpp"
-#include "EP0030_DigitFifthPowers.hpp"
-//#include "EP0032_PandigitalProducts.hpp"
+//#include "EP0030_DigitFifthPowers.hpp"
+#include "EP0032_PandigitalProducts.hpp"
 //#include "EP0035_CircularPrimes.hpp"
-//#include "EP0037_TruncatablePrimes.hpp" // DONE
+//#include "EP0037_TrsuncatablePrimes.hpp" // DONE
 //#include "EP0038_PandigitalMultiples.hpp"
 //#include "EP0040_Champerdowne.hpp" // DONE
 //#include "EP0041_PandigitalPrime.hpp"
@@ -70,7 +70,7 @@
 //#include "EP0059_XORDecryption.hpp"
 //#include "EP0061_CyclicalFigurateNumbers.hpp"
 //#include "EP0064_OddPeriodSquareRoots.hpp"
-
+//#include "EP9999_EndOfTheWorld.hpp"
 
 /************************************
 ***********  MAIN USAGES  ***********
@@ -110,7 +110,7 @@ using namespace EulerUtils::Timer;
 #define EP0011_LARGESTPRODUCTINAGRID			11
 #define EP0012_HIGHLYDIVISIBLETRIANGULARNUMBER  12
 #define EP0013_SUMOF50DIGITNUMBERS              13
-#define EP0014_LONGESTCOLLATZ                   14
+#define EP0014_LONGESTCOLLATZ                 9999  14
 #define EP0015_LATTICEPATHS                     15
 #define EP0016_POWERSUMDIGIT                    16
 #define EP0017_NUMBERLETTERCOUNTS               17
@@ -138,6 +138,9 @@ using namespace EulerUtils::Timer;
 #define EP0059_XORDECRYPTION                    59
 #define EP0061_CYCLICALFIGURATENUMBERS          61
 #define EP0064_ODDPERIODSQUAREROOTS             64
+#define EP9999_ENDOFTHEWORLD                    9999
+
+
 
 int printMenu( map<int, string>items, int last_key );
 
@@ -145,52 +148,52 @@ int main() {
 
 	std::map<int, string> menu_items;
 
-	/* full list of items */
-	menu_items[QUIT_PROGRAM]                            = "Quit program";
-	menu_items[EP0001_3AND5] 		                    = "Multiples of 3 and 5";
-	menu_items[EP0002_EVENFIBONACCI] 				    = "Even Fibonacci numbers";
-	menu_items[EP0003_LARGESTPRIMEFACTOR]			    = "Largest Prime Factor";
-	menu_items[EP0004_LARGESTPALINDROMEPRODUCT] 	    = "Largest Palindrome Product";
-	menu_items[EP0005_SMALLESTMULTIPLE] 			    = "Smallest multiple";
-	menu_items[EP0006_SUMSQUAREDIFFERENCE] 		        = "Sum Square Difference";
-	menu_items[EP0007_100001STPRIME] 				    = "10001st Prime";
-	menu_items[EP0008_LARGESTPRODUCTINASERIES] 	        = "Largest Product in a Series";
-	menu_items[EP0009_SPECIALPYTHAGOREANTRIAD]      	= "Special Pythagorean Triad";
-	menu_items[EP0010_SUMMATIONOFPRIMES] 			    = "Summation of Primes";
-	menu_items[EP0011_LARGESTPRODUCTINAGRID] 	        = "Largest Product In A Grid";
-	menu_items[EP0012_HIGHLYDIVISIBLETRIANGULARNUMBER]  = "Highly Divisible Triangular Number";
-	menu_items[EP0013_SUMOF50DIGITNUMBERS]              = "Sum of One Hundred 50-digit Numbers";
-	menu_items[EP0014_LONGESTCOLLATZ]                   = "Longest Collatz Sequence";
-	menu_items[EP0015_LATTICEPATHS]                     = "The Number of Lattice Paths Through a Grid";
-	menu_items[EP0016_POWERSUMDIGIT]                    = "The sum of the digits of 2^1000";
-	menu_items[EP0017_NUMBERLETTERCOUNTS]               = "Number Letter Counts";
-	menu_items[EP0018_MAXIMUMPATHSUMI]                  = "The Maximum Path Sum through a Trianglular grid I";
-	menu_items[EP0019_COUNTINGSUNDAYS]                  = "Counting Sundays";
-	menu_items[EP0020_FACTORIALDIGITSUM]                = "Factorial Digit Sum";
-	menu_items[EP0021_SUMOFAMICABLENUMBERS]             = "The Sum of Amicable Numbers";
-	menu_items[EP0022_NAMESSCORES]                      = "Names Scores";
-	menu_items[EP0023_NONABUNDANTSUMS]                  = "Non-abundant Sums";
-	menu_items[EP0024_LEXICOGRAPHICPERMUTATIONS]        = "The Millionth Lexicographic Permutation of 0-9";
-	menu_items[EP0025_ONETHOUSANDDIGITFIBONACCI]        = "1000-digit Fibonacci";
-	menu_items[EP0026_RECIPROCALCYCLES]                 = "Reciprocal Cycles";
-    menu_items[EP0027_QUADRATICPRIMES]                  = "Quadratic Primes";
-	menu_items[EP0028_NUMBERSPIRALDIAGONALS]            = "NumberSpiralDiagonals";
-    menu_items[EP0029_DISTINCTPOWERS]                   = "Distinct Powers";
-	menu_items[EP0030_DIGITFIFTHPOWERS]                 = "Digit Fifth Powers";
-    menu_items[EP0032_PANDIGITALPRODUCTS]               = "Pandigital Products";
-    menu_items[EP0035_CIRCULARPRIMES]                   = "Circular Primes";
-	menu_items[EP0037_TRUNCATABLEPRIMES]                = "Truncatable Primes";
-	menu_items[EP0038_PANDIGITALMULTIPLES]              = "Pandigital Primes";
-	menu_items[EP0040_CHAMPERDOWNE] 		            = "Champerdowne's Constant";
-	menu_items[EP0041_PANDIGITALPRIME]                  = "Pandigital Prime";
-	menu_items[EP0049_PRIMEPERMUTATIONS]                = "Prime Permutations";
-    menu_items[EP0050_CONSECUTIVEPRIMESUM]              = "Consecutive Prime Sum";
-    menu_items[EP0059_XORDECRYPTION]                    = "XOR Decryption";
-    menu_items[EP0061_CYCLICALFIGURATENUMBERS]          = "Cyclical Figurate Numbers";
-    menu_items[EP0064_ODDPERIODSQUAREROOTS]             = "Odd Periodic Square Roots";
-
-	// TODO add a new menu item on the line above, using the line below
-	//menu_items[EPxxxx_XXXXXXXXXXXXXXXXX] 			= "";
+/* full list of items */
+menu_items[QUIT_PROGRAM]                            = "Quit program";
+menu_items[EP0001_3AND5] 		                    = "Multiples of 3 and 5";
+menu_items[EP0002_EVENFIBONACCI] 				    = "Even Fibonacci numbers";
+menu_items[EP0003_LARGESTPRIMEFACTOR]			    = "Largest Prime Factor";
+menu_items[EP0004_LARGESTPALINDROMEPRODUCT] 	    = "Largest Palindrome Product";
+menu_items[EP0005_SMALLESTMULTIPLE] 			    = "Smallest multiple";
+menu_items[EP0006_SUMSQUAREDIFFERENCE] 		        = "Sum Square Difference";
+menu_items[EP0007_100001STPRIME] 				    = "10001st Prime";
+menu_items[EP0008_LARGESTPRODUCTINASERIES] 	        = "Largest Product in a Series";
+menu_items[EP0009_SPECIALPYTHAGOREANTRIAD]      	= "Special Pythagorean Triad";
+menu_items[EP0010_SUMMATIONOFPRIMES] 			    = "Summation of Primes";
+menu_items[EP0011_LARGESTPRODUCTINAGRID] 	        = "Largest Product In A Grid";
+menu_items[EP0012_HIGHLYDIVISIBLETRIANGULARNUMBER]  = "Highly Divisible Triangular Number";
+menu_items[EP0013_SUMOF50DIGITNUMBERS]              = "Sum of One Hundred 50-digit Numbers";
+menu_items[EP0014_LONGESTCOLLATZ]                   = "Longest Collatz Sequence";
+menu_items[EP0015_LATTICEPATHS]                     = "The Number of Lattice Paths Through a Grid";
+menu_items[EP0016_POWERSUMDIGIT]                    = "The sum of the digits of 2^1000";
+menu_items[EP0017_NUMBERLETTERCOUNTS]               = "Number Letter Counts";
+menu_items[EP0018_MAXIMUMPATHSUMI]                  = "The Maximum Path Sum through a Trianglular grid I";
+menu_items[EP0019_COUNTINGSUNDAYS]                  = "Counting Sundays";
+menu_items[EP0020_FACTORIALDIGITSUM]                = "Factorial Digit Sum";
+menu_items[EP0021_SUMOFAMICABLENUMBERS]             = "The Sum of Amicable Numbers";
+menu_items[EP0022_NAMESSCORES]                      = "Names Scores";
+menu_items[EP0023_NONABUNDANTSUMS]                  = "Non-abundant Sums";
+menu_items[EP0024_LEXICOGRAPHICPERMUTATIONS]        = "The Millionth Lexicographic Permutation of 0-9";
+menu_items[EP0025_ONETHOUSANDDIGITFIBONACCI]        = "1000-digit Fibonacci";
+menu_items[EP0026_RECIPROCALCYCLES]                 = "Reciprocal Cycles";
+menu_items[EP0027_QUADRATICPRIMES]                  = "Quadratic Primes";
+menu_items[EP0028_NUMBERSPIRALDIAGONALS]            = "NumberSpiralDiagonals";
+menu_items[EP0029_DISTINCTPOWERS]                   = "Distinct Powers";
+menu_items[EP0030_DIGITFIFTHPOWERS]                 = "Digit Fifth Powers";
+menu_items[EP0032_PANDIGITALPRODUCTS]               = "Pandigital Products";
+menu_items[EP0035_CIRCULARPRIMES]                   = "Circular Primes";
+menu_items[EP0037_TRUNCATABLEPRIMES]                = "Truncatable Primes";
+menu_items[EP0038_PANDIGITALMULTIPLES]              = "Pandigital Primes";
+menu_items[EP0040_CHAMPERDOWNE] 		            = "Champerdowne's Constant";
+menu_items[EP0041_PANDIGITALPRIME]                  = "Pandigital Prime";
+menu_items[EP0049_PRIMEPERMUTATIONS]                = "Prime Permutations";
+menu_items[EP0050_CONSECUTIVEPRIMESUM]              = "Consecutive Prime Sum";
+menu_items[EP0059_XORDECRYPTION]                    = "XOR Decryption";
+menu_items[EP0061_CYCLICALFIGURATENUMBERS]          = "Cyclical Figurate Numbers";
+menu_items[EP0064_ODDPERIODSQUAREROOTS]             = "Odd Periodic Square Roots";
+//    menu_items[EP9999_ENDOFTHEWORLD]                    = "End of the world!";
+// TODO add a new menu item on the line above, using the line below
+//menu_items[EPxxxx_XXXXXXXXXXXXXXXXX] 			= "";
 
 
 	// count the menu items and get the last
@@ -402,15 +405,15 @@ int main() {
 //                DistinctPowers::run();
 //                break;
 
-            case EP0030_DIGITFIFTHPOWERS:
-                using DigitFifthPowers::run;
-                DigitFifthPowers::run();
-                break;
-
-//            case EP0032_PANDIGITALPRODUCTS:
-//                using PandigitalProducts::run;
-//                PandigitalProducts::run();
+//            case EP0030_DIGITFIFTHPOWERS:
+//                using DigitFifthPowers::run;
+//                DigitFifthPowers::run();
 //                break;
+
+            case EP0032_PANDIGITALPRODUCTS:
+                using PandigitalProducts::run;
+                PandigitalProducts::run();
+                break;
 
 //            case EP0035_CIRCULARPRIMES:
 //                using CircularPrimes::run;
@@ -461,6 +464,8 @@ int main() {
 //                using OddPeriodSquareRoots::run;
 //                OddPeriodSquareRoots::run();
 //                break;
+
+//            case EP9999_ENDOFTHEWORLD:
 
             // TODO use the template below to add a new module above this line
             /*
