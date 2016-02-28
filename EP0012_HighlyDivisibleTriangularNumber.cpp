@@ -19,15 +19,11 @@ using std::endl;
 using std::string;
 using std::to_string;
 using std::set;
-//using EulerUtils::primeFactors;
-using EulerUtils::Display::printVector;
 using EulerUtils::NumberTheory::Special::nthTriangularNumber;
-using EulerUtils::Display::printSet;
 using EulerUtils::NumberTheory::Factorise::integerDivisors;
-/* local defines */
+
 #define DIVISORS 500
 
-/* functions */
 namespace HighlyDivisibleTriangularNumber{
 
 void run () {
@@ -37,17 +33,6 @@ void run () {
     int divisors = 0;
     long long term = 0;
     long long triangular = 0;
-
-    /* TEST CODE */
-
-//    long long termSeven = EulerUtils::nthTriangularNumber(7);
-//    cout << "The 7th triangular number is " << std::to_string(termSeven) << endl;
-//
-//    set<long long> allFactors7th = EulerUtils::intFactors(termSeven);
-//    EulerUtils::printSet("Int factors of "+std::to_string(termSeven)+"...", allFactors7th);
-//    int sz7th = allFactors7th.size();
-//    cout << "The size of " << std::to_string(termSeven) << "'s factor list is " << std::to_string(sz7th) << endl ;
-//    return;
 
 
     /* DO THE WORK! */

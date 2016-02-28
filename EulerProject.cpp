@@ -23,44 +23,53 @@
 #include <limits>
 #include <sys/time.h>
 #include <time.h>
-
+#include "EulerUtils.hpp"
 
 
 /**********  EULER  MODULES  **********/
 // TEMPLATE line
-// #include "EPxxxx_Title.hpp"
-#include "EP0001_3and5.hpp"
-#include "EP0002_EvenFibonacci.hpp"
-#include "EP0003_LargestPrimeFactor.hpp"
-#include "EP0004_LargestPalindromeProduct.hpp"
-#include "EP0005_SmallestMultiple.hpp"
-#include "EP0006_SumSquareDifference.hpp"
-#include "EP0007_10001StPrime.hpp"
-#include "EP0008_LargestProductInASeries.hpp"
-#include "EP0009_SpecialPythagoreanTriad.hpp"
-#include "EP0010_SummationOfPrimes.hpp"
-#include "EP0011_LargestProductInAGrid.hpp"
-#include "EP0012_HighlyDivisibleTriangularNumber.hpp"
-#include "EP0013_SumOf50DigitNumbers.hpp"
-#include "EP0014_LongestCollatz.hpp"
-#include "EP0015_LatticePaths.hpp"
-#include "EP0016_PowerDigitSum.hpp"
-#include "EP0018_MaximumPathSumI.hpp"
-#include "EP0019_CountingSundays.hpp"
-#include "EP0020_FactorialDigitSum.hpp"
+//#include "EPxxxx_Title.hpp"
+//#include "EP0001_3and5.hpp" // DONE
+//#include "EP0002_EvenFibonacci.hpp" // DONE
+//#include "EP0003_LargestPrimeFactor.hpp" // DONE
+//#include "EP0004_LargestPalindromeProduct.hpp" // DONE
+#include "EP0005_SmallestMultiple.hpp" // DONE
+//#include "EP0006_SumSquareDifference.hpp" // DONE
+#include "EP0007_10001StPrime.hpp" // DONE
+#include "EP0008_LargestProductInASeries.hpp" // DONE
+//#include "EP0009_SpecialPythagoreanTriad.hpp" // DONE
+//#include "EP0010_SummationOfPrimes.hpp" // DONE
+#include "EP0011_LargestProductInAGrid.hpp" // DONE
+//#include "EP0012_HighlyDivisibleTriangularNumber.hpp" // DONE
+//#include "EP0013_SumOf50DigitNumbers.hpp" // DONE
+#include "EP0014_LongestCollatz.hpp" // DONE
+#include "EP0015_LatticePaths.hpp" // DONE
+#include "EP0016_PowerDigitSum.hpp" // DONE
+#include "EP0017_NumberLetterCounts.hpp"
+#include "EP0018_MaximumPathSumI.hpp" // DONE
+//#include "EP0019_CountingSundays.hpp" // DONE
+//#include "EP0020_FactorialDigitSum.hpp" // DONE
 #include "EP0021_SumOfAmicableNumbers.hpp"
-#include "EP0022_NamesScores.hpp"
-#include "EP0023_NonAbundantSums.hpp"
-#include "EP0024_LexicographicPermutations.hpp"
-#include "EP0026_ReciprocalCycles.hpp"
-#include "EP0028_NumberSpiralDiagonals.hpp"
-#include "EP0037_TruncatablePrimes.hpp"
-#include "EP0040_Champerdowne.hpp"
+//#include "EP0022_NamesScores.hpp" // DONE
+#include "EP0023_NonAbundantSums.hpp" // DONE
+#include "EP0024_LexicographicPermutations.hpp" // DONE
+#include "EP0025_OneThousandDigitFibonacci.hpp"
+#include "EP0026_ReciprocalCycles.hpp" // DONE
+#include "EP0027_QuadraticPrimes.hpp"
+//#include "EP0028_NumberSpiralDiagonals.hpp" // DONE
+#include "EP0029_DistinctPowers.hpp"
+#include "EP0030_DigitFifthPowers.hpp"
+//#include "EP0032_PandigitalProducts.hpp"
+//#include "EP0035_CircularPrimes.hpp"
+//#include "EP0037_TruncatablePrimes.hpp" // DONE
+//#include "EP0038_PandigitalMultiples.hpp"
+//#include "EP0040_Champerdowne.hpp" // DONE
+//#include "EP0041_PandigitalPrime.hpp"
 #include "EP0049_PrimePermutations.hpp"
-
-
-// test lines
-#include "EulerUtils.hpp"
+#include "EP0050_ConsecutivePrimeSum.hpp"
+#include "EP0059_XORDecryption.hpp"
+#include "EP0061_CyclicalFigurateNumbers.hpp"
+#include "EP0064_OddPeriodSquareRoots.hpp"
 
 
 /************************************
@@ -91,19 +100,20 @@ using namespace EulerUtils::Timer;
 #define EP0001_3AND5					        1
 #define EP0002_EVENFIBONACCI					2
 #define EP0003_LARGESTPRIMEFACTOR				3
-#define EP0004_LARGESTPALINDROMEPRODUCT			4
+#define EP0004_LARGESTPALINDROMEPRODUCT		    4
 #define EP0005_SMALLESTMULTIPLE				    5
-#define EP0006_SUMSQUAREDIFFERENCE				6
+#define EP0006_SUMSQUAREDIFFERENCE			    6
 #define EP0007_100001STPRIME					7
 #define EP0008_LARGESTPRODUCTINASERIES			8
-#define EP0009_SPECIALPYTHAGOREANTRIAD			9
-#define EP0010_SUMMATIONOFPRIMES				10
+#define EP0009_SPECIALPYTHAGOREANTRIAD	        9
+#define EP0010_SUMMATIONOFPRIMES		        10
 #define EP0011_LARGESTPRODUCTINAGRID			11
-#define EP0012_HIGHLYDIVISIBLETRIANGULARNUMBER	12
+#define EP0012_HIGHLYDIVISIBLETRIANGULARNUMBER  12
 #define EP0013_SUMOF50DIGITNUMBERS              13
 #define EP0014_LONGESTCOLLATZ                   14
 #define EP0015_LATTICEPATHS                     15
 #define EP0016_POWERSUMDIGIT                    16
+#define EP0017_NUMBERLETTERCOUNTS               17
 #define EP0018_MAXIMUMPATHSUMI                  18
 #define EP0019_COUNTINGSUNDAYS                  19
 #define EP0020_FACTORIALDIGITSUM                20
@@ -111,20 +121,25 @@ using namespace EulerUtils::Timer;
 #define EP0022_NAMESSCORES                      22
 #define EP0023_NONABUNDANTSUMS                  23
 #define EP0024_LEXICOGRAPHICPERMUTATIONS        24
+#define EP0025_ONETHOUSANDDIGITFIBONACCI        25
 #define EP0026_RECIPROCALCYCLES                 26
+#define EP0027_QUADRATICPRIMES                  27
 #define EP0028_NUMBERSPIRALDIAGONALS            28
+#define EP0029_DISTINCTPOWERS                   29
+#define EP0030_DIGITFIFTHPOWERS                 30
+#define EP0032_PANDIGITALPRODUCTS               32
+#define EP0035_CIRCULARPRIMES                   35
 #define EP0037_TRUNCATABLEPRIMES                37
+#define EP0038_PANDIGITALMULTIPLES              38
 #define EP0040_CHAMPERDOWNE				        40
+#define EP0041_PANDIGITALPRIME                  41
 #define EP0049_PRIMEPERMUTATIONS                49
-
-
-/***********  STRUCTS  ************/
-
-/**********  PROTOTYPES  **********/
+#define EP0050_CONSECUTIVEPRIMESUM              50
+#define EP0059_XORDECRYPTION                    59
+#define EP0061_CYCLICALFIGURATENUMBERS          61
+#define EP0064_ODDPERIODSQUAREROOTS             64
 
 int printMenu( map<int, string>items, int last_key );
-
-/**********  MAIN METHOD  **********/
 
 int main() {
 
@@ -148,6 +163,7 @@ int main() {
 	menu_items[EP0014_LONGESTCOLLATZ]                   = "Longest Collatz Sequence";
 	menu_items[EP0015_LATTICEPATHS]                     = "The Number of Lattice Paths Through a Grid";
 	menu_items[EP0016_POWERSUMDIGIT]                    = "The sum of the digits of 2^1000";
+	menu_items[EP0017_NUMBERLETTERCOUNTS]               = "Number Letter Counts";
 	menu_items[EP0018_MAXIMUMPATHSUMI]                  = "The Maximum Path Sum through a Trianglular grid I";
 	menu_items[EP0019_COUNTINGSUNDAYS]                  = "Counting Sundays";
 	menu_items[EP0020_FACTORIALDIGITSUM]                = "Factorial Digit Sum";
@@ -155,11 +171,23 @@ int main() {
 	menu_items[EP0022_NAMESSCORES]                      = "Names Scores";
 	menu_items[EP0023_NONABUNDANTSUMS]                  = "Non-abundant Sums";
 	menu_items[EP0024_LEXICOGRAPHICPERMUTATIONS]        = "The Millionth Lexicographic Permutation of 0-9";
+	menu_items[EP0025_ONETHOUSANDDIGITFIBONACCI]        = "1000-digit Fibonacci";
 	menu_items[EP0026_RECIPROCALCYCLES]                 = "Reciprocal Cycles";
+    menu_items[EP0027_QUADRATICPRIMES]                  = "Quadratic Primes";
 	menu_items[EP0028_NUMBERSPIRALDIAGONALS]            = "NumberSpiralDiagonals";
+    menu_items[EP0029_DISTINCTPOWERS]                   = "Distinct Powers";
+	menu_items[EP0030_DIGITFIFTHPOWERS]                 = "Digit Fifth Powers";
+    menu_items[EP0032_PANDIGITALPRODUCTS]               = "Pandigital Products";
+    menu_items[EP0035_CIRCULARPRIMES]                   = "Circular Primes";
 	menu_items[EP0037_TRUNCATABLEPRIMES]                = "Truncatable Primes";
+	menu_items[EP0038_PANDIGITALMULTIPLES]              = "Pandigital Primes";
 	menu_items[EP0040_CHAMPERDOWNE] 		            = "Champerdowne's Constant";
+	menu_items[EP0041_PANDIGITALPRIME]                  = "Pandigital Prime";
 	menu_items[EP0049_PRIMEPERMUTATIONS]                = "Prime Permutations";
+    menu_items[EP0050_CONSECUTIVEPRIMESUM]              = "Consecutive Prime Sum";
+    menu_items[EP0059_XORDECRYPTION]                    = "XOR Decryption";
+    menu_items[EP0061_CYCLICALFIGURATENUMBERS]          = "Cyclical Figurate Numbers";
+    menu_items[EP0064_ODDPERIODSQUAREROOTS]             = "Odd Periodic Square Roots";
 
 	// TODO add a new menu item on the line above, using the line below
 	//menu_items[EPxxxx_XXXXXXXXXXXXXXXXX] 			= "";
@@ -229,35 +257,35 @@ int main() {
         // module executions...
         switch ( sel ) {
 
-            case EP0001_3AND5:
-                using ThreeAndFive::run;
-                ThreeAndFive::run();
-                break;
+//            case EP0001_3AND5:
+//                using ThreeAndFive::run;
+//                ThreeAndFive::run();
+//                break;
 
-            case EP0002_EVENFIBONACCI:
-                using EvenFibonacci::run;
-                EvenFibonacci::run();
-                break;
+//            case EP0002_EVENFIBONACCI:
+//                using EvenFibonacci::run;
+//                EvenFibonacci::run();
+//                break;
 
-            case EP0003_LARGESTPRIMEFACTOR:
-                using LargestPrimeFactor::run;
-                LargestPrimeFactor::run();
-                break;
+//            case EP0003_LARGESTPRIMEFACTOR:
+//                using LargestPrimeFactor::run;
+//                LargestPrimeFactor::run();
+//                break;
 
-            case EP0004_LARGESTPALINDROMEPRODUCT:
-                using LargestPalindromeProduct::run;
-                LargestPalindromeProduct::run();
-                break;
+//            case EP0004_LARGESTPALINDROMEPRODUCT:
+//                using LargestPalindromeProduct::run;
+//                LargestPalindromeProduct::run();
+//                break;
 
             case EP0005_SMALLESTMULTIPLE:
                 using SmallestMultiple::run;
                 SmallestMultiple::run();
                 break;
 
-            case EP0006_SUMSQUAREDIFFERENCE:
-                using SumSquareDifference::run;
-                SumSquareDifference::run();
-                break;
+//            case EP0006_SUMSQUAREDIFFERENCE:
+//                using SumSquareDifference::run;
+//                SumSquareDifference::run();
+//                break;
 
             case EP0007_100001STPRIME:
                 using TenThousandFirstPrime::run;
@@ -269,15 +297,15 @@ int main() {
                 LargestProductInASeries::run();
                 break;
 
-            case EP0009_SPECIALPYTHAGOREANTRIAD:
-                using SpecialPythagoreanTriad::run;
-                SpecialPythagoreanTriad::run();
-                break;
+//            case EP0009_SPECIALPYTHAGOREANTRIAD:
+//                using SpecialPythagoreanTriad::run;
+//                SpecialPythagoreanTriad::run();
+//                break;
 
-            case EP0010_SUMMATIONOFPRIMES:
-                using SummationOfPrimes::run;
-                SummationOfPrimes::run();
-                break;
+//            case EP0010_SUMMATIONOFPRIMES:
+//                using SummationOfPrimes::run;
+//                SummationOfPrimes::run();
+//                break;
 
     		case EP0011_LARGESTPRODUCTINAGRID:
 //                using LargestProductInAGrid::BlackBox;
@@ -288,15 +316,15 @@ int main() {
                 //box.run();
                 break;
 
-            case EP0012_HIGHLYDIVISIBLETRIANGULARNUMBER:
-                using HighlyDivisibleTriangularNumber::run;
-                HighlyDivisibleTriangularNumber::run();
-                break;
+//            case EP0012_HIGHLYDIVISIBLETRIANGULARNUMBER:
+//                using HighlyDivisibleTriangularNumber::run;
+//                HighlyDivisibleTriangularNumber::run();
+//                break;
 
-            case EP0013_SUMOF50DIGITNUMBERS:
-                using SumOf50DigitNumbers::run;
-                SumOf50DigitNumbers::run();
-                break;
+//            case EP0013_SUMOF50DIGITNUMBERS:
+//                using SumOf50DigitNumbers::run;
+//                SumOf50DigitNumbers::run();
+//                break;
 
             case EP0014_LONGESTCOLLATZ:
                 using LongestCollatz::run;
@@ -313,30 +341,35 @@ int main() {
                 PowerDigitSum::run();
                 break;
 
+            case EP0017_NUMBERLETTERCOUNTS:
+                using NumberLetterCounts::run;
+                NumberLetterCounts::run();
+                break;
+
             case EP0018_MAXIMUMPATHSUMI:
                 using MaximumPathSumI::run;
                 MaximumPathSumI::run();
                 break;
 
-            case EP0019_COUNTINGSUNDAYS:
-                using CountingSundays::run;
-                CountingSundays::run();
-                break;
+//            case EP0019_COUNTINGSUNDAYS:
+//                using CountingSundays::run;
+//                CountingSundays::run();
+//                break;
 
-            case EP0020_FACTORIALDIGITSUM:
-                using FactorialDigitSum::run;
-                FactorialDigitSum::run();
-                break;
+//            case EP0020_FACTORIALDIGITSUM:
+//                using FactorialDigitSum::run;
+//                FactorialDigitSum::run();
+//                break;
 
             case EP0021_SUMOFAMICABLENUMBERS:
                 using SumOfAmicableNumbers::run;
                 SumOfAmicableNumbers::run();
                 break;
 
-            case EP0022_NAMESSCORES:
-                using NamesScores::run;
-                NamesScores::run();
-                break;
+//            case EP0022_NAMESSCORES:
+//                using NamesScores::run;
+//                NamesScores::run();
+//                break;
 
             case EP0023_NONABUNDANTSUMS:
                 using NonAbundantSums::run;
@@ -348,24 +381,64 @@ int main() {
                 LexicographicPermutations::run();
                 break;
 
+            case EP0025_ONETHOUSANDDIGITFIBONACCI:
+                using OneThousandDigitFibonacci::run;
+                OneThousandDigitFibonacci::run();
+                break;
+
             case EP0026_RECIPROCALCYCLES:
                 using ReciprocalCycles::run;
                 ReciprocalCycles::run();
                 break;
 
-            case EP0028_NUMBERSPIRALDIAGONALS:
-                using NumberSpiralDiagonals::run;
-                NumberSpiralDiagonals::run();
+            case EP0027_QUADRATICPRIMES:
+                using QuadraticPrimes::run;
+                QuadraticPrimes::run();
                 break;
 
-            case EP0037_TRUNCATABLEPRIMES:
-                using TruncatablePrimes::run;
-                TruncatablePrimes::run();
+//            case EP0028_NUMBERSPIRALDIAGONALS:
+//                using NumberSpiralDiagonals::run;
+//                NumberSpiralDiagonals::run();
+//                break;
+
+            case EP0029_DISTINCTPOWERS:
+                using DistinctPowers::run;
+                DistinctPowers::run();
                 break;
 
-            case EP0040_CHAMPERDOWNE:
-                using Champerdowne::run;
-                Champerdowne::run();
+            case EP0030_DIGITFIFTHPOWERS:
+                using DigitFifthPowers::run;
+                DigitFifthPowers::run();
+                break;
+
+            case EP0032_PANDIGITALPRODUCTS:
+                using PandigitalProducts::run;
+                PandigitalProducts::run();
+                break;
+
+            case EP0035_CIRCULARPRIMES:
+                using CircularPrimes::run;
+                CircularPrimes::run();
+                break;
+
+//            case EP0037_TRUNCATABLEPRIMES:
+//                using TruncatablePrimes::run;
+//                TruncatablePrimes::run();
+//                break;
+
+            case EP0038_PANDIGITALMULTIPLES:
+                using PandigitalMultiples::run;
+                PandigitalMultiples::run();
+                break;
+
+//            case EP0040_CHAMPERDOWNE:
+//                using Champerdowne::run;
+//                Champerdowne::run();
+//                break;
+
+            case EP0041_PANDIGITALPRIME:
+                using PandigitalPrime::run;
+                PandigitalPrime::run();
                 break;
 
             case EP0049_PRIMEPERMUTATIONS:
@@ -373,9 +446,29 @@ int main() {
                 PrimePermutations::run();
                 break;
 
+            case EP0050_CONSECUTIVEPRIMESUM:
+                using ConsecutivePrimeSum::run;
+                ConsecutivePrimeSum::run();
+                break;
+
+            case EP0059_XORDECRYPTION:
+                using XORDecryption::run;
+                XORDecryption::run();
+                break;
+
+            case EP0061_CYCLICALFIGURATENUMBERS:
+                using CyclicalFigurateNumbers::run;
+                CyclicalFigurateNumbers::run();
+                break;
+
+            case EP0064_ODDPERIODSQUAREROOTS:
+                using OddPeriodSquareRoots::run;
+                OddPeriodSquareRoots::run();
+                break;
+
             // TODO use the template below to add a new module above this line
             /*
-            case :
+            case EP:
                 using ::run;
                 ::run();
                 break;

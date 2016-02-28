@@ -46,34 +46,28 @@ void SumOf50DigitNumbers::run () {
 
 
 	/* DO THE WORK! */
-
     /* Read the file & populate array */
     fin.open( filename );
     string temp;
-    if ( fin.good() ) {
+    if ( fin.good() )
         for ( size_t cell = 0 ; cell < 100 ; ++cell ) {
             std::getline(fin,temp);
             nums[cell] = temp;
         }
-    } else {
+    else
         cout << "The file " << filename << " was not found!" << endl;
-    }
     fin.close();
-
     /* Build the sum */
     int carry = 0;
     int test = 0;
     cout << "out: " << nums[2] << endl;
     for ( size_t idx = 49; idx>=0 ; --idx ) {
         int sub_sum = carry;
-//        cout << "digit column " << idx << ": " ;
         for ( const string &num_str : nums ) {
             int num = num_str[idx]-'0';
-//            cout << num;
             test += num;
             sub_sum += (int)(num_str[idx]-'0');
         }
-//        cout << endl;
         if ( idx != 0 ) {
             int rh_digit = sub_sum%10;
             sum = std::to_string(rh_digit) + sum;
@@ -84,16 +78,7 @@ void SumOf50DigitNumbers::run () {
         }
     }
 
-//    cout << "sum: " << sum << endl;
-//    cout << "test: " << test << endl;
-//    for ( auto s : nums ) {
-//        cout << s << endl;
-//    }
-
-
-
 	/* DISPLAY RESULTS */
-
     string result = sum.substr(0,10);
     cout << "result: " << result << endl;
 	cout << endl;

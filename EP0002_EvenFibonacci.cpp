@@ -19,9 +19,7 @@ using EulerUtils::NumberTheory::General::even;
 
 
 
-namespace EvenFibonacci {
-
-void run(){
+void EvenFibonacci::run(){
 
 	// locals
 	int first = 1, second = 2;
@@ -34,27 +32,18 @@ void run(){
 	// print results
 	cout << endl << "Sum of even Fibonacci numbers that don't exceed " << LIM << " is " << evenSum << endl;
 
- } /* run() */
+} /* run() */
 
-int fibSum(int sum, int evenSum, int first, int second) {
+
+
+int EvenFibonacci::fibSum(int evenSum, int first, int second) {
 	int next = first + second;
-	// printing
-	if (PRINT_ON)
-		cout << next << " ";
-	// increase sum
-	sum += (first + second);
-	// increase evenSum
-	if ( even(first) ) {
+	if ( even(first) )
 		evenSum += first;
-	}
-
-	// test for limit
 	if ( next > LIM )
 		return even(second) ? evenSum + second : evenSum;
 	else
 		return fibSum(sum, evenSum, second, next);
-
 }
 
 
-} /* namespace EvenFibonacci */

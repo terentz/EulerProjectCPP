@@ -468,6 +468,13 @@ long long EulerUtils::NumberTheory::General::product( vector<long long> input ) 
     }
     return result;
 }
+vector<long long> EulerUtils::NumberTheory::Prime::gatherPrimesUpTo( long long n ) {
+    vector<long long> primes;
+    for ( long long i = 1 ; i <= n ; i++ ) {
+        if ( isPrime(i) ) primes.push_back(i);
+    }
+    return primes;
+}
 bool EulerUtils::NumberTheory::Prime::isPrime( long long input ) {
     if ( input < 2 ) return false;
     long long lim = floor(sqrt(input));
@@ -506,13 +513,6 @@ long long EulerUtils::NumberTheory::Prime::primesFactorial( long long n ) {
             return primesFactorial( n-1 );
     }
 }
-vector<long long> EulerUtils::NumberTheory::Prime::gatherPrimesUpTo( long long n ) {
-    vector<long long> primes;
-    for ( long long i = 1 ; i <= n ; i++ ) {
-        if ( isPrime(i) ) primes.push_back(i);
-    }
-    return primes;
-}
 const unsigned long long EulerUtils::NumberTheory::Special::nthTriangularNumber( const unsigned long long n ) {
     unsigned long long sum = 0;
     for ( unsigned long long current = 1 ; current <= n ; ++current )
@@ -525,7 +525,26 @@ int EulerUtils::NumberTheory::Special::addDigits( string input ) {
         total += std::stoi( input.substr(c,1) );
     return total;
 }
-const short EulerUtils::NumberTheory::Special::perfection( const unsigned long long n ) {
+const unsigned long long EulerUtils::NumberTheory::Special::Fibonacci::nthFibonacciNumber_recursion( const unsigned long long n, const unsigned long long args[] ) {
+    if ( n==0 ) return 0;
+    if ( n==1 || n==2 ) return 1;
+    return nthFibonacciNumber(n-1) + nthFibonacciNumber(n-2);
+}
+const unsigned long long EulerUtils::NumberTheory::Special::Fibonacci::nthFibonacciNumber_iteration( const unsigned long long n ) {
+    if ( n==0 ) return 0;
+    unsigned long long lhs=1, rhs=1;
+    for ( unsigned long long current = 1 ; current <= n ; ++current ) {
+        unsigned temp = lhs+rhs;
+        lhs = rhs;
+        rhs = temp;
+    }
+    return lhs;
+}
+const unsigned long long EulerUtils::NumberTheory::Special::Fibonacci::fibonacciLessThanN( unsigned long long n ) {
+    // TODO fill
+    return 0;
+}
+const short EulerUtils::NumberTheory::Special::Perfect::perfection( const unsigned long long n ) {
     unsigned long long sum = 1;
     for ( unsigned long long factor = 2 ; factor <= n/2 ; ++factor )
         if ( n%factor == 0 )
@@ -534,15 +553,13 @@ const short EulerUtils::NumberTheory::Special::perfection( const unsigned long l
     if ( sum > n ) return 1;
     return 0;
 }
-const bool EulerUtils::NumberTheory::Special::isPerfect( const unsigned long long n ) {
+const bool EulerUtils::NumberTheory::Special::Perfect::isPerfect( const unsigned long long n ) {
     unsigned long long sum = 1;
     for ( unsigned long long factor = 2 ; factor <= n/2 ; ++factor )
         if ( n%factor == 0 )
             sum += factor;
     return sum==n;
 }
-
-
 
 
 

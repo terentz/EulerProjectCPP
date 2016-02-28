@@ -269,9 +269,17 @@ namespace EulerUtils {
 
             const unsigned long long nthTriangularNumber( const unsigned long long n );
 
-            const short perfection( const unsigned long long );
+            namespace Perfect {
+                const bool isPerfect( const unsigned long long );
+                const short isDeficientPerfectOrAbundant( const unsigned long long );
+            };
 
-            const bool isPerfect( const unsigned long long );
+            namespace Fibonacci {
+
+                const unsigned long long nthFibonacciNumber_recursion( const unsigned long long n );
+                const unsigned long long nthFibonacciNumber_iteration( const unsigned long long n, const unsigned long long lhs=0, const unsigned long long rhs=1 );
+                const unsigned long long fibonacciLessThanN( const unsigned long long n );
+            };
         };
     };
 

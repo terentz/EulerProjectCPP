@@ -27,8 +27,6 @@ void LongestCollatz::run () {
 
 
 	/* LOCAL DECLARATIONS */
-
-    //const int limit = LIMIT_TEST;
     const int LIMITS[6] = { 10, 100, 1000, 10000, 100000, 1000000 };
     const int limit = LIMITS[MAGNITUDE-1];
     const int start = 1;
@@ -37,14 +35,7 @@ void LongestCollatz::run () {
     int leadStVal = 0;
 
 
-    /* TEST CODE */
-//    const int len13 = buildChain(13,0);
-//    cout << "The length of the chain starting at 13 is " << std::to_string(len13) << endl;
-//    return;
-
-
 	/* DO THE WORK! */
-
     for ( int currStVal = start ; currStVal < limit ; ++currStVal ) {
         // Generate the next chain...
         const int currChLen = buildChain( long(currStVal), 0 );
