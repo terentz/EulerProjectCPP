@@ -33,31 +33,31 @@
 //#include "EP0002_EvenFibonacci.hpp" // DONE
 //#include "EP0003_LargestPrimeFactor.hpp" // DONE
 //#include "EP0004_LargestPalindromeProduct.hpp" // DONE
-#include "EP0005_SmallestMultiple.hpp" // DONE
+//#include "EP0005_SmallestMultiple.hpp" // DONE
 //#include "EP0006_SumSquareDifference.hpp" // DONE
-#include "EP0007_10001StPrime.hpp" // DONE
-#include "EP0008_LargestProductInASeries.hpp" // DONE
+//#include "EP0007_10001StPrime.hpp" // DONE
+//#include "EP0008_LargestProductInASeries.hpp" // DONE
 //#include "EP0009_SpecialPythagoreanTriad.hpp" // DONE
 //#include "EP0010_SummationOfPrimes.hpp" // DONE
-#include "EP0011_LargestProductInAGrid.hpp" // DONE
+//#include "EP0011_LargestProductInAGrid.hpp" // DONE
 //#include "EP0012_HighlyDivisibleTriangularNumber.hpp" // DONE
 //#include "EP0013_SumOf50DigitNumbers.hpp" // DONE
-#include "EP0014_LongestCollatz.hpp" // DONE
-#include "EP0015_LatticePaths.hpp" // DONE
-#include "EP0016_PowerDigitSum.hpp" // DONE
-#include "EP0017_NumberLetterCounts.hpp"
-#include "EP0018_MaximumPathSumI.hpp" // DONE
+//#include "EP0014_LongestCollatz.hpp" // DONE
+//#include "EP0015_LatticePaths.hpp" // DONE
+//#include "EP0016_PowerDigitSum.hpp" // DONE
+//#include "EP0017_NumberLetterCounts.hpp"
+//#include "EP0018_MaximumPathSumI.hpp" // DONE
 //#include "EP0019_CountingSundays.hpp" // DONE
 //#include "EP0020_FactorialDigitSum.hpp" // DONE
-#include "EP0021_SumOfAmicableNumbers.hpp"
+//#include "EP0021_SumOfAmicableNumbers.hpp"
 //#include "EP0022_NamesScores.hpp" // DONE
-#include "EP0023_NonAbundantSums.hpp" // DONE
-#include "EP0024_LexicographicPermutations.hpp" // DONE
-#include "EP0025_OneThousandDigitFibonacci.hpp"
-#include "EP0026_ReciprocalCycles.hpp" // DONE
-#include "EP0027_QuadraticPrimes.hpp"
+//#include "EP0023_NonAbundantSums.hpp" // DONE
+//#include "EP0024_LexicographicPermutations.hpp" // DONE
+//#include "EP0025_OneThousandDigitFibonacci.hpp"
+//#include "EP0026_ReciprocalCycles.hpp" // DONE
+//#include "EP0027_QuadraticPrimes.hpp"
 //#include "EP0028_NumberSpiralDiagonals.hpp" // DONE
-#include "EP0029_DistinctPowers.hpp"
+//#include "EP0029_DistinctPowers.hpp"
 #include "EP0030_DigitFifthPowers.hpp"
 //#include "EP0032_PandigitalProducts.hpp"
 //#include "EP0035_CircularPrimes.hpp"
@@ -65,11 +65,11 @@
 //#include "EP0038_PandigitalMultiples.hpp"
 //#include "EP0040_Champerdowne.hpp" // DONE
 //#include "EP0041_PandigitalPrime.hpp"
-#include "EP0049_PrimePermutations.hpp"
-#include "EP0050_ConsecutivePrimeSum.hpp"
-#include "EP0059_XORDecryption.hpp"
-#include "EP0061_CyclicalFigurateNumbers.hpp"
-#include "EP0064_OddPeriodSquareRoots.hpp"
+//#include "EP0049_PrimePermutations.hpp"
+//#include "EP0050_ConsecutivePrimeSum.hpp"
+//#include "EP0059_XORDecryption.hpp"
+//#include "EP0061_CyclicalFigurateNumbers.hpp"
+//#include "EP0064_OddPeriodSquareRoots.hpp"
 
 
 /************************************
@@ -277,25 +277,25 @@ int main() {
 //                LargestPalindromeProduct::run();
 //                break;
 
-            case EP0005_SMALLESTMULTIPLE:
-                using SmallestMultiple::run;
-                SmallestMultiple::run();
-                break;
+//            case EP0005_SMALLESTMULTIPLE:
+//                using SmallestMultiple::run;
+//                SmallestMultiple::run();
+//                break;
 
 //            case EP0006_SUMSQUAREDIFFERENCE:
 //                using SumSquareDifference::run;
 //                SumSquareDifference::run();
 //                break;
 
-            case EP0007_100001STPRIME:
-                using TenThousandFirstPrime::run;
-                TenThousandFirstPrime::run();
-                break;
+//            case EP0007_100001STPRIME:
+//                using TenThousandFirstPrime::run;
+//                TenThousandFirstPrime::run();
+//                break;
 
-            case EP0008_LARGESTPRODUCTINASERIES:
-                using LargestProductInASeries::run;
-                LargestProductInASeries::run();
-                break;
+//            case EP0008_LARGESTPRODUCTINASERIES:
+//                using LargestProductInASeries::run;
+//                LargestProductInASeries::run();
+//                break;
 
 //            case EP0009_SPECIALPYTHAGOREANTRIAD:
 //                using SpecialPythagoreanTriad::run;
@@ -307,14 +307,10 @@ int main() {
 //                SummationOfPrimes::run();
 //                break;
 
-    		case EP0011_LARGESTPRODUCTINAGRID:
-//                using LargestProductInAGrid::BlackBox;
-                using LargestProductInAGrid::run;
-                LargestProductInAGrid::run();
-                //BlackBox box;
-                //box.execute();
-                //box.run();
-                break;
+//    		case EP0011_LARGESTPRODUCTINAGRID:
+//                using LargestProductInAGrid::run;
+//                LargestProductInAGrid::run();
+//                break;
 
 //            case EP0012_HIGHLYDIVISIBLETRIANGULARNUMBER:
 //                using HighlyDivisibleTriangularNumber::run;
@@ -326,30 +322,30 @@ int main() {
 //                SumOf50DigitNumbers::run();
 //                break;
 
-            case EP0014_LONGESTCOLLATZ:
-                using LongestCollatz::run;
-                LongestCollatz::run();
-                break;
+//            case EP0014_LONGESTCOLLATZ:
+//                using LongestCollatz::run;
+//                LongestCollatz::run();
+//                break;
 
-            case EP0015_LATTICEPATHS:
-                using LatticePaths::run;
-                LatticePaths::run();
-                break;
+//            case EP0015_LATTICEPATHS:
+//                using LatticePaths::run;
+//                LatticePaths::run();
+//                break;
 
-            case EP0016_POWERSUMDIGIT:
-                using PowerDigitSum::run;
-                PowerDigitSum::run();
-                break;
+//            case EP0016_POWERSUMDIGIT:
+//                using PowerDigitSum::run;
+//                PowerDigitSum::run();
+//                break;
 
-            case EP0017_NUMBERLETTERCOUNTS:
-                using NumberLetterCounts::run;
-                NumberLetterCounts::run();
-                break;
+//            case EP0017_NUMBERLETTERCOUNTS:
+//                using NumberLetterCounts::run;
+//                NumberLetterCounts::run();
+//                break;
 
-            case EP0018_MAXIMUMPATHSUMI:
-                using MaximumPathSumI::run;
-                MaximumPathSumI::run();
-                break;
+//            case EP0018_MAXIMUMPATHSUMI:
+//                using MaximumPathSumI::run;
+//                MaximumPathSumI::run();
+//                break;
 
 //            case EP0019_COUNTINGSUNDAYS:
 //                using CountingSundays::run;
@@ -361,110 +357,110 @@ int main() {
 //                FactorialDigitSum::run();
 //                break;
 
-            case EP0021_SUMOFAMICABLENUMBERS:
-                using SumOfAmicableNumbers::run;
-                SumOfAmicableNumbers::run();
-                break;
+//            case EP0021_SUMOFAMICABLENUMBERS:
+//                using SumOfAmicableNumbers::run;
+//                SumOfAmicableNumbers::run();
+//                break;
 
 //            case EP0022_NAMESSCORES:
 //                using NamesScores::run;
 //                NamesScores::run();
 //                break;
 
-            case EP0023_NONABUNDANTSUMS:
-                using NonAbundantSums::run;
-                NonAbundantSums::run();
-                break;
+//            case EP0023_NONABUNDANTSUMS:
+//                using NonAbundantSums::run;
+//                NonAbundantSums::run();
+//                break;
 
-            case EP0024_LEXICOGRAPHICPERMUTATIONS:
-                using LexicographicPermutations::run;
-                LexicographicPermutations::run();
-                break;
+//            case EP0024_LEXICOGRAPHICPERMUTATIONS:
+//                using LexicographicPermutations::run;
+//                LexicographicPermutations::run();
+//                break;
 
-            case EP0025_ONETHOUSANDDIGITFIBONACCI:
-                using OneThousandDigitFibonacci::run;
-                OneThousandDigitFibonacci::run();
-                break;
+//            case EP0025_ONETHOUSANDDIGITFIBONACCI:
+//                using OneThousandDigitFibonacci::run;
+//                OneThousandDigitFibonacci::run();
+//                break;
 
-            case EP0026_RECIPROCALCYCLES:
-                using ReciprocalCycles::run;
-                ReciprocalCycles::run();
-                break;
+//            case EP0026_RECIPROCALCYCLES:
+//                using ReciprocalCycles::run;
+//                ReciprocalCycles::run();
+//                break;
 
-            case EP0027_QUADRATICPRIMES:
-                using QuadraticPrimes::run;
-                QuadraticPrimes::run();
-                break;
+//            case EP0027_QUADRATICPRIMES:
+//                using QuadraticPrimes::run;
+//                QuadraticPrimes::run();
+//                break;
 
 //            case EP0028_NUMBERSPIRALDIAGONALS:
 //                using NumberSpiralDiagonals::run;
 //                NumberSpiralDiagonals::run();
 //                break;
 
-            case EP0029_DISTINCTPOWERS:
-                using DistinctPowers::run;
-                DistinctPowers::run();
-                break;
+//            case EP0029_DISTINCTPOWERS:
+//                using DistinctPowers::run;
+//                DistinctPowers::run();
+//                break;
 
             case EP0030_DIGITFIFTHPOWERS:
                 using DigitFifthPowers::run;
                 DigitFifthPowers::run();
                 break;
 
-            case EP0032_PANDIGITALPRODUCTS:
-                using PandigitalProducts::run;
-                PandigitalProducts::run();
-                break;
+//            case EP0032_PANDIGITALPRODUCTS:
+//                using PandigitalProducts::run;
+//                PandigitalProducts::run();
+//                break;
 
-            case EP0035_CIRCULARPRIMES:
-                using CircularPrimes::run;
-                CircularPrimes::run();
-                break;
+//            case EP0035_CIRCULARPRIMES:
+//                using CircularPrimes::run;
+//                CircularPrimes::run();
+//                break;
 
 //            case EP0037_TRUNCATABLEPRIMES:
 //                using TruncatablePrimes::run;
 //                TruncatablePrimes::run();
 //                break;
 
-            case EP0038_PANDIGITALMULTIPLES:
-                using PandigitalMultiples::run;
-                PandigitalMultiples::run();
-                break;
+//            case EP0038_PANDIGITALMULTIPLES:
+//                using PandigitalMultiples::run;
+//                PandigitalMultiples::run();
+//                break;
 
 //            case EP0040_CHAMPERDOWNE:
 //                using Champerdowne::run;
 //                Champerdowne::run();
 //                break;
 
-            case EP0041_PANDIGITALPRIME:
-                using PandigitalPrime::run;
-                PandigitalPrime::run();
-                break;
+//            case EP0041_PANDIGITALPRIME:
+//                using PandigitalPrime::run;
+//                PandigitalPrime::run();
+//                break;
 
-            case EP0049_PRIMEPERMUTATIONS:
-                using PrimePermutations::run;
-                PrimePermutations::run();
-                break;
+//            case EP0049_PRIMEPERMUTATIONS:
+//                using PrimePermutations::run;
+//                PrimePermutations::run();
+//                break;
 
-            case EP0050_CONSECUTIVEPRIMESUM:
-                using ConsecutivePrimeSum::run;
-                ConsecutivePrimeSum::run();
-                break;
+//            case EP0050_CONSECUTIVEPRIMESUM:
+//                using ConsecutivePrimeSum::run;
+//                ConsecutivePrimeSum::run();
+//                break;
 
-            case EP0059_XORDECRYPTION:
-                using XORDecryption::run;
-                XORDecryption::run();
-                break;
+//            case EP0059_XORDECRYPTION:
+//                using XORDecryption::run;
+//                XORDecryption::run();
+//                break;
 
-            case EP0061_CYCLICALFIGURATENUMBERS:
-                using CyclicalFigurateNumbers::run;
-                CyclicalFigurateNumbers::run();
-                break;
+//            case EP0061_CYCLICALFIGURATENUMBERS:
+//                using CyclicalFigurateNumbers::run;
+//                CyclicalFigurateNumbers::run();
+//                break;
 
-            case EP0064_ODDPERIODSQUAREROOTS:
-                using OddPeriodSquareRoots::run;
-                OddPeriodSquareRoots::run();
-                break;
+//            case EP0064_ODDPERIODSQUAREROOTS:
+//                using OddPeriodSquareRoots::run;
+//                OddPeriodSquareRoots::run();
+//                break;
 
             // TODO use the template below to add a new module above this line
             /*
@@ -488,8 +484,8 @@ int main() {
 
             /* unreachable */
             default:
-                cout << "Tristan, this code's meant to be unreachable!!" << endl <<
-                        "You might have a menu entry without an accompanying module.." << endl;
+                cout << "This module is not included in the current build," << endl
+                     << "check EulerProject.cpp and your makefile..." << endl;
                 break;
 		} /* END switch ( sel ) {} */
 

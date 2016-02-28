@@ -525,10 +525,10 @@ int EulerUtils::NumberTheory::Special::addDigits( string input ) {
         total += std::stoi( input.substr(c,1) );
     return total;
 }
-const unsigned long long EulerUtils::NumberTheory::Special::Fibonacci::nthFibonacciNumber_recursion( const unsigned long long n, const unsigned long long args[] ) {
+const unsigned long long EulerUtils::NumberTheory::Special::Fibonacci::nthFibonacciNumber_recursion( const unsigned long long n ) {
     if ( n==0 ) return 0;
     if ( n==1 || n==2 ) return 1;
-    return nthFibonacciNumber(n-1) + nthFibonacciNumber(n-2);
+    return nthFibonacciNumber_recursion(n-1) + nthFibonacciNumber_recursion(n-2);
 }
 const unsigned long long EulerUtils::NumberTheory::Special::Fibonacci::nthFibonacciNumber_iteration( const unsigned long long n ) {
     if ( n==0 ) return 0;
@@ -544,7 +544,7 @@ const unsigned long long EulerUtils::NumberTheory::Special::Fibonacci::fibonacci
     // TODO fill
     return 0;
 }
-const short EulerUtils::NumberTheory::Special::Perfect::perfection( const unsigned long long n ) {
+const short EulerUtils::NumberTheory::Special::Perfect::isDeficientPerfectOrAbundant( const unsigned long long n ) {
     unsigned long long sum = 1;
     for ( unsigned long long factor = 2 ; factor <= n/2 ; ++factor )
         if ( n%factor == 0 )

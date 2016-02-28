@@ -277,7 +277,7 @@ namespace EulerUtils {
             namespace Fibonacci {
 
                 const unsigned long long nthFibonacciNumber_recursion( const unsigned long long n );
-                const unsigned long long nthFibonacciNumber_iteration( const unsigned long long n, const unsigned long long lhs=0, const unsigned long long rhs=1 );
+                const unsigned long long nthFibonacciNumber_iteration( const unsigned long long n );
                 const unsigned long long fibonacciLessThanN( const unsigned long long n );
             };
         };
