@@ -11,6 +11,7 @@
 namespace NumberLetterCounts {
 
 void run ();
+//string drillForColumn( string so_far, unsigned short digit, unsigned short magnitude, unsigned int &sum );
 
 };
 

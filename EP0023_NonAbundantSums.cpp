@@ -12,7 +12,7 @@
 using std::cout;
 using std::endl;
 using EulerUtils::Display::printVector;
-using EulerUtils::NumberTheory::Special::perfection;
+using EulerUtils::NumberTheory::Special::Perfect::isDeficientPerfectOrAbundant;
 
 
 /* NAMESPACE DEFINES */
@@ -31,7 +31,7 @@ void NonAbundantSums::run () {
 	/* DO THE WORK! */
 	// Populate the abundant numbers set...
 	for ( int p = 1 ; p < SKY ; ++p )
-        if ( perfection(p) == 1 )
+        if ( isDeficientPerfectOrAbundant(p) == 1 )
             abundant_nums.push_back(p);
     int set_size = abundant_nums.size();
 
