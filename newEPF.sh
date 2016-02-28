@@ -66,17 +66,8 @@ NL=$'\n'
 TAB=$'\t'
 TABS=${TAB}${TAB}${TAB}${TAB}
 
-#OLD_INCLUDE_LINE=""
-#OLD_DEFINE_LINE=""
-#OLD_MENU_LINE=""
-#OLD_MENU_CODE=""
-#NEW_INCLUDE_LINE=""
-#NEW_DEFINE_LINE=""
-#NEW_MENU_LINE=""
-#NEW_MENU_CODE=""
 
-
-# 1. Extract the trailing #include line...
+# 1. Get the location of the next #include line...
 let LN_NUM=0
 while read line
 do
@@ -95,11 +86,7 @@ do
 			CURRENT_NUMBER=$((CURRENT_NUMSTR))
 			if [[ $((CURRENT_NUMBER)) -gt $((NUM)) ]];
 			then
-				OLD_INCLUDE_LINE=$line
 				let INCLUDE_START=$LN_NUM
-				echo "****************************"
-				echo "include start : ${INCLUDE_START}"
-				echo "****************************"
 				break
 			fi
 		fi
@@ -108,7 +95,7 @@ done < EulerProject.cpp
 
 echo "A1. done "
 
-# 2. Now the trailing #define line
+# 2. And the trailing #define line
 let LN_NUM=0
 while read line
 do
@@ -124,7 +111,6 @@ do
 			CURRENT_NUMBER=$((CURRENT_NUMSTR))
 			if [[ $((CURRENT_NUMBER)) -gt $((NUM)) ]];
 			then
-				OLD_DEFINE_LINE=$line
 				let DEFINE_START=$((LN_NUM))+1
 				break
 			fi
@@ -150,7 +136,6 @@ do
 		CURRENT_NUMBER=$((CURRENT_NUMSTR))
 		if [[ $((CURRENT_NUMBER)) -gt $((NUM)) ]];
 		then
-			OLD_MENU_LINE=$line
 			let MENU_LINE_START=$LN_NUM+2
 			break
 		fi
@@ -162,7 +147,6 @@ do
 		CURRENT_NUMBER=$((CURRENT_NUMSTR))
 		if [[ $((CURRENT_NUMBER)) -gt $((NUM)) ]];
 		then
-			OLD_MENU_LINE=$line
 			let MENU_LINE_START=$LN_NUM+2
 			break
 		fi
@@ -187,9 +171,7 @@ do
 		CURRENT_NUMBER=$((CURRENT_NUMSTR))
 		if [[ $((CURRENT_NUMBER)) -gt $((NUM)) ]];
 		then
-			OLD_MENU_CODE=$line
-			#let MENU_CODE_START=$LN_NUM+3
-			let MENU_CODE_START=$LN_NUM
+			let MENU_CODE_START=$LN_NUM+3
 			break
 		fi
 	elif [[ "${args[0]}" == "case" ]];
@@ -200,9 +182,7 @@ do
 		CURRENT_NUMBER=$((CURRENT_NUMSTR))
 		if [[ $((CURRENT_NUMBER)) -gt $((NUM)) ]];
 		then
-			OLD_MENU_CODE=$line
-			#let MENU_CODE_START=$LN_NUM+3
-			let MENU_CODE_START=$LN_NUM
+			let MENU_CODE_START=$LN_NUM+3
 			break
 		fi
 	fi
