@@ -425,10 +425,10 @@ menu_items[EP0064_ODDPERIODSQUAREROOTS]             = "Odd Periodic Square Roots
 //                TruncatablePrimes::run();
 //                break;
 
-            case EP0038_PANDIGITALMULTIPLES:
-                using PandigitalMultiples::run;
-                PandigitalMultiples::run();
-                break;
+//            case EP0038_PANDIGITALMULTIPLES:
+//                using PandigitalMultiples::run;
+//                PandigitalMultiples::run();
+//                break;
 
 //            case EP0040_CHAMPERDOWNE:
 //                using Champerdowne::run;

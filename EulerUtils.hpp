@@ -144,6 +144,10 @@ namespace EulerUtils {
             inline bool ngtv( I num ) { return ( num < 0 ); };
 
             long long product( vector<long long> input );
+
+            void rotate_int( unsigned int * );
+            unsigned int rotate_int( unsigned int );
+            string rotate_str( string );
         };
 
         namespace Factorial {
@@ -239,16 +243,16 @@ namespace EulerUtils {
 
         namespace Prime {
 
-            bool isPrime( long long input );
+            bool isPrime( unsigned long long input );
 
-            long long nextPrime( long long input );
+            unsigned long long nextPrime( unsigned long long input );
 
             //	long nthPrime( long n );
-            long long nthPrime( long long n );
+            unsigned long long nthPrime( unsigned long long n );
 
-            long long primesFactorial( long long n );
+            unsigned long long primesFactorial( unsigned long long n );
 
-            vector<long long> gatherPrimesUpTo( long long n );
+            vector<unsigned long long> gatherPrimesUpTo( unsigned long long n );
         };
 
         namespace Factorise {

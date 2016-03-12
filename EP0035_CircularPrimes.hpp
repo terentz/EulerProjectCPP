@@ -11,7 +11,7 @@
 namespace CircularPrimes {
 
 void run ();
-
+bool isCircularPrime( unsigned int );
 };
 
 #endif /* EP0035_CIRCULARPRIMES_HPP_ */
