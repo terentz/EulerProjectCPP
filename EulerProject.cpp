@@ -65,6 +65,7 @@
 #include "EP0038_PandigitalMultiples.hpp"
 //#include "EP0040_Champerdowne.hpp" // DONE
 //#include "EP0041_PandigitalPrime.hpp"
+#include "EP0046_GoldbachsOther.hpp"
 //#include "EP0049_PrimePermutations.hpp"
 //#include "EP0050_ConsecutivePrimeSum.hpp"
 //#include "EP0059_XORDecryption.hpp"
@@ -133,6 +134,7 @@ using namespace EulerUtils::Timer;
 #define EP0038_PANDIGITALMULTIPLES              38
 #define EP0040_CHAMPERDOWNE				        40
 #define EP0041_PANDIGITALPRIME                  41
+#define EP0046_GOLDBACHSOTHER                   46
 #define EP0049_PRIMEPERMUTATIONS                49
 #define EP0050_CONSECUTIVEPRIMESUM              50
 #define EP0059_XORDECRYPTION                    59
@@ -186,6 +188,7 @@ menu_items[EP0037_TRUNCATABLEPRIMES]                = "Truncatable Primes";
 menu_items[EP0038_PANDIGITALMULTIPLES]              = "Pandigital Primes";
 menu_items[EP0040_CHAMPERDOWNE] 		            = "Champerdowne's Constant";
 menu_items[EP0041_PANDIGITALPRIME]                  = "Pandigital Prime";
+menu_items[EP0046_GOLDBACHSOTHER]                   = "GoldbachsOther";
 menu_items[EP0049_PRIMEPERMUTATIONS]                = "Prime Permutations";
 menu_items[EP0050_CONSECUTIVEPRIMESUM]              = "Consecutive Prime Sum";
 menu_items[EP0059_XORDECRYPTION]                    = "XOR Decryption";
@@ -415,10 +418,10 @@ menu_items[EP0064_ODDPERIODSQUAREROOTS]             = "Odd Periodic Square Roots
                 PandigitalProducts::run();
                 break;
 
-            case EP0035_CIRCULARPRIMES:
-                using CircularPrimes::run;
-                CircularPrimes::run();
-                break;
+//            case EP0035_CIRCULARPRIMES:
+//                using CircularPrimes::run;
+//                CircularPrimes::run();
+//                break;
 
 //            case EP0037_TRUNCATABLEPRIMES:
 //                using TruncatablePrimes::run;
@@ -439,6 +442,11 @@ menu_items[EP0064_ODDPERIODSQUAREROOTS]             = "Odd Periodic Square Roots
 //                using PandigitalPrime::run;
 //                PandigitalPrime::run();
 //                break;
+
+            case EP0046_GOLDBACHSOTHER:
+                using GoldbachsOther::run;
+                GoldbachsOther::run();
+                break;
 
 //            case EP0049_PRIMEPERMUTATIONS:
 //                using PrimePermutations::run;
