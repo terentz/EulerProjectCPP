@@ -49,7 +49,7 @@
 //#include "EP0018_MaximumPathSumI.hpp" // DONE
 //#include "EP0019_CountingSundays.hpp" // DONE
 //#include "EP0020_FactorialDigitSum.hpp" // DONE
-//#include "EP0021_SumOfAmicableNumbers.hpp"
+#include "EP0021_SumOfAmicableNumbers.hpp"
 //#include "EP0022_NamesScores.hpp" // DONE
 //#include "EP0023_NonAbundantSums.hpp" // DONE
 //#include "EP0024_LexicographicPermutations.hpp" // DONE
@@ -60,12 +60,12 @@
 //#include "EP0029_DistinctPowers.hpp"
 //#include "EP0030_DigitFifthPowers.hpp"
 #include "EP0032_PandigitalProducts.hpp"
-#include "EP0035_CircularPrimes.hpp"
+//#include "EP0035_CircularPrimes.hpp"
 //#include "EP0037_TrsuncatablePrimes.hpp" // DONE
-#include "EP0038_PandigitalMultiples.hpp"
+//#include "EP0038_PandigitalMultiples.hpp"
 //#include "EP0040_Champerdowne.hpp" // DONE
 //#include "EP0041_PandigitalPrime.hpp"
-#include "EP0046_GoldbachsOther.hpp"
+//#include "EP0046_GoldbachsOther.hpp"
 //#include "EP0049_PrimePermutations.hpp"
 //#include "EP0050_ConsecutivePrimeSum.hpp"
 //#include "EP0059_XORDecryption.hpp"
@@ -363,10 +363,10 @@ menu_items[EP0064_ODDPERIODSQUAREROOTS]             = "Odd Periodic Square Roots
 //                FactorialDigitSum::run();
 //                break;
 
-//            case EP0021_SUMOFAMICABLENUMBERS:
-//                using SumOfAmicableNumbers::run;
-//                SumOfAmicableNumbers::run();
-//                break;
+            case EP0021_SUMOFAMICABLENUMBERS:
+                using SumOfAmicableNumbers::run;
+                SumOfAmicableNumbers::run();
+                break;
 
 //            case EP0022_NAMESSCORES:
 //                using NamesScores::run;
@@ -443,10 +443,10 @@ menu_items[EP0064_ODDPERIODSQUAREROOTS]             = "Odd Periodic Square Roots
 //                PandigitalPrime::run();
 //                break;
 
-            case EP0046_GOLDBACHSOTHER:
-                using GoldbachsOther::run;
-                GoldbachsOther::run();
-                break;
+//            case EP0046_GOLDBACHSOTHER:
+//                using GoldbachsOther::run;
+//                GoldbachsOther::run();
+//                break;
 
 //            case EP0049_PRIMEPERMUTATIONS:
 //                using PrimePermutations::run;

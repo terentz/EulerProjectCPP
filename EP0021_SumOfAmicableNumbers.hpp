@@ -11,14 +11,8 @@
 namespace SumOfAmicableNumbers {
 
 void run ();
+unsigned int sumOfDivisors( const unsigned int n );
 
-int sumOfFactors(int);
-
-struct NonPrime {
-    int n;
-    int d;
-//    NonPrime(){};
-};
 
 };
 

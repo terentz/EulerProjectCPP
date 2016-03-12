@@ -137,7 +137,7 @@ namespace EulerUtils {
             inline bool even( I num ) { return ( num % 2 == 0 ); };
 //            inline bool even(long long n) { return ( n % 2 == 0 ); };
 
-            bool even(long long n);
+            bool even(unsigned long long n);
 
             template<typename I>
             inline bool pstv( I num ) { return ( num > 0 ); };
@@ -150,6 +150,12 @@ namespace EulerUtils {
             void rotate_int( unsigned int * );
             unsigned int rotate_int( unsigned int );
             string rotate_str( string );
+
+//            template<typename UI>
+//            unsigned long long vector_sum( const vector<UI> );
+            unsigned int vector_sum( const vector<unsigned int> );
+            unsigned long int vector_sum( const vector<unsigned long int> );
+            unsigned long long vector_sum( const vector<unsigned long long> );
         };
 
         namespace Factorial {
@@ -243,6 +249,20 @@ namespace EulerUtils {
             };
         };
 
+        namespace Factorise {
+
+            vector<unsigned int> integerDivisors( unsigned int input, bool include_self = true );
+            vector<unsigned long int> integerDivisors( unsigned long int input, bool include_self = true );
+            vector<unsigned long long> integerDivisors( unsigned long long input, bool include_self = true );
+
+            vector<unsigned long long> primeFactorsSet( unsigned long long input );
+
+            const vector<unsigned long long> primeFactorsAll( unsigned long long input );
+
+            unsigned long long gcd( unsigned long long a, unsigned long long b );
+
+        };
+
         namespace Prime {
 
             bool isPrime( unsigned long long input );
@@ -257,23 +277,17 @@ namespace EulerUtils {
             vector<unsigned long long> gatherPrimesUpTo( unsigned long long n );
         };
 
-        namespace Factorise {
-
-            set<unsigned long long> integerDivisors( unsigned long long input, bool include_self = true );
-
-            vector<long long> primeFactorsSet( long long input );
-
-            const vector<long long> primeFactorsAll( long long input );
-
-            long long gcd( long long a, long long b );
-
-        };
-
         namespace Special {
 
             int addDigits( string input );
 
             const unsigned long long nthTriangularNumber( const unsigned long long n );
+
+            namespace Amicable {
+//                template<typename UI>
+//                const bool isAmicable( UI n );
+                const bool isAmicable( unsigned int );
+            };
 
             namespace Fibonacci {
                 const unsigned long long nthFibonacciNumber_recursion( const unsigned long long n );
