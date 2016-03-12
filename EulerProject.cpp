@@ -60,9 +60,9 @@
 //#include "EP0029_DistinctPowers.hpp"
 //#include "EP0030_DigitFifthPowers.hpp"
 #include "EP0032_PandigitalProducts.hpp"
-//#include "EP0035_CircularPrimes.hpp"
+#include "EP0035_CircularPrimes.hpp"
 //#include "EP0037_TrsuncatablePrimes.hpp" // DONE
-//#include "EP0038_PandigitalMultiples.hpp"
+#include "EP0038_PandigitalMultiples.hpp"
 //#include "EP0040_Champerdowne.hpp" // DONE
 //#include "EP0041_PandigitalPrime.hpp"
 //#include "EP0049_PrimePermutations.hpp"
@@ -110,7 +110,7 @@ using namespace EulerUtils::Timer;
 #define EP0011_LARGESTPRODUCTINAGRID			11
 #define EP0012_HIGHLYDIVISIBLETRIANGULARNUMBER  12
 #define EP0013_SUMOF50DIGITNUMBERS              13
-#define EP0014_LONGESTCOLLATZ                 9999  14
+#define EP0014_LONGESTCOLLATZ                   14
 #define EP0015_LATTICEPATHS                     15
 #define EP0016_POWERSUMDIGIT                    16
 #define EP0017_NUMBERLETTERCOUNTS               17
@@ -415,20 +415,20 @@ menu_items[EP0064_ODDPERIODSQUAREROOTS]             = "Odd Periodic Square Roots
                 PandigitalProducts::run();
                 break;
 
-//            case EP0035_CIRCULARPRIMES:
-//                using CircularPrimes::run;
-//                CircularPrimes::run();
-//                break;
+            case EP0035_CIRCULARPRIMES:
+                using CircularPrimes::run;
+                CircularPrimes::run();
+                break;
 
 //            case EP0037_TRUNCATABLEPRIMES:
 //                using TruncatablePrimes::run;
 //                TruncatablePrimes::run();
 //                break;
 
-//            case EP0038_PANDIGITALMULTIPLES:
-//                using PandigitalMultiples::run;
-//                PandigitalMultiples::run();
-//                break;
+            case EP0038_PANDIGITALMULTIPLES:
+                using PandigitalMultiples::run;
+                PandigitalMultiples::run();
+                break;
 
 //            case EP0040_CHAMPERDOWNE:
 //                using Champerdowne::run;

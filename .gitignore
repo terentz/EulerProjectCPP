@@ -1,5 +1,6 @@
-obj
-bin
+obj/
+bin/
+_dead/
 EulerProject.cbp
 EulerProject.depend
 EulerProject.layout

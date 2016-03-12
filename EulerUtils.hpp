@@ -269,16 +269,20 @@ namespace EulerUtils {
 
             const unsigned long long nthTriangularNumber( const unsigned long long n );
 
-            namespace Perfect {
-                const bool isPerfect( const unsigned long long );
-                const short isDeficientPerfectOrAbundant( const unsigned long long );
-            };
-
             namespace Fibonacci {
-
                 const unsigned long long nthFibonacciNumber_recursion( const unsigned long long n );
                 const unsigned long long nthFibonacciNumber_iteration( const unsigned long long n );
                 const unsigned long long fibonacciLessThanN( const unsigned long long n );
+            };
+
+            namespace Pandigital {
+                const bool isPandigital( string x );
+                const bool isPandigital( unsigned int x );
+            };
+
+            namespace Perfect {
+                const bool isPerfect( const unsigned long long );
+                const short isDeficientPerfectOrAbundant( const unsigned long long );
             };
         };
     };

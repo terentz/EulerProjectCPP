@@ -19,6 +19,7 @@
 #include <sstream>
 #include <istream>
 #include <cmath>
+#include <set>
 //#include <stringstream>
 
 //#include <array>
@@ -33,6 +34,7 @@ using std::setprecision;
 using std::ostringstream;
 using std::string;
 using std::vector;
+using std::set;
 using std::ifstream;
 using std::fstream;
 using std::stringstream;
@@ -543,6 +545,23 @@ const unsigned long long EulerUtils::NumberTheory::Special::Fibonacci::nthFibona
 const unsigned long long EulerUtils::NumberTheory::Special::Fibonacci::fibonacciLessThanN( unsigned long long n ) {
     // TODO fill
     return 0;
+}
+const bool EulerUtils::NumberTheory::Special::Pandigital::isPandigital( string x ) {
+    set<unsigned short> digits;
+    // Init digits...
+    for ( unsigned short digit = 1 ; digit < 10 ; ++digit ) {
+        digits.insert(digit);
+//        cout << "digit : " << digit << endl;
+    }
+    for ( auto i = 0 ; i < x.size() ; ++i ) {
+        string ch = x.substr(i,1);
+        digits.erase((unsigned short)stoi(ch));
+    }
+
+    return digits.size() == 0;
+}
+const bool EulerUtils::NumberTheory::Special::Pandigital::isPandigital( unsigned int x ) {
+    return isPandigital( to_string(x) );
 }
 const short EulerUtils::NumberTheory::Special::Perfect::isDeficientPerfectOrAbundant( const unsigned long long n ) {
     unsigned long long sum = 1;
