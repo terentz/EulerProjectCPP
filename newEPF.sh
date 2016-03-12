@@ -128,7 +128,7 @@ while read line
 do
 	let LN_NUM=$LN_NUM+1
 	args=( $line )
-	if [[ "${args[0]}" =~ ^menu_items\[EP[0-9]{4}_[A-Z0-9]+\]$ ]];
+    if [[ "${args[0]}" =~ ^(//)?menu_items\[EP[0-9]{4}_[A-Z0-9]+\]$ ]];
 	then
 		CURRENT_HEADER=${args[0]}
 		CURRENT_NUMSTR=${CURRENT_HEADER:13:4}
