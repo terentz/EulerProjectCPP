@@ -56,17 +56,17 @@
 #include "EP0027_QuadraticPrimes.hpp"
 //#include "EP0028_NumberSpiralDiagonals.hpp" // DONE
 #include "EP0029_DistinctPowers.hpp"
-//#include "EP0030_DigitFifthPowers.hpp"
-#include "EP0031_CoinSums.hpp"
+//#include "EP0030_DigitFifthPowers.hpp" // DONE
+//#include "EP0031_CoinSums.hpp" // DONE
 #include "EP0032_PandigitalProducts.hpp"
 #include "EP0033_DigCanFrac.hpp"
-#include "EP0034_DigitFractorials.hpp"
-//#include "EP0035_CircularPrimes.hpp"
+#include "EP0034_DigitFactorials.hpp"
+//#include "EP0035_CircularPrimes.hpp" // DONE
 //#include "EP0037_TrsuncatablePrimes.hpp" // DONE
-//#include "EP0038_PandigitalMultiples.hpp"
+//#include "EP0038_PandigitalMultiples.hpp" // DONE
 //#include "EP0040_Champerdowne.hpp" // DONE
 //#include "EP0041_PandigitalPrime.hpp"
-//#include "EP0046_GoldbachsOther.hpp"
+//#include "EP0046_GoldbachsOther.hpp" // DONE
 //#include "EP0049_PrimePermutations.hpp"
 //#include "EP0050_ConsecutivePrimeSum.hpp"
 //#include "EP0059_XORDecryption.hpp"
@@ -132,7 +132,7 @@ using namespace EulerUtils::Timer;
 #define EP0031_COINSUMS                         31
 #define EP0032_PANDIGITALPRODUCTS               32
 #define EP0033_DIGCANFRAC                       33
-#define EP0034_DIGITFRACTORIALS                 34
+#define EP0034_DIGITFACTORIALS                  34
 #define EP0035_CIRCULARPRIMES                   35
 #define EP0037_TRUNCATABLEPRIMES                37
 #define EP0038_PANDIGITALMULTIPLES              38
@@ -186,10 +186,10 @@ menu_items[EP0027_QUADRATICPRIMES]                  = "Quadratic Primes";
 //menu_items[EP0028_NUMBERSPIRALDIAGONALS]            = "NumberSpiralDiagonals";
 menu_items[EP0029_DISTINCTPOWERS]                   = "Distinct Powers";
 //menu_items[EP0030_DIGITFIFTHPOWERS]                 = "Digit Fifth Powers";
-menu_items[EP0031_COINSUMS]                         = "CoinSums";
+//menu_items[EP0031_COINSUMS]                         = "CoinSums";
 menu_items[EP0032_PANDIGITALPRODUCTS]               = "Pandigital Products";
-menu_items[EP0033_DIGCANFRAC]                       = "DigCanFrac";
-menu_items[EP0034_DIGITFRACTORIALS]                 = "DigitFractorials";//menu_items[EP0035_CIRCULARPRIMES]                   = "Circular Primes";
+menu_items[EP0033_DIGCANFRAC]                       = "Digital Cancelled Fractions";
+menu_items[EP0034_DIGITFACTORIALS]                  = "Digit Factorials";//menu_items[EP0035_CIRCULARPRIMES]                   = "Circular Primes";
 //menu_items[EP0037_TRUNCATABLEPRIMES]                = "Truncatable Primes";
 //menu_items[EP0038_PANDIGITALMULTIPLES]              = "Pandigital Primes";
 //menu_items[EP0040_CHAMPERDOWNE] 		            = "Champerdowne's Constant";
@@ -200,7 +200,7 @@ menu_items[EP0034_DIGITFRACTORIALS]                 = "DigitFractorials";//menu_
 //menu_items[EP0059_XORDECRYPTION]                    = "XOR Decryption";
 //menu_items[EP0061_CYCLICALFIGURATENUMBERS]          = "Cyclical Figurate Numbers";
 //menu_items[EP0064_ODDPERIODSQUAREROOTS]             = "Odd Periodic Square Roots";
-//    menu_items[EP9999_ENDOFTHEWORLD]                    = "End of the world!";
+//menu_items[EP9999_ENDOFTHEWORLD]                    = "End of the world!";
 // TODO add a new menu item on the line above, using the line below
 //menu_items[EPxxxx_XXXXXXXXXXXXXXXXX] 			= "";
 
@@ -419,10 +419,10 @@ menu_items[EP0034_DIGITFRACTORIALS]                 = "DigitFractorials";//menu_
 //                DigitFifthPowers::run();
 //                break;
 
-            case EP0031_COINSUMS:
-                using CoinSums::run;
-                CoinSums::run();
-                break;
+//            case EP0031_COINSUMS:
+//                using CoinSums::run;
+//                CoinSums::run();
+//                break;
 
             case EP0032_PANDIGITALPRODUCTS:
                 using PandigitalProducts::run;
@@ -434,9 +434,9 @@ menu_items[EP0034_DIGITFRACTORIALS]                 = "DigitFractorials";//menu_
                 DigCanFrac::run();
                 break;
 
-            case EP0034_DIGITFRACTORIALS:
-                using DigitFractorials::run;
-                DigitFractorials::run();
+            case EP0034_DIGITFACTORIALS:
+                using DigitFactorials::run;
+                DigitFactorials::run();
                 break;
 
 //            case EP0035_CIRCULARPRIMES:

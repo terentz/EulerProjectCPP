@@ -116,7 +116,7 @@ do
 			fi
 		fi
 	fi
-done < EulerProject.cpp		
+done < EulerProject.cpp
 
 #echo "old define line $OLD_DEFINE_LINE"
 
@@ -128,30 +128,26 @@ while read line
 do
 	let LN_NUM=$LN_NUM+1
 	args=( $line )
-    if [[ "${args[0]}" =~ ^(//)?menu_items\[EP[0-9]{4}_[A-Z0-9]+\]$ ]];
-	then
+    if [[ "${args[0]}" =~ ^menu_items\[EP[0-9]{4}_[A-Z0-9]+\]$ ]]; then
 		CURRENT_HEADER=${args[0]}
 		CURRENT_NUMSTR=${CURRENT_HEADER:13:4}
 		CURRENT_NUMSTR=`echo $CURRENT_NUMSTR | awk '{sub(/^0*/,"");}1'`
 		CURRENT_NUMBER=$((CURRENT_NUMSTR))
-		if [[ $((CURRENT_NUMBER)) -gt $((NUM)) ]];
-		then
+		if [[ $((CURRENT_NUMBER)) -gt $((NUM)) ]]; then
 			let MENU_LINE_START=$LN_NUM+2
 			break
 		fi
-	elif [[ "${args[1]}" =~ ^menu_items\[EP[0-9]{4}_[A-Z0-9]+\]$ ]];
-	then	
-		CURRENT_HEADER=${args[1]}
-		CURRENT_NUMSTR=${CURRENT_HEADER:13:4}
+    elif [[ "${args[0]}" =~ ^\/\/menu_items\[EP[0-9]{4}_[A-Z0-9]+\]$ ]]; then
+		CURRENT_HEADER=${args[0]}
+		CURRENT_NUMSTR=${CURRENT_HEADER:15:4}
 		CURRENT_NUMSTR=`echo $CURRENT_NUMSTR | awk '{sub(/^0*/,"");}1'`
 		CURRENT_NUMBER=$((CURRENT_NUMSTR))
-		if [[ $((CURRENT_NUMBER)) -gt $((NUM)) ]];
-		then
+		if [[ $((CURRENT_NUMBER)) -gt $((NUM)) ]]; then
 			let MENU_LINE_START=$LN_NUM+2
 			break
 		fi
-	fi
-done < EulerProject.cpp		
+    fi
+done < EulerProject.cpp
 
 #echo "old menu line $OLD_MENU_LINE"
 
@@ -186,7 +182,7 @@ do
 			break
 		fi
 	fi
-done < EulerProject.cpp		
+done < EulerProject.cpp
 
 echo "A4. done"
 
@@ -221,6 +217,36 @@ NEW_MENU_CODE_LN5="${NL}"
 
 # C. Update EulerProject.cpp...
 FILE='EulerProject.cpp'
+
+#echo "line: ${INCLUDE_START}"
+#echo "new:"
+#echo "${NEW_INCLUDE_LINE}"
+#echo "line: ${DEFINE_START}"
+#echo "new:"
+#echo "${NEW_DEFINE_LINE}"
+#echo "line: ${MENU_LINE_START}"
+#echo "new:"
+#echo "${NEW_MENU_LINE}"
+#echo "line: ${MENU_CODE_START}"
+#echo "new:"
+#echo "${NEW_MENU_CODE_LN1}"
+#let MENU_CODE_START=$MENU_CODE_START+1
+#echo "line: ${MENU_CODE_START}"
+#echo "new:"
+#echo "${NEW_MENU_CODE_LN2}"
+#let MENU_CODE_START=$MENU_CODE_START+1
+#echo "line: ${MENU_CODE_START}"
+#echo "new:"
+#echo "${NEW_MENU_CODE_LN3}"
+#let MENU_CODE_START=$MENU_CODE_START+1
+#echo "line: ${MENU_CODE_START}"
+#echo "new:"
+#echo "${NEW_MENU_CODE_LN4}"
+#let MENU_CODE_START=$MENU_CODE_START+1
+#echo "line: ${MENU_CODE_START}"
+#echo "new:"
+#echo "${NEW_MENU_CODE_LN5}"
+#exit
 
 sed -i "${INCLUDE_START}i ${NEW_INCLUDE_LINE}" "$FILE"
 sed -i "${DEFINE_START}i ${NEW_DEFINE_LINE}" "$FILE"
