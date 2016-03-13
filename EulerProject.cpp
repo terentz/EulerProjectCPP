@@ -62,6 +62,7 @@
 #include "EP0033_DigCanFrac.hpp"
 #include "EP0034_DigitFactorials.hpp"
 //#include "EP0035_CircularPrimes.hpp" // DONE
+#include "EP0036_DoubleBasePalindromes.hpp"
 //#include "EP0037_TrsuncatablePrimes.hpp" // DONE
 //#include "EP0038_PandigitalMultiples.hpp" // DONE
 //#include "EP0040_Champerdowne.hpp" // DONE
@@ -134,6 +135,7 @@ using namespace EulerUtils::Timer;
 #define EP0033_DIGCANFRAC                       33
 #define EP0034_DIGITFACTORIALS                  34
 #define EP0035_CIRCULARPRIMES                   35
+#define EP0036_DOUBLEBASEPALINDROMES            36
 #define EP0037_TRUNCATABLEPRIMES                37
 #define EP0038_PANDIGITALMULTIPLES              38
 #define EP0040_CHAMPERDOWNE				        40
@@ -189,7 +191,9 @@ menu_items[EP0029_DISTINCTPOWERS]                   = "Distinct Powers";
 //menu_items[EP0031_COINSUMS]                         = "CoinSums";
 menu_items[EP0032_PANDIGITALPRODUCTS]               = "Pandigital Products";
 menu_items[EP0033_DIGCANFRAC]                       = "Digital Cancelled Fractions";
-menu_items[EP0034_DIGITFACTORIALS]                  = "Digit Factorials";//menu_items[EP0035_CIRCULARPRIMES]                   = "Circular Primes";
+menu_items[EP0034_DIGITFACTORIALS]                  = "Digit Factorials";
+//menu_items[EP0035_CIRCULARPRIMES]                   = "Circular Primes";
+menu_items[EP0036_DOUBLEBASEPALINDROMES]            = "Double-base palindromes";
 //menu_items[EP0037_TRUNCATABLEPRIMES]                = "Truncatable Primes";
 //menu_items[EP0038_PANDIGITALMULTIPLES]              = "Pandigital Primes";
 //menu_items[EP0040_CHAMPERDOWNE] 		            = "Champerdowne's Constant";
@@ -443,6 +447,11 @@ menu_items[EP0034_DIGITFACTORIALS]                  = "Digit Factorials";//menu_
 //                using CircularPrimes::run;
 //                CircularPrimes::run();
 //                break;
+
+            case EP0036_DOUBLEBASEPALINDROMES:
+                using DoubleBasePalindromes::run;
+                DoubleBasePalindromes::run();
+                break;
 
 //            case EP0037_TRUNCATABLEPRIMES:
 //                using TruncatablePrimes::run;

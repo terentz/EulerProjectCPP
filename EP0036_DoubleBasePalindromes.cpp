@@ -1,11 +1,11 @@
 /*
- * EP0034_DigitFractorials.cpp
+ * EP0036_DoubleBasePalindromes.cpp
  *
  *  Created on: 13/03/2016 
  *      Author: terentz
  */
 
-#include "EP0034_DigitFractorials.hpp"
+#include "EP0036_DoubleBasePalindromes.hpp"
 #include "EulerUtils.hpp"
 #include <iostream>
 
@@ -18,7 +18,7 @@ using std::endl;
 
 /* FUNCTIONS */
 
-void DigitFractorials::run () {
+void DoubleBasePalindromes::run () {
 
 	/* LOCAL DECLARATIONS */
 

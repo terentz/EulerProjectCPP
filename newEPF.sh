@@ -14,7 +14,7 @@ then
 	exit
 fi
 
-if [[ -z "$2" ]]
+if [[ -z "$3" ]]
 then
 	echo "Error: parameter 3 must be set (to a short quoted description of the problem). Aborting..."
 fi
@@ -24,7 +24,7 @@ fi
 NUM=` expr $1 - 0 `
 NS_NEW=$2
 NS_NEW_UC=`echo ${NS_NEW} | tr [a-z] [A-Z]`
-DESC=$2
+DESC=$3
 
 # Set filenames...
 PAD=`printf %04d $NUM`
