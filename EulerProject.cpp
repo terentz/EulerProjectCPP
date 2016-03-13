@@ -1,18 +1,16 @@
 //============================================================================
-// Name        : EulerProject.cpp
-// Author      : Tristan Rentz
-// Version     :
-// Copyright   : nada
-// Description : EulerProject in C++, Ansi-style
-// TODO		   - Time int, long int, and long long int calculations - using
-//				the same int32 value, and compare results.
-//			   - Organise EulerUtils.cpp/.hpp into static classes etc..
-//			   - Move Prime.cpp to EulerUtils.cpp
-//			   - Create a generalised class for new problems
+// Name         : EulerProject.cpp
+// Author       : Tristan Rentz
+// Version      :
+// Copyright    : nada
+// Description  : EulerProject in C++, Ansi-style
+// TODO		    - Bitwise implementations.
+//              - String numeric class.
+//              - Refactor for C++11
 //============================================================================
 
 
-/****************  STL  ****************/
+/***********  INCLUDES  ***********/
 #include <iostream>
 #include <boost/assign/std/vector.hpp>
 #include <boost/lexical_cast.hpp>
@@ -61,6 +59,8 @@
 //#include "EP0030_DigitFifthPowers.hpp"
 #include "EP0031_CoinSums.hpp"
 #include "EP0032_PandigitalProducts.hpp"
+#include "EP0033_DigCanFrac.hpp"
+#include "EP0034_DigitFractorials.hpp"
 //#include "EP0035_CircularPrimes.hpp"
 //#include "EP0037_TrsuncatablePrimes.hpp" // DONE
 //#include "EP0038_PandigitalMultiples.hpp"
@@ -131,6 +131,8 @@ using namespace EulerUtils::Timer;
 #define EP0030_DIGITFIFTHPOWERS                 30
 #define EP0031_COINSUMS                         31
 #define EP0032_PANDIGITALPRODUCTS               32
+#define EP0033_DIGCANFRAC                       33
+#define EP0034_DIGITFRACTORIALS                 34
 #define EP0035_CIRCULARPRIMES                   35
 #define EP0037_TRUNCATABLEPRIMES                37
 #define EP0038_PANDIGITALMULTIPLES              38
@@ -185,8 +187,9 @@ menu_items[EP0027_QUADRATICPRIMES]                  = "Quadratic Primes";
 menu_items[EP0029_DISTINCTPOWERS]                   = "Distinct Powers";
 //menu_items[EP0030_DIGITFIFTHPOWERS]                 = "Digit Fifth Powers";
 menu_items[EP0031_COINSUMS]                         = "CoinSums";
-//menu_items[EP0032_PANDIGITALPRODUCTS]               = "Pandigital Products";
-//menu_items[EP0035_CIRCULARPRIMES]                   = "Circular Primes";
+menu_items[EP0032_PANDIGITALPRODUCTS]               = "Pandigital Products";
+menu_items[EP0033_DIGCANFRAC]                       = "DigCanFrac";
+menu_items[EP0034_DIGITFRACTORIALS]                 = "DigitFractorials";//menu_items[EP0035_CIRCULARPRIMES]                   = "Circular Primes";
 //menu_items[EP0037_TRUNCATABLEPRIMES]                = "Truncatable Primes";
 //menu_items[EP0038_PANDIGITALMULTIPLES]              = "Pandigital Primes";
 //menu_items[EP0040_CHAMPERDOWNE] 		            = "Champerdowne's Constant";
@@ -366,10 +369,10 @@ menu_items[EP0031_COINSUMS]                         = "CoinSums";
 //                FactorialDigitSum::run();
 //                break;
 
-            case EP0021_SUMOFAMICABLENUMBERS:
-                using SumOfAmicableNumbers::run;
-                SumOfAmicableNumbers::run();
-                break;
+//            case EP0021_SUMOFAMICABLENUMBERS:
+//                using SumOfAmicableNumbers::run;
+//                SumOfAmicableNumbers::run();
+//                break;
 
 //            case EP0022_NAMESSCORES:
 //                using NamesScores::run;
@@ -424,6 +427,16 @@ menu_items[EP0031_COINSUMS]                         = "CoinSums";
             case EP0032_PANDIGITALPRODUCTS:
                 using PandigitalProducts::run;
                 PandigitalProducts::run();
+                break;
+
+            case EP0033_DIGCANFRAC:
+                using DigCanFrac::run;
+                DigCanFrac::run();
+                break;
+
+            case EP0034_DIGITFRACTORIALS:
+                using DigitFractorials::run;
+                DigitFractorials::run();
                 break;
 
 //            case EP0035_CIRCULARPRIMES:
