@@ -485,6 +485,9 @@ bool EulerUtils::NumberTheory::General::even(unsigned long long n) {
     if ( n < 0) n = n * -1;
     return (n&1==1);
 }
+bool EulerUtils::NumberTheory::General::isPalindrome( unsigned long int n ) {
+    return Strings::isPalindrome( to_string(n) );
+}
 long long EulerUtils::NumberTheory::General::product( vector<long long> input ) {
     long long result = 1;
     for ( auto i = input.begin() ; i < input.end() ; i++ ) {
@@ -701,6 +704,21 @@ string EulerUtils::Strings::float_to_string( const long double val, const int n 
     std::ostringstream out;
     out << std::setprecision(n) << val;
     return out.str();
+}
+bool EulerUtils::Strings::isPalindrome( string s ) {
+    unsigned int len = s.size();
+    for ( unsigned int lh_idx=0, rh_idx=(len-1) ; lh_idx<(len/2+1) ; ++lh_idx, --rh_idx )
+        if ( s.at(lh_idx) != s.at(rh_idx) ) return false;
+    return true;
+}
+string EulerUtils::Strings::removePaddingZeros( string s ) {
+    auto i = 0;
+    while ( true ) {
+        if ( s.at(i) == '0' )
+            s = s.substr(1);
+        else break;
+    }
+    return s;
 }
 const std::vector<std::string> EulerUtils::Strings::split( const std::string &s, char delim ) {
     std::vector<std::string> elems;

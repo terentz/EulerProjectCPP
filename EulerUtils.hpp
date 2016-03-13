@@ -39,7 +39,7 @@ using boost::multiprecision::uint1024_t;
 
 namespace EulerUtils {
 
-    namespace Arithmetic {
+    namespace {
 
     };
 
@@ -144,6 +144,8 @@ namespace EulerUtils {
 
             template<typename I>
             inline bool ngtv( I num ) { return ( num < 0 ); };
+
+            bool isPalindrome( unsigned long int n );
 
             long long product( vector<long long> input );
 
@@ -320,7 +322,14 @@ namespace EulerUtils {
 
     namespace Strings {
 
-        int strToInt ( string input );
+        string float_to_string( long double val, const int n );
+
+        template <class N>
+        string numToString( N num );
+
+        bool isPalindrome( string s );
+
+        string removePaddingZeros( string s );
 
         const std::vector<int> splitToInt( const std::string &s, char delim );
 
@@ -339,14 +348,12 @@ namespace EulerUtils {
             vector<string> flds;
         }; /* end splitstring class definition */
 
-        template <class N>
-        string numToString( N num );
+        int strToInt ( string input );
 
         //template <typename T>
         //std::string float_to_string( const T val, const int n );
         //std::string float_to_string( float T val, const int n );
         //std::string float_to_string( double T val, const int n );
-        string float_to_string( long double val, const int n );
 
         /*
         class StrInt {

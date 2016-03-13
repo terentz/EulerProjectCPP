@@ -51,7 +51,7 @@
 //#include "EP0022_NamesScores.hpp" // DONE
 //#include "EP0023_NonAbundantSums.hpp" // DONE
 //#include "EP0024_LexicographicPermutations.hpp" // DONE
-//#include "EP0025_OneThousandDigitFibonacci.hpp"
+#include "EP0025_OneThousandDigitFibonacci.hpp"
 //#include "EP0026_ReciprocalCycles.hpp" // DONE
 #include "EP0027_QuadraticPrimes.hpp"
 //#include "EP0028_NumberSpiralDiagonals.hpp" // DONE

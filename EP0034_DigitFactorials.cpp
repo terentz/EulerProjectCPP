@@ -1,11 +1,11 @@
 /*
- * EP0034_DigitFractorials.cpp
+ * EP0034_DigitFactorials.cpp
  *
- *  Created on: 13/03/2016 
+ *  Created on: 13/03/2016
  *      Author: terentz
  */
 
-#include "EP0034_DigitFractorials.hpp"
+#include "EP0034_DigitFactorials.hpp"
 #include "EulerUtils.hpp"
 #include <iostream>
 
@@ -18,7 +18,7 @@ using std::endl;
 
 /* FUNCTIONS */
 
-void DigitFractorials::run () {
+void DigitFactorials::run () {
 
 	/* LOCAL DECLARATIONS */
 

@@ -1,17 +1,17 @@
 /*
- * EP0034_DigitFractorials.hpp
+ * EP0034_DigitFactorials.hpp
  *
  *  Created on: 13/03/2016
  *      Author: terentz
  */
 
-#ifndef EP0034_DIGITFRACTORIALS_HPP_
-#define EP0034_DIGITFRACTORIALS_HPP_
+#ifndef EP0034_DIGITFACTORIALS_HPP_
+#define EP0034_DIGITFACTORIALS_HPP_
 
-namespace DigitFractorials {
+namespace DigitFactorials {
 
 void run ();
 
 };
 
-#endif /* EP0034_DIGITFRACTORIALS_HPP_ */
+#endif /* EP0034_DIGITFACTORIALS_HPP_ */
