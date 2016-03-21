@@ -64,13 +64,19 @@
 #include "EP0034_DigitFactorials.hpp"
 //#include "EP0035_CircularPrimes.hpp" // DONE
 //#include "EP0036_DoubleBasePalindromes.hpp" // DONE
-//#include "EP0037_TrsuncatablePrimes.hpp" // DONE
+//#include "EP0037_TruncatablePrimes.hpp" // DONE
 //#include "EP0038_PandigitalMultiples.hpp" // DONE
 #include "EP0039_IntegerRightTriangles.hpp"
 //#include "EP0040_Champerdowne.hpp" // DONE
-//#include "EP0041_PandigitalPrime.hpp"
+#include "EP0041_PandigitalPrime.hpp"
+#include "EP0042_CodedTriangleNumbers.hpp"
 #include "EP0043_SubstringDivisibility.hpp"
+#include "EP0044_PentagonNumbers.hpp"
+#include "EP0044_PentagonNumbers.hpp"
+#include "EP0045_TriangPentagHexag.hpp"
 //#include "EP0046_GoldbachsOther.hpp" // DONE
+#include "EP0047_DistinctPrimeFactors.hpp"
+#include "EP0048_SelfPowers.hpp"
 //#include "EP0049_PrimePermutations.hpp"
 //#include "EP0050_ConsecutivePrimeSum.hpp"
 //#include "EP0059_XORDecryption.hpp"
@@ -144,8 +150,14 @@ using namespace EulerUtils::Timer;
 #define EP0039_INTEGERRIGHTTRIANGLES            39
 #define EP0040_CHAMPERDOWNE				        40
 #define EP0041_PANDIGITALPRIME                  41
+#define EP0042_CODEDTRIANGLENUMBERS             42
 #define EP0043_SUBSTRINGDIVISIBILITY            43
+#define EP0044_PENTAGONNUMBERS                  44
+#define EP0044_PENTAGONNUMBERS                  44
+#define EP0045_TRIANGPENTAGHEXAG                45
 #define EP0046_GOLDBACHSOTHER                   46
+#define EP0047_DISTINCTPRIMEFACTORS             47
+#define EP0048_SELFPOWERS                       48
 #define EP0049_PRIMEPERMUTATIONS                49
 #define EP0050_CONSECUTIVEPRIMESUM              50
 #define EP0059_XORDECRYPTION                    59
@@ -203,9 +215,15 @@ menu_items[EP0034_DIGITFACTORIALS]                  = "Digit Factorials";
 //menu_items[EP0038_PANDIGITALMULTIPLES]              = "Pandigital Primes";
 menu_items[EP0039_INTEGERRIGHTTRIANGLES]            = "Integer Right Triangles";
 //menu_items[EP0040_CHAMPERDOWNE] 		            = "Champerdowne's Constant";
-//menu_items[EP0041_PANDIGITALPRIME]                  = "Pandigital Prime";
+menu_items[EP0041_PANDIGITALPRIME]                  = "Pandigital Prime";
+menu_items[EP0042_CODEDTRIANGLENUMBERS]             = "Coded triangle numbers";
 menu_items[EP0043_SUBSTRINGDIVISIBILITY]            = "Sub-string divisibility";
+menu_items[EP0044_PENTAGONNUMBERS]                  = "Pentagon numbers";
+menu_items[EP0044_PENTAGONNUMBERS]                  = "Pentagon numbers";
+menu_items[EP0045_TRIANGPENTAGHEXAG]                = "Triangular, Pentagonal, and Hexagonal";
 //menu_items[EP0046_GOLDBACHSOTHER]                   = "GoldbachsOther";
+menu_items[EP0047_DISTINCTPRIMEFACTORS]             = "Distinct prime factors";
+menu_items[EP0048_SELFPOWERS]                       = "Self powers";
 //menu_items[EP0049_PRIMEPERMUTATIONS]                = "Prime Permutations";
 //menu_items[EP0050_CONSECUTIVEPRIMESUM]              = "Consecutive Prime Sum";
 //menu_items[EP0059_XORDECRYPTION]                    = "XOR Decryption";
@@ -480,20 +498,45 @@ menu_items[EP0043_SUBSTRINGDIVISIBILITY]            = "Sub-string divisibility";
 //                Champerdowne::run();
 //                break;
 
-//            case EP0041_PANDIGITALPRIME:
-//                using PandigitalPrime::run;
-//                PandigitalPrime::run();
-//                break;
+            case EP0041_PANDIGITALPRIME:
+                using PandigitalPrime::run;
+                PandigitalPrime::run();
+                break;
 
-case EP0043_SUBSTRINGDIVISIBILITY:
-using SubstringDivisibility::run;
-SubstringDivisibility::run();
-break;
+            case EP0042_CODEDTRIANGLENUMBERS:
+                using CodedTriangleNumbers::run;
+                CodedTriangleNumbers::run();
+                break;
+
+            case EP0043_SUBSTRINGDIVISIBILITY:
+                using SubstringDivisibility::run;
+                SubstringDivisibility::run();
+                break;
+
+            case EP0044_PENTAGONNUMBERS:
+                using PentagonNumbers::run;
+                PentagonNumbers::run();
+                break;
+
+            case EP0045_TRIANGPENTAGHEXAG:
+                using TriangPentagHexag::run;
+                TriangPentagHexag::run();
+                break;
 
 //            case EP0046_GOLDBACHSOTHER:
 //                using GoldbachsOther::run;
 //                GoldbachsOther::run();
 //                break;
+
+            case EP0047_DISTINCTPRIMEFACTORS:
+                using DistinctPrimeFactors::run;
+                DistinctPrimeFactors::run();
+                break;
+
+            case EP0048_SELFPOWERS:
+                using SelfPowers::run;
+                SelfPowers::run();
+                break;
 
 //            case EP0049_PRIMEPERMUTATIONS:
 //                using PrimePermutations::run;
